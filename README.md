@@ -82,7 +82,7 @@ configuration is the current hardware-planning baseline.
 | Removable storage | SDMMC1 configured for 4-bit SD; microSD planned. |
 | Onboard storage | SDMMC2 configured for 4-bit MMC; eMMC planned alongside microSD. |
 | USB | USB_OTG_HS configured as a device with internal PHY. |
-| Bluetooth (planned) | BM83 via SAI2 block A receive, USART3 control, and three control/status GPIOs; see proposed allocation below. |
+| Bluetooth option | BM83 pins allocated on SAI2, USART3 and three GPIOs; SAI2 mode/rate and clock strategy still require resolution. |
 | Diagnostics | USART2 and SWD. |
 | User interface | Input/output levels and effect controls required; buttons, encoders/potentiometers, LEDs, and any display remain to be selected. |
 
@@ -118,11 +118,11 @@ backing-track gain → STM32 mixer after guitar effects → codec and USB record
 The wired auxiliary path remains available. Stereo Bluetooth does not require
 extra ADC channels; define stereo/headphone and mono-speaker mixing in the DSP.
 
-### Proposed pin reservations (not yet applied to the .ioc)
+### Current pin allocation and remaining configuration
 
-These eight pins are unused in the current checked-in configuration. Alternate
-functions were checked against STM32H5Exxx DS14971, tables 14 and 15; all are
-available on the STM32H5E5 LQFP144 package.
+The user has applied the following pins in the checked-in `.ioc`. They do not
+conflict with the existing codec, storage or USB pin allocations. Alternate
+functions were checked against STM32H5Exxx DS14971, tables 14 and 15.
 
 | STM32 pin | CubeMX function / label | BM83 connection |
 | --- | --- | --- |
@@ -131,15 +131,31 @@ available on the STM32H5E5 LQFP144 package.
 | PD13 | SAI2_SCK_A, AF10 | SCLK1, pin 3 |
 | PD8 | USART3_TX, AF7 | MCU → UART_RXD, pin 29 |
 | PD9 | USART3_RX, AF7 | UART_TXD, pin 30 → MCU |
-| PD10 | GPIO output, BT_RESET_N | RST_N, pin 43, via suitable interface |
-| PD14 | GPIO output, BT_WAKE | MFB, pin 26, via suitable interface |
-| PD15 | GPIO input / optional EXTI15, BT_UART_IND | P0_0 / UART_TX_IND, pin 49 |
+| PD10 | GPIO output, BM83_reset | RST_N, pin 43, via suitable interface |
+| PB14 | GPIO output, BM83_WAKE | MFB, pin 26, via suitable interface |
+| PB15 | GPIO input, BM83_UASRT_IND (label typo; intended UART_IND) | P0_0 / UART_TX_IND, pin 49 |
 
-In CubeMX, reserve SAI2 block A for asynchronous slave receive with external
-BCLK/FS as the initial independent-clock option; leave block B unused. Select
-I²S framing; final data width and slot length must match the BM83 configuration.
-Use USART3 asynchronous TX/RX; retain USART2 for diagnostics. Control GPIO drive
-type, pulls, and reset states depend on the schematic voltage/interface design.
+Current CubeMX review:
+- SAI2 block A is selected as master without MCLK, with a reported audio rate of
+  191.999 kHz. This is not the proposed independent-clock receive configuration.
+  If BM83 supplies BCLK/FS, select asynchronous slave receive on block A. If STM32
+  supplies them instead, resolve BM83 client-mode behavior below and select the
+  intended 48 kHz rate and receive direction explicitly.
+- SAI2 block B is also enabled as a synchronous slave, using PA0 / SAI2_SD_B.
+  A single receive block is sufficient for stereo I²S. Disable block B and release
+  PA0 unless a separate transmit path is deliberately required.
+- USART3 TX/RX is allocated on PD8/PD9. USART2 diagnostics now uses PD5 TX and
+  PA3 RX (TX moved from PA2); reflect this in the console connector schematic.
+- PB15 is an ordinary GPIO input, not EXTI. Polling is possible; select EXTI only
+  if interrupt-based host wake is required. Correct the UASRT label spelling.
+- SAI1 codec pins, 48 kHz/24-bit settings, PLL2 audio and PLL3 USB are preserved.
+  HyperRAM and both storage interfaces retain their signal pin assignments.
+  PD1 remains an output but its former SD_RESET label has been removed.
+
+Final I²S framing/data width and slot length must match the BM83 configuration.
+Control GPIO drive type, pulls and reset states depend on the schematic interface.
+These findings are documented here; this documentation branch does not alter the
+user's CubeMX file or generate firmware.
 
 ### Clock decision before schematic freeze
 
