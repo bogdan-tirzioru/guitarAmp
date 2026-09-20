@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP STM32H5E5ZJT6
+D Arm? Cortex?-M33 32-bit MCU, TrustZone?, FPU, 1023 CoreMark?, 250 MHz, 4 MB flash, 1.5 MB RAM, Ethernet, USB, graphic
+K
+F https://www.st.com/resource/en/datasheet/stm32h5e4vj.pdf
+$ENDCMP
+#
+#End Doc Library

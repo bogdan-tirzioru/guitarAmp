@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'STM32H5E5ZJT6'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "STMicroelectronics", "STM32H5E5ZJT6" (!) = "", "QFP50P2200X2200X160-144N", "Quad Flat Packages", "", "", "Arm? Cortex?-M33 32-bit MCU, TrustZone?, FPU, 1023 CoreMark?, 250 MHz, 4 MB flash, 1.5 MB RAM, Ethernet, USB, graphic", "https://www.st.com/resource/en/datasheet/stm32h5e4vj.pdf", "1.6 mm"
+END_PART
+
+END.

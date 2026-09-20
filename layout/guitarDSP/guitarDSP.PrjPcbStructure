@@ -1,1 +1,2 @@
-Record=TopLevelDocument|FileName=microcontroller.SchDoc|SheetNumber=1
+Record=TopLevelDocument|FileName=memory.SchDoc|SheetNumber=2
+Record=NoMainPathDocument|SourceDocument=memory.SchDoc|FileName=microcontroller.SchDoc|SheetNumber=1

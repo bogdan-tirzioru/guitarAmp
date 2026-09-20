@@ -1,0 +1,41 @@
+*PADS-LIBRARY-PART-TYPES-V9*
+
+S70KL1282DPBHI020 BGA24C100P5X5_600X800X100 I ANA 7 1 0 0 0
+TIMESTAMP 2026.09.19.10.38.24
+"Mouser Part Number" 727-70KL1282DPBHI020
+"Mouser Price/Stock" https://www.mouser.co.uk/ProductDetail/Infineon-Technologies/S70KL1282DPBHI020?qs=DPoM0jnrROVgAEZ0o2TpIw%3D%3D
+"Manufacturer_Name" Infineon
+"Manufacturer_Part_Number" S70KL1282DPBHI020
+"Description" DRAM HyperRAM
+"Datasheet Link" https://www.cypress.com/file/501841/download
+"Geometry.Height" 1mm
+GATE 1 24 0
+S70KL1282DPBHI020
+A2 0 U RFU_1
+A3 0 U CS#
+A4 0 U RESET#
+A5 0 U RFU_2
+B1 0 U CK#
+B2 0 U CK
+B3 0 U VSS
+B4 0 U VCC
+B5 0 U RFU_3
+C1 0 U VSSQ_1
+C2 0 U RFU_4
+C3 0 U RWDS
+C4 0 U DQ2
+C5 0 U RFU_5
+D1 0 U VCCQ_1
+D2 0 U DQ1
+D3 0 U DQ0
+D4 0 U DQ3
+D5 0 U DQ4
+E1 0 U DQ7
+E2 0 U DQ6
+E3 0 U DQ5
+E4 0 U VCCQ_2
+E5 0 U VSSQ_2
+
+*END*
+*REMARK* SamacSys ECAD Model
+15455126/410629/2.50/24/3/Integrated Circuit
