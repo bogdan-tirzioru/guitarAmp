@@ -1,0 +1,9 @@
+Manufacturer=3M
+PartNumber=2908-05WB-MG
+PartCategory=Connector
+PackageCategory=Other
+PinCount=12
+Version=1.2
+Released=2019-07-30 17:36:23
+Downloaded=2026-09-20 10:15:10
+3D=Y

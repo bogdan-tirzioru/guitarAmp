@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "2908-05WB-MG"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2019-11-06-14:43:05)
+    (mountForm default
+        (footprintRef "290805WBMG")
+        (spec "System")
+    )
+)

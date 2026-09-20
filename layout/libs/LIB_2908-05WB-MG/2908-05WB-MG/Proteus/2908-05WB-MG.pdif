@@ -1,0 +1,203 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "2908-05WB-MG"
+   (description "Memory Card Connectors MICROSD 8P P/P SMT POLARIZED")
+   (family "CON")
+   (package "290805WBMG")
+   (attribute "Datasheet Link" "https://componentsearchengine.com/Datasheets/1/2908-05WB-MG.pdf")
+   (attribute "Geometry.Height" "1.85mm")
+   (attribute "Mouser Part Number" "517-2908-05WB-MG")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/3M-Electronic-Solutions-Division/2908-05WB-MG?qs=vnwGVgFuQiZPJoOt79ALlw%3D%3D")
+   (attribute "Manufacturer_Name" "3M")
+   (attribute "Manufacturer_Part_Number" "2908-05WB-MG")
+   (gate
+    (symbol "2908-05WB-MG")
+    (pin "1" 1 PS)
+    (pin "2" 2 PS)
+    (pin "3" 3 PS)
+    (pin "4" 4 PS)
+    (pin "5" 5 PS)
+    (pin "6" 6 PS)
+    (pin "7" 7 PS)
+    (pin "8" 8 PS)
+    (pin "MP1" MP1 PS)
+    (pin "MP2" MP2 PS)
+    (pin "MP3" MP3 PS)
+    (pin "MP4" MP4 PS)
+   )
+  )
+  (symbol "2908-05WB-MG"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 700 100) (pt 700 -600) (pt 200 -600) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -200) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -300) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -400) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -500) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 900 0) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 900 -100) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 900 -200) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 900 -300) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 900 -400) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 900 -500) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "290805WBMG"
+   (units MM)
+   (layer OCCA
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -8.15 8.9)
+      (pt 8.15 8.9)
+      (pt 8.15 -8.9)
+      (pt -8.15 -8.9)
+      (pt -8.15 8.9))))
+   (layer TASM
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed true)
+      (pt 7.15 5.95)
+      (pt -3.85 5.95)
+      (pt -4.95 7.6)
+      (pt -6.85 7.6)
+      (pt -6.85 -7.6)
+      (pt 7.15 -7.6)
+      (pt 7.15 5.95))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed true)
+      (pt -2.04 6.7)
+      (arc (pt -2.040 6.700) (pt -2.140 6.700) (pt -1.940 6.900) (start 180.0) (sweep -90.0))
+      (pt -2.04 6.9)
+      (arc (pt -2.040 6.900) (pt -2.140 6.700) (pt -1.940 6.900) (start 180.0) (sweep 90.0))
+      (pt -2.04 6.7))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed false)
+      (pt -4.95 7.6)
+      (pt -3.85 5.95)
+      (pt 5.15 5.95))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed false)
+      (pt 7.15 4.5)
+      (pt 7.15 -7.6)
+      (pt 6.45 -7.6))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed false)
+      (pt 3.15 -7.6)
+      (pt 0.65 -7.6))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed false)
+      (pt -2.35 -7.6)
+      (pt -6.85 -7.6)
+      (pt -6.85 5.5))))
+   (leg 1 (pt -2.040 3.100) (padstack 0))
+   (leg 2 (pt -0.940 2.700) (padstack 0))
+   (leg 3 (pt 0.160 3.100) (padstack 0))
+   (leg 4 (pt 1.260 3.300) (padstack 0))
+   (leg 5 (pt 2.360 3.100) (padstack 0))
+   (leg 6 (pt 3.460 3.300) (padstack 0))
+   (leg 7 (pt 4.560 3.100) (padstack 0))
+   (leg 8 (pt 5.660 3.100) (padstack 0))
+   (leg MP1 (pt 6.450 5.950) (padstack 9))
+   (leg MP2 (pt 5.100 -7.200) (padstack 10))
+   (leg MP3 (pt -0.600 -7.200) (padstack 11))
+   (leg MP4 (pt -6.450 6.950) (padstack 12))
+   (padstack 0
+    (plated false)
+    (pad (layer TCOP) (rectf 0.800 1.500 0 0 90.000))
+   )
+   (padstack 9
+    (plated false)
+    (pad (layer TCOP) (rectf 1.400 1.900 0 0 90.000))
+   )
+   (padstack 10
+    (plated false)
+    (pad (layer TCOP) (rectf 1.400 1.800 0 0 0.000))
+   )
+   (padstack 11
+    (plated false)
+    (pad (layer TCOP) (rectf 1.400 1.800 0 0 0.000))
+   )
+   (padstack 12
+    (plated false)
+    (pad (layer TCOP) (rectf 1.400 1.900 0 0 90.000))
+   )
+   (model "2908-05WB-MG.stp"
+    (euler 90 0 0)
+    (offset 80.63999938964844 40.27000045776367 -2.430000066757202)
+   )
+  )
+ )
+)

@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART '2908_05WB_MG'
+CLASS = IO
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "3M", "2908-05WB-MG" (!) = "", "290805WBMG", "Other", "517-2908-05WB-MG", "https://www.mouser.co.uk/ProductDetail/3M-Electronic-Solutions-Division/2908-05WB-MG?qs=vnwGVgFuQiZPJoOt79ALlw%3D%3D", "Memory Card Connectors MICROSD 8P P/P SMT POLARIZED", "https://componentsearchengine.com/Datasheets/1/2908-05WB-MG.pdf", "1.85 mm"
+END_PART
+
+END.
