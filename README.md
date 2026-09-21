@@ -80,14 +80,19 @@ configuration is the current hardware-planning baseline.
 | Codec control | I2C1, with a dedicated reset GPIO. |
 | External RAM | OCTOSPI1 configured for HyperBus; HyperRAM is planned for audio buffers. Final memory part/capacity remains to be confirmed. |
 | Removable storage | SDMMC1 configured for 4-bit SD; microSD planned. |
-| Onboard storage | SDMMC2 configured for 4-bit MMC; eMMC planned alongside microSD. |
+| Program storage | Use the STM32H5E5 internal Flash for firmware and DSP code. No external NOR is planned for the first design. |
+| Bulk/user storage | Use microSD for backing tracks, recordings, impulse responses, user files, and firmware-update packages. eMMC has been dropped because it duplicates the microSD role while adding substantial cost and complexity. |
 | USB | USB_OTG_HS configured as a device with internal PHY. |
 | Bluetooth option | BM83 pins allocated on SAI2, USART3 and three GPIOs; SAI2 mode/rate and clock strategy still require resolution. |
 | Diagnostics | USART2 and SWD. |
 | User interface | Input/output levels and effect controls required; buttons, encoders/potentiometers, LEDs, and any display remain to be selected. |
 
-External NOR was considered earlier; its need and connection are not finalized.
-Memory and storage interfaces are allocated, not yet proof of working hardware.
+The settled first-design memory architecture is STM32 internal Flash for code,
+internal SRAM plus HyperRAM for working memory and audio buffers, and microSD for
+large or frequently written files. External NOR and eMMC are outside the scope of
+this STM32H5E5 guitarAmp revision; they may instead be evaluated for the separate
+SBC project. The remaining memory and storage interfaces are allocated, not yet
+proof of working hardware.
 
 ### Current codec-related pin allocation
 
@@ -149,7 +154,8 @@ Current CubeMX review:
 - PB15 is an ordinary GPIO input, not EXTI. Polling is possible; select EXTI only
   if interrupt-based host wake is required. Correct the UASRT label spelling.
 - SAI1 codec pins, 48 kHz/24-bit settings, PLL2 audio and PLL3 USB are preserved.
-  HyperRAM and both storage interfaces retain their signal pin assignments.
+  HyperRAM and the SDMMC1 microSD interface retain their signal pin assignments;
+  SDMMC2/eMMC has been disabled.
   PD1 remains an output but its former SD_RESET label has been removed.
 
 Final I²S framing/data width and slot length must match the BM83 configuration.
