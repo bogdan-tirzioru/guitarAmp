@@ -1,0 +1,20 @@
+Removed Member From Class: ClassName=memory Member=R4
+Added Component: Designator=Q1(ABM3B)
+Added Component: Designator=S1(B3F-10XX)
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MPN"; Value = "B3F-1000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "176432"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "36M3542"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetC8_1 Pin=Q1-P$1
+Added Pin To Net: NetName=DGND Pin=Q1-P$2
+Added Pin To Net: NetName=NetC9_1 Pin=Q1-P$3
+Added Pin To Net: NetName=DGND Pin=Q1-P$4
+Added Pin To Net: NetName=DGND Pin=S1-1
+Added Pin To Net: NetName=DGND Pin=S1-2
+Added Pin To Net: NetName=RESET Pin=S1-3
+Added Pin To Net: NetName=RESET Pin=S1-4
+Added Member To Class: ClassName=microcontroller Member=Component Q1 ABM3B
+Added Member To Class: ClassName=memory Member=Component R14 47k
+Added Member To Class: ClassName=microcontroller Member=Component S1 10-XX
+Added Room: Name=memory
+Added Room: Name=microcontroller

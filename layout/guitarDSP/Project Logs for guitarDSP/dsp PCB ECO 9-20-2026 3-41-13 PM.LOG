@@ -1,0 +1,382 @@
+Added Component: Designator=C?(C0402)
+Add component (AddParameter): Name = "SPICEPREFIX"; Value = "C"; VariantName = "[No Variations]"
+Added Component: Designator=C?(C0402)
+Add component (AddParameter): Name = "Alternate_Manufacturer"; Value = "MURATA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Alternate_Manufacturer_Part_Number"; Value = "GCM155R71C104KA55D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://tunmcdsvn.tun.st.com/Component_Datasheet_Library/Trunk/Capacitors/Yageo_Multilayer_Capacitor_X7R_series_100pF_to_22uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ECCN_EU"; Value = "NEC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ECCN_US"; Value = "EAR99"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Internal_Part_Number"; Value = "MCD-00102"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "YAGEO"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "CC0402KRX7R7BB104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "C0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part_Type"; Value = "Capacitor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Provided_By"; Value = "SUBCO"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Revision"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Status"; Value = "Released"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C?(C0402)
+Add component (AddParameter): Name = "SPICEPREFIX"; Value = "C"; VariantName = "[No Variations]"
+Added Component: Designator=C?(C0402)
+Add component (AddParameter): Name = "SPICEPREFIX"; Value = "C"; VariantName = "[No Variations]"
+Added Component: Designator=C?(C0402)
+Add component (AddParameter): Name = "Alternate_Manufacturer"; Value = "MURATA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Alternate_Manufacturer_Part_Number"; Value = "GCM155R71C104KA55D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://tunmcdsvn.tun.st.com/Component_Datasheet_Library/Trunk/Capacitors/Yageo_Multilayer_Capacitor_X7R_series_100pF_to_22uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ECCN_EU"; Value = "NEC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ECCN_US"; Value = "EAR99"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Internal_Part_Number"; Value = "MCD-00102"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "YAGEO"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "CC0402KRX7R7BB104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "C0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part_Type"; Value = "Capacitor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Provided_By"; Value = "SUBCO"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Revision"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Status"; Value = "Released"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C?(C0805)
+Add component (AddParameter): Name = "SPICEPREFIX"; Value = "C"; VariantName = "[No Variations]"
+Added Component: Designator=C?(C0402)
+Add component (AddParameter): Name = "Alternate_Manufacturer"; Value = "MURATA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Alternate_Manufacturer_Part_Number"; Value = "GCM155R71C104KA55D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://tunmcdsvn.tun.st.com/Component_Datasheet_Library/Trunk/Capacitors/Yageo_Multilayer_Capacitor_X7R_series_100pF_to_22uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ECCN_EU"; Value = "NEC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ECCN_US"; Value = "EAR99"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Internal_Part_Number"; Value = "MCD-00102"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "YAGEO"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "CC0402KRX7R7BB104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "C0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part_Type"; Value = "Capacitor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Provided_By"; Value = "SUBCO"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Revision"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Status"; Value = "Released"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C?(C0805)
+Add component (AddParameter): Name = "SPICEPREFIX"; Value = "C"; VariantName = "[No Variations]"
+Added Component: Designator=C?(C0402)
+Add component (AddParameter): Name = "Alternate_Manufacturer"; Value = "MURATA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Alternate_Manufacturer_Part_Number"; Value = "GCM155R71C104KA55D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://tunmcdsvn.tun.st.com/Component_Datasheet_Library/Trunk/Capacitors/Yageo_Multilayer_Capacitor_X7R_series_100pF_to_22uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ECCN_EU"; Value = "NEC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ECCN_US"; Value = "EAR99"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Internal_Part_Number"; Value = "MCD-00102"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "YAGEO"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "CC0402KRX7R7BB104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "C0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part_Type"; Value = "Capacitor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Provided_By"; Value = "SUBCO"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Revision"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Status"; Value = "Released"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=IC?(QFP50P2200X2200X160-144N)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "STM32H5E5ZJT6"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/stm32h5e5zjt6/stmicroelectronics.html?utm_currency=USD&region=nac"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://www.st.com/resource/en/datasheet/stm32h5e4vj.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "1.6mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "STMicroelectronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "STM32H5E5ZJT6"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=IC?(BGA24C100P5X5_600X800X100)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://www.cypress.com/file/501841/download"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "1mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Infineon"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "S70KL1282DPBHI020"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "727-70KL1282DPBHI020"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Infineon-Technologies/S70KL1282DPBHI020?qs=DPoM0jnrROVgAEZ0o2TpIw%3D%3D"; VariantName = "[No Variations]"
+Added Component: Designator=IC?(QFN50P500X500X100-33N-D)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "TLV320AIC3104IRHBT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/tlv320aic3104irhbt/texas-instruments.html?utm_currency=USD&region=nac"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://www.ti.com/lit/gpn/tlv320aic3104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "1mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "TLV320AIC3104IRHBT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "595-TLV320C3104IRHBT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TLV320AIC3104IRHBT?qs=t6sYTo5dwUz0wA7yRaTR5Q%3D%3D"; VariantName = "[No Variations]"
+Added Component: Designator=J?(290805WBMG)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "2908-05WB-MG"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/2908-05wb-mg/3m.html?utm_currency=USD&region=europe"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://componentsearchengine.com/Datasheets/1/2908-05WB-MG.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "1.85mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "3M"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "2908-05WB-MG"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "517-2908-05WB-MG"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/3M-Electronic-Solutions-Division/2908-05WB-MG?qs=vnwGVgFuQiZPJoOt79ALlw%3D%3D"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found ABM3B
+Added Component: Designator=R?(R0805)
+Added Component: Designator=R?(R0805)
+Added Component: Designator=R?(R0805)
+Added Component: Designator=R?(R0402)
+Added Component: Designator=R?(R0805)
+Added Component: Designator=R?(R0805)
+Added Component: Designator=R?(R0805)
+Added Component: Designator=R?(R0805)
+Added Component: Designator=R?(R0805)
+Added Component: Designator=R?(R0805)
+Added Component: Designator=R?(R0805)
+Added Component: Designator=R?(R0805)
+Added Component: Designator=R?(R0805)
+Added Component: Designator=R?(R0805)
+Added Component: Designator=R?(R0805)
+Added Component: Designator=R?(R0805)
+Added Component: Designator=R?(R0805)
+Add Component: Footprint Not Found B3F-10XX
+Added Component: Designator=X?(PAK100/2500-20)
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MPN"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "unknown"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "unknown"; VariantName = "[No Variations]"
+Added Component: Designator=X?(PAK100/2500-20)
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MPN"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "unknown"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "unknown"; VariantName = "[No Variations]"
+Added Component: Designator=X?(PAK100/2500-20)
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MPN"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "unknown"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "unknown"; VariantName = "[No Variations]"
+Added Component: Designator=X?(PAK100/2500-20)
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MPN"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "unknown"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "unknown"; VariantName = "[No Variations]"
+Added Component: Designator=X?(PAK100/2500-20)
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MPN"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "unknown"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "unknown"; VariantName = "[No Variations]"
+Added Component: Designator=X?(PAK100/2500-20)
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MPN"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "unknown"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "unknown"; VariantName = "[No Variations]"
+Added Component: Designator=X?(PAK100/2500-20)
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MPN"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "unknown"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "unknown"; VariantName = "[No Variations]"
+Added Component: Designator=X?(PAK100/2500-20)
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MPN"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "unknown"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "unknown"; VariantName = "[No Variations]"
+Added Component: Designator=X?(PAK100/2500-20)
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MPN"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "unknown"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "unknown"; VariantName = "[No Variations]"
+Added Component: Designator=X?(PAK100/2500-20)
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MPN"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "unknown"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "unknown"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found PAK100/2500-20
+Added Component: Designator=X?(PAK100/2500-20)
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MPN"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "unknown"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "unknown"; VariantName = "[No Variations]"
+Added Component: Designator=X?(PAK100/2500-20)
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MPN"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "unknown"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "unknown"; VariantName = "[No Variations]"
+Added Component: Designator=X?(PAK100/2500-20)
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MPN"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "unknown"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "unknown"; VariantName = "[No Variations]"
+Added Component: Designator=X?(PAK100/2500-20)
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MPN"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "unknown"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "unknown"; VariantName = "[No Variations]"
+Added Component: Designator=X?(PAK100/2500-20)
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MPN"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "unknown"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "unknown"; VariantName = "[No Variations]"
+Added Component: Designator=X?(PAK100/2500-20)
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MPN"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "unknown"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "unknown"; VariantName = "[No Variations]"
+Added Component: Designator=X?(PAK100/2500-20)
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MPN"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "unknown"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "unknown"; VariantName = "[No Variations]"
+Added Component: Designator=X?(PAK100/2500-20)
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MPN"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "unknown"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "unknown"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found PAK100/2500-20
+Added Pin To Net: NetName=+3V3 Pin=C?-1
+Added Pin To Net: NetName=+3V3 Pin=C?-1
+Added Pin To Net: NetName=+3V3 Pin=C?-2
+Added Pin To Net: NetName=+3V3 Pin=C?-2
+Added Pin To Net: NetName=+3V3 Pin=C?-2
+Added Pin To Net: NetName=+3V3 Pin=C?-2
+Added Pin To Net: NetName=+3V3 Pin=IC?-B4
+Added Pin To Net: NetName=+3V3 Pin=IC?-D1
+Added Pin To Net: NetName=+3V3 Pin=IC?-E4
+Added Pin To Net: NetName=+3V3 Pin=J?-4
+Added Pin To Net: NetName=+3V3 Pin=R?-1
+Added Pin To Net: NetName=+3V3 Pin=R?-1
+Added Pin To Net: NetName=+3V3 Pin=R?-2
+Added Pin To Net: NetName=+3V3 Pin=R?-2
+Added Pin To Net: NetName=+3V3 Pin=R?-2
+Added Pin To Net: NetName=+3V3 Pin=R?-2
+Added Pin To Net: NetName=+3V3 Pin=R?-2
+Added Pin To Net: NetName=+3V3 Pin=R?-2
+Added Pin To Net: NetName=+3V3 Pin=R?-2
+Added Pin To Net: NetName=+3V3 Pin=R?-2
+Added Pin To Net: NetName=+3V3 Pin=R?-2
+Added Pin To Net: NetName=+3V3 Pin=R?-2
+Added Pin To Net: NetName=+3V3 Pin=X?-1
+Added Pin To Net: NetName=+3V3 Pin=X?-2
+Added Net: Name=+3V3
+Added Pin To Net: NetName=DGND Pin=C?-1
+Added Pin To Net: NetName=DGND Pin=C?-1
+Added Pin To Net: NetName=DGND Pin=C?-1
+Added Pin To Net: NetName=DGND Pin=C?-1
+Added Pin To Net: NetName=DGND Pin=C?-2
+Added Pin To Net: NetName=DGND Pin=C?-2
+Added Pin To Net: NetName=DGND Pin=C?-2
+Added Pin To Net: NetName=DGND Pin=C?-2
+Added Pin To Net: NetName=DGND Pin=C?-2
+Added Pin To Net: NetName=DGND Pin=IC?-B1
+Added Pin To Net: NetName=DGND Pin=IC?-B3
+Added Pin To Net: NetName=DGND Pin=IC?-C1
+Added Pin To Net: NetName=DGND Pin=IC?-E5
+Added Pin To Net: NetName=DGND Pin=J?-6
+Added Pin To Net: NetName=DGND Pin=J?-MP1
+Added Pin To Net: NetName=DGND Pin=J?-MP3
+Added Pin To Net: NetName=DGND Pin=J?-MP4
+Added Pin To Net: NetName=DGND Pin=R?-1
+Added Pin To Net: NetName=DGND Pin=R?-1
+Added Pin To Net: NetName=DGND Pin=R?-1
+Added Pin To Net: NetName=DGND Pin=R?-1
+Added Pin To Net: NetName=DGND Pin=X?-4
+Added Pin To Net: NetName=DGND Pin=X?-6
+Added Pin To Net: NetName=DGND Pin=X?-8
+Added Pin To Net: NetName=DGND Pin=X?-10
+Added Pin To Net: NetName=DGND Pin=X?-12
+Added Pin To Net: NetName=DGND Pin=X?-14
+Added Pin To Net: NetName=DGND Pin=X?-16
+Added Pin To Net: NetName=DGND Pin=X?-18
+Added Pin To Net: NetName=DGND Pin=X?-20
+Added Net: Name=DGND
+Added Pin To Net: NetName=JNTRST Pin=IC?-134
+Added Pin To Net: NetName=JNTRST Pin=R?-1
+Added Pin To Net: NetName=JNTRST Pin=X?-3
+Added Net: Name=JNTRST
+Added Pin To Net: NetName=JTCLK Pin=IC?-109
+Added Pin To Net: NetName=JTCLK Pin=R?-2
+Added Pin To Net: NetName=JTCLK Pin=X?-9
+Added Net: Name=JTCLK
+Added Pin To Net: NetName=JTDI Pin=IC?-110
+Added Pin To Net: NetName=JTDI Pin=R?-1
+Added Pin To Net: NetName=JTDI Pin=X?-5
+Added Net: Name=JTDI
+Added Pin To Net: NetName=JTDO Pin=IC?-133
+Added Pin To Net: NetName=JTDO Pin=R?-2
+Added Pin To Net: NetName=JTDO Pin=X?-13
+Added Net: Name=JTDO
+Added Pin To Net: NetName=JTMS Pin=IC?-105
+Added Pin To Net: NetName=JTMS Pin=R?-1
+Added Pin To Net: NetName=JTMS Pin=X?-7
+Added Net: Name=JTMS
+Added Pin To Net: NetName=NetC?_1 Pin=C?-1
+Added Pin To Net: NetName=NetC?_1 Pin=IC?-23
+Added Pin To Net: NetName=NetC?_1 Pin=R?-2
+Added Net: Name=NetC?_1
+Add Net: Net with name "NetC?_1" already exists
+Added Pin To Net: NetName=NetR?_2 Pin=R?-2
+Added Pin To Net: NetName=NetR?_2 Pin=X?-17
+Added Net: Name=NetR?_2
+Add Net: Net with name "NetR?_2" already exists
+Add Net: Net with name "NetR?_2" already exists
+Added Pin To Net: NetName=OCTO_CLK Pin=IC?-48
+Added Pin To Net: NetName=OCTO_CLK Pin=IC?-B2
+Added Net: Name=OCTO_CLK
+Added Pin To Net: NetName=OCTO_DQS Pin=IC?-45
+Added Pin To Net: NetName=OCTO_DQS Pin=IC?-C3
+Added Net: Name=OCTO_DQS
+Added Pin To Net: NetName=OCTO_IO0 Pin=IC?-47
+Added Pin To Net: NetName=OCTO_IO0 Pin=IC?-D3
+Added Net: Name=OCTO_IO0
+Added Pin To Net: NetName=OCTO_IO1 Pin=IC?-46
+Added Pin To Net: NetName=OCTO_IO1 Pin=IC?-D2
+Added Net: Name=OCTO_IO1
+Added Pin To Net: NetName=OCTO_IO2 Pin=IC?-43
+Added Pin To Net: NetName=OCTO_IO2 Pin=IC?-C4
+Added Net: Name=OCTO_IO2
+Added Pin To Net: NetName=OCTO_IO3 Pin=IC?-42
+Added Pin To Net: NetName=OCTO_IO3 Pin=IC?-D4
+Added Net: Name=OCTO_IO3
+Added Pin To Net: NetName=OCTO_IO4 Pin=IC?-58
+Added Pin To Net: NetName=OCTO_IO4 Pin=IC?-D5
+Added Net: Name=OCTO_IO4
+Added Pin To Net: NetName=OCTO_IO5 Pin=IC?-59
+Added Pin To Net: NetName=OCTO_IO5 Pin=IC?-E3
+Added Net: Name=OCTO_IO5
+Added Pin To Net: NetName=OCTO_IO6 Pin=IC?-60
+Added Pin To Net: NetName=OCTO_IO6 Pin=IC?-E2
+Added Net: Name=OCTO_IO6
+Added Pin To Net: NetName=OCTO_IO7 Pin=IC?-63
+Added Pin To Net: NetName=OCTO_IO7 Pin=IC?-E1
+Added Net: Name=OCTO_IO7
+Added Pin To Net: NetName=OCTO_NCS Pin=IC?-64
+Added Pin To Net: NetName=OCTO_NCS Pin=IC?-A3
+Added Pin To Net: NetName=OCTO_NCS Pin=R?-1
+Added Net: Name=OCTO_NCS
+Added Pin To Net: NetName=OCTO_RESET Pin=IC?-65
+Added Pin To Net: NetName=OCTO_RESET Pin=IC?-A4
+Added Pin To Net: NetName=OCTO_RESET Pin=R?-1
+Added Net: Name=OCTO_RESET
+Added Pin To Net: NetName=RESET Pin=C?-1
+Added Pin To Net: NetName=RESET Pin=IC?-25
+Added Pin To Net: NetName=RESET Pin=R?-2
+Added Pin To Net: NetName=RESET Pin=X?-15
+Added Net: Name=RESET
+Added Pin To Net: NetName=SD_CARD_DET Pin=IC?-114
+Added Pin To Net: NetName=SD_CARD_DET Pin=J?-MP2
+Added Net: Name=SD_CARD_DET
+Added Pin To Net: NetName=SD_CLK Pin=IC?-113
+Added Pin To Net: NetName=SD_CLK Pin=J?-5
+Added Net: Name=SD_CLK
+Added Pin To Net: NetName=SD_CMD Pin=IC?-116
+Added Pin To Net: NetName=SD_CMD Pin=J?-3
+Added Pin To Net: NetName=SD_CMD Pin=R?-1
+Added Net: Name=SD_CMD
+Added Pin To Net: NetName=SD_D0 Pin=IC?-102
+Added Pin To Net: NetName=SD_D0 Pin=J?-7
+Added Pin To Net: NetName=SD_D0 Pin=R?-1
+Added Net: Name=SD_D0
+Added Pin To Net: NetName=SD_D1 Pin=IC?-99
+Added Pin To Net: NetName=SD_D1 Pin=J?-8
+Added Pin To Net: NetName=SD_D1 Pin=R?-1
+Added Net: Name=SD_D1
+Added Pin To Net: NetName=SD_D2 Pin=IC?-111
+Added Pin To Net: NetName=SD_D2 Pin=J?-1
+Added Pin To Net: NetName=SD_D2 Pin=R?-1
+Added Net: Name=SD_D2
+Added Pin To Net: NetName=SD_D3 Pin=IC?-112
+Added Pin To Net: NetName=SD_D3 Pin=J?-2
+Added Pin To Net: NetName=SD_D3 Pin=R?-1
+Added Net: Name=SD_D3
+Added Pin To Net: NetName=SD_RESET Pin=IC?-115
+Added Net: Name=SD_RESET
+Added Class: Name=memory
+Added Class: Name=microcontroller
+Added Room: Name=memory
+Added Room: Name=microcontroller
