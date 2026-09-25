@@ -21,7 +21,7 @@ describe the intended design, not completed or validated functionality.
 | Headphones | Headphone output is required, using the selected codec's integrated drivers. |
 | Speaker output | External LM1875 power-amplifier stage. Final speaker channel count, power supply, load, and cooling remain open. |
 | USB | High-speed USB planned. Audio recording of the digital mix is required; audio playback, HID, and mass-storage functions are planned, with implementation stages still to be defined. |
-| Display/UI | Waveshare **3.5inch RPi LCD (A)**, 480×320 SPI TFT with XPT2046 resistive touch, is the selected development/reference display. The guitarAmp PCB should expose a generic SPI TFT/touch interface rather than depend on the Raspberry Pi 40-pin connector. |
+| Display/UI | Waveshare **3.5inch RPi LCD (A)**, 480×320 SPI TFT, is the selected development/reference display. Its Linux driver targets ILI9486 LCD and ADS7846-compatible resistive touch; verify the actual Rev 4.0 board before firmware bring-up. The guitarAmp PCB should expose a generic SPI TFT/touch interface rather than depend on the Raspberry Pi 40-pin connector. |
 | Simplicity | Prioritize achievable analog hardware and bring-up over additional channels or maximum converter specifications. |
 | Budget | Initial project target: approximately EUR 100; complete BOM cost has not been validated. |
 
@@ -85,7 +85,7 @@ configuration is the current hardware-planning baseline.
 | Bulk/user storage | Use microSD for backing tracks, recordings, impulse responses, user files, and firmware-update packages. eMMC has been dropped because it duplicates the microSD role while adding substantial cost and complexity. |
 | USB | USB_OTG_HS configured as a device with internal PHY. |
 | Bluetooth option | BM83 pins allocated on SAI2, USART3 and three GPIOs; SAI2 mode/rate and clock strategy still require resolution. |
-| Display/touch | SPI2 plus GPIO chip selects/control and one EXTI input are allocated for the Waveshare 3.5inch RPi LCD (A) and XPT2046 touch controller. |
+| Display/touch | SPI2 plus GPIO chip selects/control and one EXTI input are allocated for the Waveshare 3.5inch RPi LCD (A) and its ADS7846-compatible touch interface. |
 | Diagnostics | USART2 and SWD. |
 | User interface | Touch display selected. Additional physical controls such as buttons, encoders/potentiometers and LEDs remain to be selected. |
 
@@ -117,7 +117,16 @@ These settings establish the hardware-planning baseline, not hardware validation
 ## Selected display: Waveshare 3.5inch RPi LCD (A)
 
 The selected development/reference display is the **Waveshare 3.5inch RPi LCD (A)**,
-480×320, using an SPI TFT interface and an XPT2046 resistive-touch controller.
+480×320, using an SPI TFT interface and resistive touch. Waveshare's `LCD35-show`
+script installs the `waveshare35a` overlay. Its Linux device-tree source selects
+`ilitek,ili9486` for the LCD and `ti,ads7846` for touch, with separate SPI chip
+selects and an LCD SPI limit of 16 MHz in that overlay. Thus **ILI9486** is our
+LCD driver target and **ADS7846-compatible** is our touch driver target, not
+ILI9341. The overlay identifies the Linux driver compatibility; it does not
+independently prove the IC markings on our particular Rev 4.0 board. Check the
+board markings or test the display before treating that hardware identification
+as confirmed. Use the overlay's panel initialization sequence as a reference
+when porting the LCD driver to STM32.
 The parallel 3.2-inch Arduino Mega display was rejected for this revision because
 its wide parallel interface consumes too many MCU pins and the available module has
 no touch capability. The Nokia displays remain experiments, not the baseline UI.
@@ -131,14 +140,14 @@ substituted without redesigning the complete guitarAmp board.
 
 | STM32 pin | CubeMX function / label | Display connection |
 | --- | --- | --- |
-| PB13 | SPI2_SCK | Shared LCD / XPT2046 SPI clock |
-| PB15 | SPI2_MOSI | Shared LCD / XPT2046 data from MCU |
-| PB14 | SPI2_MISO | XPT2046 data to MCU |
+| PB13 | SPI2_SCK | Shared LCD / touch SPI clock |
+| PB15 | SPI2_MOSI | Shared LCD / touch data from MCU |
+| PB14 | SPI2_MISO | Touch data to MCU |
 | PB12 | GPIO output `LCD_CS` | LCD chip select |
-| PB10 | GPIO output `TOUCH_CS` | XPT2046 chip select |
+| PB10 | GPIO output `TOUCH_CS` | Touch chip select |
 | PE14 | GPIO output `LCD_RS` | LCD register-select / data-command |
 | PE15 | GPIO output `LCD_RESET` | LCD reset |
-| PE13 | EXTI13 input `EXTI13_TOUCH_IRQ` | XPT2046 touch interrupt |
+| PE13 | EXTI13 input `EXTI13_TOUCH_IRQ` | Touch interrupt |
 
 SPI2 remains a full-duplex master because the LCD is mainly write-only while the
 touch controller must return coordinate data on MISO. LCD and touch use separate
@@ -146,7 +155,7 @@ software-controlled chip selects and share SCK/MOSI/MISO. FMC is not used for th
 display.
 
 The checked-in `.ioc` currently reports a high SPI2 baud-rate setting; final SPI
-prescalers, LCD-controller limits, XPT2046 timing and signal integrity must be
+prescalers, ILI9486 limits, touch-controller timing and signal integrity must be
 validated before schematic freeze/firmware bring-up. DMA is desirable for large TFT
 updates so display traffic does not unnecessarily consume CPU time needed by the
 audio path, but DMA configuration is not yet documented as complete.
@@ -280,6 +289,8 @@ and bass response rather than copying 47 µF without checking.
 - [`AN/`](AN/): MCU reference documents.
 - [TI TLV320AIC3104 datasheet](https://www.ti.com/lit/ds/symlink/tlv320aic3104.pdf).
 - [Waveshare 3.5inch RPi LCD (A) wiki](https://www.waveshare.com/wiki/3.5inch_RPi_LCD_%28A%29).
+- [Waveshare LCD35-show installation script](https://github.com/waveshareteam/LCD-show/blob/master/LCD35-show).
+- [waveshare35a Linux overlay source](https://github.com/swkim01/waveshare-dtoverlays/blob/master/waveshare35a.dts) (ILI9486, ADS7846-compatible touch and panel initialization).
 
 Requirements recorded from design discussions through 2026-09-24. Component
 selection and peripheral allocation do not imply that hardware or firmware has
