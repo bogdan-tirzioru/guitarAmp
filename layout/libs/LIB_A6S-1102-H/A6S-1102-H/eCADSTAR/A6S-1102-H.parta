@@ -1,0 +1,66 @@
+(Japanese_coding: sjis)
+(function "ECS_333180"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2018-07-16-16:02:27)
+    (utime 2026-02-23-16:02:04)
+    (interface
+        (port "1" (symbPinId 1) (portType INOUT))
+        (port "2" (symbPinId 2) (portType INOUT))
+    )
+    (property "symbolName" "A6S-1102-H")
+)
+
+
+(pinAssign "ECS_333180"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2018-07-16-16:02:27)
+    (utime 2026-02-23-16:02:04)
+    (interface
+        (port "1" (symbPinId 1) (portName "COM") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "N.O.") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_333180")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "A6S-1102-H")
+)
+
+
+(part "A6S-1102-H"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2018-07-16-16:02:27)
+    (utime 2026-02-23-16:02:04)
+    (packageRef "A6S-1102-H")
+    (pinAssignRef "ECS_333180")
+    (interface
+        (port "1" (symbPinId 1) (portName "COM") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "N.O.") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "YES")
+    (property "refDesPrefix" "S")
+    (property "description" "Slide DIP Switch, Tube Packaging, Flat Type, With Seal Tape, 1-Pole")
+    (property "Mouser_Part_Number" "653-A6S-1102-H")
+    (property "Mouser_Price/Stock" "https://www.mouser.co.uk/ProductDetail/Omron-Electronics/A6S-1102-H?qs=FFtkVBg2Ai6emF35RthuRw%3D%3D")
+    (property "Manufacturer_Name" "OMRON Electronics")
+    (property "Manufacturer_Part_Number" "A6S-1102-H")
+    (property "Datasheet_Link" "https://components.omron.com/us-en/sites/components.omron.com.us/files/datasheet_pdf/A211-E1.pdf")
+    (property "compAreaTopHeight" 3.8)
+)
+
+

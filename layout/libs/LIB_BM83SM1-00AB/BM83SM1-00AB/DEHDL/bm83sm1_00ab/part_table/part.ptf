@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'BM83SM1_00AB'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Microchip", "BM83SM1-00AB" (!) = "", "BM83SM100AA", "Other", "579-BM83SM1-00AB", "https://www.mouser.co.uk/ProductDetail/Microchip-Technology/BM83SM1-00AB?qs=W%2FMpXkg%252BdQ4%2FPurIjXhtZA%3D%3D", "Class-1 50LD BLUETOOTH AUDIO MODULE WITH SHIED. 32*15mm", "http://ww1.microchip.com/downloads/en/DeviceDoc/BM83_Bluetooth_Stereo_Audio_Module_Data_Sheet_DS70005402A.pdf", "2.5 mm"
+END_PART
+
+END.

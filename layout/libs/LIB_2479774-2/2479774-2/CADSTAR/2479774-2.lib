@@ -1,0 +1,17 @@
+.2479774-2 :1 ;USB Type-C Charge-only, 6 Pin, Top, 3u GF
+"24797742"
+*STM J
+*NGS
+*PNM 1=1 2=2 3=3 4=4 5=A5 6=A9 7=A12 8=B5 9=B9 10=B12
+*PLB 1="MH1" 2="MH2" 3="MH3" 4="MH4" 5="CC1" 6="VBUS_1" 7="GND_1" 8="CC2" 9="VBUS_2" 10="GND_2"
+*MXP 10
+*DFN 2479774-2
+~!Mouser Part Number (571-2479774-2)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/TE-Connectivity/2479774-2?qs=dbcCsuKDzFUIulIRPaOxAw%3D%3D)
+~!Manufacturer_Name (TE Connectivity)
+~!Manufacturer_Part_Number (2479774-2)
+~!Link Datasheet (http://www.te.com/en/product-2479774-2.html)
+~!Height (3.31mm)
+~!3D_Model (2479774-2)
+"2479774-2"
+1.1!U 2.1!U 3.1!U 4.1!U 5.1!U 6.1!U 7.1!U 8.1!U 9.1!U 10.1!U 

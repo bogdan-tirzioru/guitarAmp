@@ -1,0 +1,10 @@
+(unit MM)
+
+(package "BM83SM100AA"
+    (type UNDEF)
+    (uver 2)
+    (mountForm default
+        (footprintRef "BM83SM100AA")
+        (spec "default")
+    )
+)

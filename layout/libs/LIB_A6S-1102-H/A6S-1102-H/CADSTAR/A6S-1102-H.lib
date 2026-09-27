@@ -1,0 +1,16 @@
+.A6S-1102-H :1 ;Slide DIP Switch, Tube Packaging, Flat Type, With Seal Tape, 1-Pole
+A6S1102H
+*STM S
+*NGS
+*PLB 1="COM" 2="N.O."
+*MXP 2
+*DFN A6S-1102-H
+~!Mouser Part Number (653-A6S-1102-H)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Omron-Electronics/A6S-1102-H?qs=FFtkVBg2Ai6emF35RthuRw%3D%3D)
+~!Manufacturer_Name (OMRON Electronics)
+~!Manufacturer_Part_Number (A6S-1102-H)
+~!Link Datasheet (https://components.omron.com/us-en/sites/components.omron.com.us/files/datasheet_pdf/A211-E1.pdf)
+~!Height (3.8mm)
+~!3D_Model (A6S-1102-H)
+A6S-1102-H
+1.1!U 2.1!U 

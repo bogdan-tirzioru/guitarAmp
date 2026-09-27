@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "A6S-1102-H"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2026-02-16-13:43:05)
+    (mountForm default
+        (footprintRef "A6S1102H")
+        (spec "System")
+    )
+)

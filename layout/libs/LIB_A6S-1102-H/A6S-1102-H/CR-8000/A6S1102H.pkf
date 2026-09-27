@@ -1,0 +1,10 @@
+(unit MM)
+
+(package "A6S1102H"
+    (type UNDEF)
+    (uver 2)
+    (mountForm default
+        (footprintRef "A6S1102H")
+        (spec "default")
+    )
+)

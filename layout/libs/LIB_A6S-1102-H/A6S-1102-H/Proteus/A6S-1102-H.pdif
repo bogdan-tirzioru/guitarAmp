@@ -1,0 +1,104 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "A6S-1102-H"
+   (description "Slide DIP Switch, Tube Packaging, Flat Type, With Seal Tape, 1-Pole")
+   (family "SWI")
+   (package "A6S1102H")
+   (attribute "Datasheet Link" "https://components.omron.com/us-en/sites/components.omron.com.us/files/datasheet_pdf/A211-E1.pdf")
+   (attribute "Geometry.Height" "3.8mm")
+   (attribute "Mouser Part Number" "653-A6S-1102-H")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Omron-Electronics/A6S-1102-H?qs=FFtkVBg2Ai6emF35RthuRw%3D%3D")
+   (attribute "Manufacturer_Name" "OMRON Electronics")
+   (attribute "Manufacturer_Part_Number" "A6S-1102-H")
+   (gate
+    (symbol "A6S-1102-H")
+    (pin "COM" 1 PS)
+    (pin "N.O." 2 PS)
+   )
+  )
+  (symbol "A6S-1102-H"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 700 100) (pt 700 -200) (pt 200 -200) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "A6S1102H"
+   (units MM)
+   (layer TASM
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed true)
+      (pt -1.74 3.1)
+      (pt 1.74 3.1)
+      (pt 1.74 -3.1)
+      (pt -1.74 -3.1)
+      (pt -1.74 3.1))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed true)
+      (pt -1.74 3.1)
+      (pt 1.74 3.1)
+      (pt 1.74 -3.1)
+      (pt -1.74 -3.1)
+      (pt -1.74 3.1))))
+   (layer OCCA
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -2.74 6.2)
+      (pt 2.74 6.2)
+      (pt 2.74 -6.2)
+      (pt -2.74 -6.2)
+      (pt -2.74 6.2))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -0.1 -5.5)
+      (arc (pt -0.100 -5.500) (pt -0.100 -5.550) (pt 0.000 -5.450) (start 180.0) (sweep 180.0))
+      (pt 0 -5.5)
+      (arc (pt 0.000 -5.500) (pt -0.100 -5.550) (pt 0.000 -5.450) (start 180.0) (sweep .0))
+      (pt -0.1 -5.5))))
+   (leg 1 (pt 0.000 -4.450) (padstack 0))
+   (leg 2 (pt 0.000 4.450) (padstack 0))
+   (padstack 0
+    (plated false)
+    (pad (layer TCOP) (rectf 1.100 1.500 0 0 90.000))
+   )
+   (model "A6S-1102-H.stp"
+    (euler 90 0 0)
+    (offset 0 0 0)
+   )
+  )
+ )
+)

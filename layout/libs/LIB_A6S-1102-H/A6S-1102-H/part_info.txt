@@ -1,0 +1,9 @@
+Manufacturer=OMRON Electronics
+PartNumber=A6S-1102-H
+PartCategory=Switch
+PackageCategory=Other
+PinCount=2
+Version=5.3
+Released=2018-07-16 16:02:27
+Downloaded=2026-09-27 06:09:35
+3D=Y

@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART '2479774_2'
+CLASS = IO
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "TE Connectivity", "2479774-2" (!) = "", "24797742", "Other", "571-2479774-2", "https://www.mouser.co.uk/ProductDetail/TE-Connectivity/2479774-2?qs=dbcCsuKDzFUIulIRPaOxAw%3D%3D", "USB Type-C Charge-only, 6 Pin, Top, 3u GF", "http://www.te.com/en/product-2479774-2.html", "3.31 mm"
+END_PART
+
+END.

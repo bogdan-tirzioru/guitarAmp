@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP BM83SM1-00AB
+D Class-1 50LD BLUETOOTH AUDIO MODULE WITH SHIED. 32*15mm
+K
+F http://ww1.microchip.com/downloads/en/DeviceDoc/BM83_Bluetooth_Stereo_Audio_Module_Data_Sheet_DS70005402A.pdf
+$ENDCMP
+#
+#End Doc Library
