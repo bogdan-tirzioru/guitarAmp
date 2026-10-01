@@ -309,3 +309,11 @@ when regenerating with the current IOC (`ProjectManager.KeepUserCode=true`).
 Existing clock and peripheral initialization remains enabled; if an initializer
 enters `Error_Handler()`, LED1 will not blink. LED0 indicates GPIO initialization
 was reached, not that all peripherals initialized successfully.
+
+## Codec firmware module
+
+The TLV320AIC3104 control driver and STM32 HAL adapter are included under
+`firmwaredsp/Core`. See [module API, profile and integration](docs/tlv320aic3104.md).
+It supports the 48 kHz baseline with muted startup and is tested using a simulated
+I2C bus (`bash ci/test-codec.sh`). Hardware startup is deferred until SAI streaming
+and a board are available; the LED-only application remains the active firmware.
