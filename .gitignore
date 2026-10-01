@@ -1,3 +1,12 @@
+# Build artifacts and local settings (from BusAnalizerII)
+*.o
+*.cyclo
+*.d
+*.su
+*.mk
+*.settings.xml
+**/Debug/
+
 # CI-generated sources, Eclipse workspace, logs, and firmware artifacts
 /ci-work/
 /ci-output/
