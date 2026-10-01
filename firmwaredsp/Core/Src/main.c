@@ -99,6 +99,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+  uint32_t led1_last_toggle;
 
   /* USER CODE END 1 */
 
@@ -139,6 +140,7 @@ int main(void)
   MX_ADC1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  led1_last_toggle = HAL_GetTick();
 
   /* USER CODE END 2 */
 
@@ -149,6 +151,13 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    uint32_t now = HAL_GetTick();
+
+    if ((uint32_t)(now - led1_last_toggle) >= 500U)
+    {
+      led1_last_toggle = now;
+      HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
+    }
   }
   /* USER CODE END 3 */
 }
@@ -866,6 +875,8 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(USB_DETECT_GPIO_Port, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
+  /* Active-high LED0 indicates that GPIO initialization has completed. */
+  HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin, GPIO_PIN_SET);
 
   /* USER CODE END MX_GPIO_Init_2 */
 }

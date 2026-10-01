@@ -295,3 +295,17 @@ and bass response rather than copying 47 µF without checking.
 Requirements recorded from design discussions through 2026-09-24. Component
 selection and peripheral allocation do not imply that hardware or firmware has
 been validated.
+
+## Initial LED application
+
+LED0 (PC13) is driven high at the end of GPIO initialization, before the
+remaining peripheral initializers run. LED1 (PC14) starts low and toggles every
+500 ms once the main loop is reached: 500 ms on, 500 ms off (1 Hz). The LEDs
+are assumed active-high. The heartbeat uses `HAL_GetTick()` without blocking the
+main loop and handles the millisecond tick counter wrapping.
+
+The application additions are in CubeMX `USER CODE` sections and are preserved
+when regenerating with the current IOC (`ProjectManager.KeepUserCode=true`).
+Existing clock and peripheral initialization remains enabled; if an initializer
+enters `Error_Handler()`, LED1 will not blink. LED0 indicates GPIO initialization
+was reached, not that all peripherals initialized successfully.
