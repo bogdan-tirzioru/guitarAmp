@@ -22,6 +22,7 @@
 #include "stm32h5xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "console_board.h"
 #include "codec_app.h"
 /* USER CODE END Includes */
 
@@ -200,6 +201,16 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /* USER CODE BEGIN 1 */
+void GPDMA1_Channel0_IRQHandler(void)
+{
+  Console_Board_DMA_IRQHandler();
+}
+
+void USART2_IRQHandler(void)
+{
+  Console_Board_UART_IRQHandler();
+}
+
 #if GUITARAMP_CODEC_ENABLE
 void SAI1_IRQHandler(void)
 {
