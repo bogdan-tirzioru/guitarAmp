@@ -322,3 +322,11 @@ project. See [module API, profile and startup](docs/tlv320aic3104.md).
 
 The LED application continues in either mode. Real audio capture/DSP and physical
 validation remain pending.
+
+## Serial logging
+
+BA2's queued DMA console is ported to USART2 on PA2/PA3 at **115200 8N1**, using
+GPDMA1 channel 0. Use `Console_Write` and `Console_Printf` for non-blocking serial
+logging. Startup reports CPU clock and codec status. See
+[console API and DMA ownership](docs/serial-console.md). Hardware validation is
+pending; USART3 remains allocated to BM83.

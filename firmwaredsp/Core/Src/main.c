@@ -21,6 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "console.h"
+#include "console_board.h"
 #include "app_config.h"
 #include "codec_app.h"
 
@@ -64,6 +66,10 @@ UART_HandleTypeDef huart3;
 PCD_HandleTypeDef hpcd_USB_OTG_HS;
 
 /* USER CODE BEGIN PV */
+volatile HAL_StatusTypeDef console_startup_status = HAL_ERROR;
+#if GUITARAMP_CODEC_ENABLE
+static codec_app_state_t last_codec_state;
+#endif
 
 /* USER CODE END PV */
 
@@ -142,8 +148,17 @@ int main(void)
   MX_ADC1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  console_startup_status = Console_Board_Init(&huart2);
+  Console_Write("\r\nguitarAmp console ready\r\n");
+  Console_Printf("CPU clock: %lu Hz\r\n", (unsigned long)HAL_RCC_GetSysClockFreq());
 #if GUITARAMP_CODEC_ENABLE
+  Console_Write("codec: starting\r\n");
   codec_app_start(&hi2c1, &hsai_BlockA1);
+  last_codec_state = codec_app_state;
+  Console_Printf("codec: state=%u result=%u\r\n",
+                 (unsigned)codec_app_state, (unsigned)codec_app_result);
+#else
+  Console_Write("codec: disabled\r\n");
 #endif
   led1_last_toggle = HAL_GetTick();
 
@@ -156,8 +171,15 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    Console_Process();
 #if GUITARAMP_CODEC_ENABLE
     codec_app_process();
+    if (last_codec_state != codec_app_state)
+    {
+      last_codec_state = codec_app_state;
+      Console_Printf("codec: state=%u result=%u\r\n",
+                     (unsigned)codec_app_state, (unsigned)codec_app_result);
+    }
 #endif
     uint32_t now = HAL_GetTick();
 
