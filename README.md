@@ -309,3 +309,16 @@ when regenerating with the current IOC (`ProjectManager.KeepUserCode=true`).
 Existing clock and peripheral initialization remains enabled; if an initializer
 enters `Error_Handler()`, LED1 will not blink. LED0 indicates GPIO initialization
 was reached, not that all peripherals initialized successfully.
+
+## Codec firmware module
+
+The TLV320AIC3104 control driver and STM32 HAL adapter are included in the firmware
+project. See [module API, profile and startup](docs/tlv320aic3104.md).
+`main()` uses one build-time strap in `firmwaredsp/Core/Inc/app_config.h`:
+
+- `GUITARAMP_CODEC_ENABLE=0`: skip codec execution (default while no board is available).
+- `GUITARAMP_CODEC_ENABLE=1`: start silent SAI clocks and initialize the real codec,
+  keeping its DAC muted.
+
+The LED application continues in either mode. Real audio capture/DSP and physical
+validation remain pending.

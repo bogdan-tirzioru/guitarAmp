@@ -21,6 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "app_config.h"
+#include "codec_app.h"
 
 /* USER CODE END Includes */
 
@@ -140,6 +142,9 @@ int main(void)
   MX_ADC1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+#if GUITARAMP_CODEC_ENABLE
+  codec_app_start(&hi2c1, &hsai_BlockA1);
+#endif
   led1_last_toggle = HAL_GetTick();
 
   /* USER CODE END 2 */
@@ -151,6 +156,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+#if GUITARAMP_CODEC_ENABLE
+    codec_app_process();
+#endif
     uint32_t now = HAL_GetTick();
 
     if ((uint32_t)(now - led1_last_toggle) >= 500U)

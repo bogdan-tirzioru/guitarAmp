@@ -22,6 +22,7 @@
 #include "stm32h5xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "codec_app.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -199,5 +200,11 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /* USER CODE BEGIN 1 */
+#if GUITARAMP_CODEC_ENABLE
+void SAI1_IRQHandler(void)
+{
+  codec_app_irq();
+}
+#endif
 
 /* USER CODE END 1 */
