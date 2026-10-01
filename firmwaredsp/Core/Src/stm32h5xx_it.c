@@ -22,7 +22,6 @@
 #include "stm32h5xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "console_board.h"
 #include "codec_app.h"
 /* USER CODE END Includes */
 
@@ -57,7 +56,8 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-
+extern DMA_HandleTypeDef handle_GPDMA1_Channel0;
+extern UART_HandleTypeDef huart2;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -200,17 +200,35 @@ void SysTick_Handler(void)
 /* please refer to the startup file (startup_stm32h5xx.s).                    */
 /******************************************************************************/
 
-/* USER CODE BEGIN 1 */
+/**
+  * @brief This function handles GPDMA1 Channel 0 global interrupt.
+  */
 void GPDMA1_Channel0_IRQHandler(void)
 {
-  Console_Board_DMA_IRQHandler();
+  /* USER CODE BEGIN GPDMA1_Channel0_IRQn 0 */
+
+  /* USER CODE END GPDMA1_Channel0_IRQn 0 */
+  HAL_DMA_IRQHandler(&handle_GPDMA1_Channel0);
+  /* USER CODE BEGIN GPDMA1_Channel0_IRQn 1 */
+
+  /* USER CODE END GPDMA1_Channel0_IRQn 1 */
 }
 
+/**
+  * @brief This function handles USART2 global interrupt.
+  */
 void USART2_IRQHandler(void)
 {
-  Console_Board_UART_IRQHandler();
+  /* USER CODE BEGIN USART2_IRQn 0 */
+
+  /* USER CODE END USART2_IRQn 0 */
+  HAL_UART_IRQHandler(&huart2);
+  /* USER CODE BEGIN USART2_IRQn 1 */
+
+  /* USER CODE END USART2_IRQn 1 */
 }
 
+/* USER CODE BEGIN 1 */
 #if GUITARAMP_CODEC_ENABLE
 void SAI1_IRQHandler(void)
 {

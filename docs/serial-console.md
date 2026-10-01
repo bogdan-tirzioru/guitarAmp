@@ -16,19 +16,24 @@ The port targets the guitarAmp STM32H5E5 firmware, not BA2's STM32H7 DMA layout.
 | Buffer storage | Internal SRAM `.bss`, 32-byte aligned; no H7 `.console_ram` section |
 | USART3 | Remains reserved for BM83; callbacks ignore other UART handles |
 
-`Console_Board_Init(&huart2)` runs after CubeMX peripheral setup. It enables the
-GPDMA clock, configures the channel, links `huart2.hdmatx`, binds the console and
-enables both IRQs. USART2 completion is needed as well as DMA completion: the
-queue slot is released only after the final byte finishes transmitting.
-`main()` calls `Console_Process()` to service pending messages after a failed
-start. There is no per-message wait in the startup or main-loop logging path.
+CubeMX owns the peripheral configuration in `firmwaredsp.ioc`: GPDMA1 channel 0
+with the USART2_TX request, byte widths, source increment, destination fixed,
+single-byte bursts and low priority. It generates `MX_GPDMA1_Init`, the DMA
+initialization and `__HAL_LINKDMA` in USART2's MSP initialization, and both DMA
+and USART2 interrupt handlers. The DMA controller clock is initialized before
+USART2. Both interrupts use priority 15.
 
-The board adapter owns this DMA channel and IRQ configuration in its module,
-while pin selection and baud rate stay in the `.ioc`. Main and IRQ hooks are in
-CubeMX USER CODE blocks, so regeneration preserves them. Reserve GPDMA1 channel 0
-for the console when assigning future audio/storage DMA channels. Do not also
-configure/generate these same handlers in CubeMX unless moving ownership there
-and removing the manual board adapter configuration.
+`Console_Board_Init(&huart2)` only validates the generated UART/TX DMA binding and
+attaches the message queue. It does not configure DMA or NVIC and owns no IRQ
+handlers. USART2 completion is needed as well as DMA completion: the queue slot
+is released only after the final byte finishes transmitting. `main()` calls
+`Console_Process()` to service pending messages after a failed start. There is
+no per-message wait in startup or main-loop logging.
+
+Reserve GPDMA1 channel 0 for the console when assigning future audio/storage DMA
+channels in CubeMX. Application calls stay in USER CODE blocks; regenerate from
+the `.ioc` for future peripheral changes. The generated DMA initialization and
+handlers are committed along with their configuration.
 
 ## Usage
 
