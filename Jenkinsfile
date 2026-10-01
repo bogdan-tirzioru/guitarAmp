@@ -8,7 +8,7 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '20', artifactNumToKeepStr: '10'))
   }
   parameters {
-    string(name: 'GIT_REF', defaultValue: '*/main', description: 'Branch pattern or refs/tags/<tag>')
+    string(name: 'GIT_REF', defaultValue: env.GIT_REF ?: '*/main', description: 'Branch pattern or refs/tags/<tag>')
     choice(name: 'BUILD_CONFIG', choices: ['Debug', 'Release'], description: 'CubeIDE build configuration')
     string(name: 'CUBEMX', defaultValue: '/home/ghita/STM32CubeMX/STM32CubeMX', description: 'CubeMX executable accessible to the Jenkins agent')
     string(name: 'CUBEIDE_HOME', defaultValue: '/home/ghita/fast_disk/tools/stm32cubeide', description: 'Current H5E5-capable CubeIDE installation; 1.11 is unsupported')

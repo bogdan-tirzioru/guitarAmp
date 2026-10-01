@@ -52,7 +52,9 @@ After review/merge, change both the SCM branch and GIT_REF to `*/main`.
 `ci/jenkins-job.xml` is an equivalent initial job definition based on the existing
 BA1/BA2 jobs. An authenticated Jenkins administrator can import it with the
 Jenkins CLI `create-job guitarAmp-build < ci/jenkins-job.xml`, or configure the UI.
-The branch remains a feature branch until approved for merge.
+The branch remains a feature branch until approved for merge. The pipeline retains
+the current GIT_REF as the next default, so review builds keep the feature branch
+and a subsequent explicit switch to main remains selected.
 
 ## Generation and build guarantees
 
@@ -100,5 +102,7 @@ The exact pipeline scripts passed prerequisite checks, real CubeMX generation,
 and clean compilation/linking for Debug and Release under the `ghita` account.
 ELF, HEX, BIN, map, size report and SHA-256 checksums were produced. No linker
 script or CPU-flag workarounds were required. This validates the stage commands;
-a Jenkins service-account run still requires importing/configuring the job through
-an authenticated Jenkins session and initializing its own CubeMX cache if needed.
+Jenkins job `guitarAmp-build` was then created using the existing `codex-ci` API
+token. Jenkins validated the declarative pipeline and build #1 passed under the
+`jenkins` service account, including generation, compilation and archived artifacts.
+Its first CubeMX launch initialized that account's catalog automatically.
