@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='utf-8'?>
+<flow-definition plugin="workflow-job@1590.v49101d088542">
+  <description>guitarAmp: CubeMX IOC generation, CubeIDE compilation, firmware artifacts. Requires a current H5E5-capable CubeIDE and agent-readable CubeMX/H5 package.</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>GIT_REF</name>
+          <description>Git branch pattern or refs/tags/&lt;tag&gt;</description>
+          <defaultValue>*/feature/jenkins-generation-build</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>CUBEMX</name>
+          <description>CubeMX executable accessible to the agent</description>
+          <defaultValue>/home/ghita/STM32CubeMX/STM32CubeMX</defaultValue>
+          <trim>true</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>CUBEIDE_HOME</name>
+          <description>Current H5E5-capable CubeIDE installation; server 1.11 is unsupported</description>
+          <defaultValue>/opt/st/stm32cubeide</defaultValue>
+          <trim>true</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>FW_REPOSITORY</name>
+          <description>Preinstalled STM32Cube firmware packages accessible to the agent</description>
+          <defaultValue>/home/ghita/STM32Cube/Repository</defaultValue>
+          <trim>true</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>BUILD_CONFIG</name>
+          <description>CubeIDE build configuration</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>Debug</string>
+              <string>Release</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>20</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>-1</artifactNumToKeep>
+        <removeLastBuild>false</removeLastBuild>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty>
+      <abortPrevious>false</abortPrevious>
+    </org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@4370.v49a_6937566b_6">
+    <scm class="hudson.plugins.git.GitSCM" plugin="git@5.10.1">
+      <configVersion>2</configVersion>
+      <userRemoteConfigs>
+        <hudson.plugins.git.UserRemoteConfig>
+          <refspec>+refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*</refspec>
+          <url>https://github.com/bogdan-tirzioru/guitarAmp.git</url>
+          <credentialsId>github-bogdan-read</credentialsId>
+        </hudson.plugins.git.UserRemoteConfig>
+      </userRemoteConfigs>
+      <branches>
+        <hudson.plugins.git.BranchSpec>
+          <name>*/feature/jenkins-generation-build</name>
+        </hudson.plugins.git.BranchSpec>
+      </branches>
+      <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+      <browser class="hudson.plugins.git.browser.GithubWeb">
+        <url>https://github.com/bogdan-tirzioru/guitarAmp/</url>
+      </browser>
+      <submoduleCfg class="empty-list" />
+      <extensions>
+        <hudson.plugins.git.extensions.impl.CloneOption>
+          <shallow>false</shallow>
+          <noTags>false</noTags>
+          <reference />
+          <depth>0</depth>
+          <honorRefspec>true</honorRefspec>
+        </hudson.plugins.git.extensions.impl.CloneOption>
+      </extensions>
+    </scm>
+    <scriptPath>Jenkinsfile</scriptPath>
+    <lightweight>true</lightweight>
+  </definition>
+  <disabled>false</disabled>
+</flow-definition>
