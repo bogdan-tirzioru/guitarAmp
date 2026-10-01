@@ -20,7 +20,7 @@
         <hudson.model.StringParameterDefinition>
           <name>CUBEIDE_HOME</name>
           <description>Current H5E5-capable CubeIDE installation; server 1.11 is unsupported</description>
-          <defaultValue>/opt/st/stm32cubeide</defaultValue>
+          <defaultValue>/home/ghita/fast_disk/tools/stm32cubeide</defaultValue>
           <trim>true</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>

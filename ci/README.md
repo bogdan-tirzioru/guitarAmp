@@ -12,16 +12,17 @@ Use a Linux Jenkins agent with:
 - CubeMX matching the IOC (currently 6.18.1), Xvfb, xauth, Python 3 and GNU coreutils.
 - STM32CubeH5 V1.7.0 installed before the build.
 - A current STM32CubeIDE supporting STM32H5E5, with its bundled ARM GCC 11 or later.
-  The server's existing CubeIDE 1.11 / GCC 10.3 is unsupported. The pipeline fails
+  The legacy CubeIDE 1.11 / GCC 10.3 remains available for the existing jobs. The pipeline fails
   explicitly instead of changing the generated linker script or adding CPU flags.
 
 The selected agent account must be able to execute CubeMX/CubeIDE and read the
 firmware repository, and needs a writable home for their configuration/cache.
-The current server runs Jenkins as `jenkins`; it cannot traverse
-`/home/ghita` (mode 750). Install the tools/packages in a shared location such as
-`/opt/st`, or use a deliberately configured build agent with access. Do not run
+The server runs Jenkins as `jenkins`. A named ACL now grants that account
+traverse-only access to `/home/ghita`, allowing it to reach the tool directories
+without granting home-directory listing or write access. For other machines,
+install tools in a shared location or use a configured build agent with access. Do not run
 Jenkins as root or make the entire home public. Initialize CubeMX once under the
-agent account, using the exact package; package/license installation is outside
+agent account if its first launch requires configuration, using the exact package; package/license installation is outside
 the build. The pipeline does not download packages or accept licenses.
 
 Configure these Jenkins job parameters for the selected agent:
@@ -34,10 +35,10 @@ Configure these Jenkins job parameters for the selected agent:
 | CUBEIDE_HOME | Current IDE install directory containing `headless-build.sh` and `plugins/` |
 | FW_REPOSITORY | Parent of `STM32Cube_FW_H5_V1.7.0` |
 
-The default CubeIDE path is `/opt/st/stm32cubeide`; create that stable symlink to
-your current installation, or supply its versioned path. CubeMX/package defaults
-reflect the current user's installations and must be changed for the Jenkins
-service account. `agent any` matches the existing BA1/BA2 jobs; restrict it to a
+The default CubeIDE path is `/home/ghita/fast_disk/tools/stm32cubeide`, a stable symlink to
+the side-by-side CubeIDE 2.2.0 installation and its bundled ARM GCC 14.3.1.
+CubeMX/package defaults reflect the server's existing installations; the named
+Jenkins traversal ACL makes their paths reachable. `agent any` matches the existing BA1/BA2 jobs; restrict it to a
 tool-equipped node label if additional agents are introduced.
 
 ## Create the job
@@ -76,9 +77,9 @@ revision used for the pipeline definition as well as the checkout revision.
 Run from a fresh repository checkout under the intended build account:
 
 ```bash
-export CUBEMX=/opt/st/STM32CubeMX/STM32CubeMX
-export CUBEIDE_HOME=/opt/st/stm32cubeide
-export FW_REPOSITORY=/opt/st/STM32Cube/Repository
+export CUBEMX=/home/ghita/STM32CubeMX/STM32CubeMX
+export CUBEIDE_HOME=/home/ghita/fast_disk/tools/stm32cubeide
+export FW_REPOSITORY=/home/ghita/STM32Cube/Repository
 export BUILD_CONFIG=Debug
 bash ci/firmware.sh verify
 bash ci/firmware.sh generate
@@ -86,6 +87,18 @@ bash ci/firmware.sh build
 bash ci/firmware.sh package
 ```
 
-Generation can also be tested independently while the current IDE is being
-installed. A full successful build must be verified on that IDE; generation
-alone is not a compilation test.
+## Server validation (2026-10-01)
+
+CubeIDE 2.2.0 build 29186 is installed at
+`/home/ghita/fast_disk/tools/stm32cubeide_2.2.0`, with the stable symlink above.
+Its bundled GNU Tools for STM32 compiler is ARM GCC 14.3.1.
+The installer archive passed its embedded integrity check. The application payload
+was installed in a user-owned directory because this session has no sudo access;
+system ST-Link packages/udev rules were not changed.
+
+The exact pipeline scripts passed prerequisite checks, real CubeMX generation,
+and clean compilation/linking for Debug and Release under the `ghita` account.
+ELF, HEX, BIN, map, size report and SHA-256 checksums were produced. No linker
+script or CPU-flag workarounds were required. This validates the stage commands;
+a Jenkins service-account run still requires importing/configuring the job through
+an authenticated Jenkins session and initializing its own CubeMX cache if needed.
