@@ -21,6 +21,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "app_config.h"
+#include "codec_app.h"
+#include "codec_selftest.h"
 
 /* USER CODE END Includes */
 
@@ -62,6 +65,9 @@ UART_HandleTypeDef huart3;
 PCD_HandleTypeDef hpcd_USB_OTG_HS;
 
 /* USER CODE BEGIN PV */
+#if GUITARAMP_CODEC_SELFTEST_ENABLE
+volatile int codec_selftest_result = -1; /* 0=pass, positive=failed source line */
+#endif
 
 /* USER CODE END PV */
 
@@ -140,6 +146,12 @@ int main(void)
   MX_ADC1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+#if GUITARAMP_CODEC_SELFTEST_ENABLE
+  codec_selftest_result = codec_selftest_run();
+#endif
+#if GUITARAMP_CODEC_ENABLE
+  codec_app_start(&hi2c1, &hsai_BlockA1);
+#endif
   led1_last_toggle = HAL_GetTick();
 
   /* USER CODE END 2 */
@@ -151,6 +163,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+#if GUITARAMP_CODEC_ENABLE
+    codec_app_process();
+#endif
     uint32_t now = HAL_GetTick();
 
     if ((uint32_t)(now - led1_last_toggle) >= 500U)

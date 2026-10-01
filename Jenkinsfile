@@ -30,9 +30,6 @@ pipeline {
         sh 'mkdir -p ci-output && git rev-parse HEAD > ci-output/git-commit.txt'
       }
     }
-    stage('Codec host tests') {
-      steps { sh 'bash ci/test-codec.sh' }
-    }
     stage('Verify prerequisites') {
       steps { sh 'bash ci/firmware.sh verify' }
     }

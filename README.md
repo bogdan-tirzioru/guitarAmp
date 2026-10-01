@@ -312,8 +312,14 @@ was reached, not that all peripherals initialized successfully.
 
 ## Codec firmware module
 
-The TLV320AIC3104 control driver and STM32 HAL adapter are included under
-`firmwaredsp/Core`. See [module API, profile and integration](docs/tlv320aic3104.md).
-It supports the 48 kHz baseline with muted startup and is tested using a simulated
-I2C bus (`bash ci/test-codec.sh`). Hardware startup is deferred until SAI streaming
-and a board are available; the LED-only application remains the active firmware.
+The TLV320AIC3104 control driver, STM32 HAL adapter and optional simulated self-test
+are included in the firmware project. See [module API, profile and startup](docs/tlv320aic3104.md).
+`main()` uses build-time straps in `firmwaredsp/Core/Inc/app_config.h`:
+
+- `GUITARAMP_CODEC_ENABLE=1`: start silent SAI clocks and initialize the real codec,
+  keeping its DAC muted. Set to `0` to skip execution.
+- `GUITARAMP_CODEC_SELFTEST_ENABLE=1`: execute the in-firmware simulated-bus test once;
+  inspect `codec_selftest_result` in the debugger.
+
+Both default to `0` while no board is available. The LED application continues in
+all modes. Real audio capture/DSP and physical validation remain pending.
