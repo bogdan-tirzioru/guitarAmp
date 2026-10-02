@@ -1,0 +1,9 @@
+Manufacturer=Texas Instruments
+PartNumber=OPA2134UAE4
+PartCategory=Integrated Circuit
+PackageCategory=Small Outline Packages
+PinCount=8
+Version=1.1
+Released=2022-01-25 10:09:14
+Downloaded=2026-10-02 18:07:00
+3D=Y

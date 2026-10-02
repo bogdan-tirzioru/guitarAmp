@@ -1,0 +1,16 @@
+.OPA2134UAE4 :1 ;TEXAS INSTRUMENTS - OPA2134UAE4. - Audio Power Amplifier, 2 Channel, +/- 2.5V to +/- 18V, SOIC, 8 Pins
+SOIC127P600X175-8N
+*STM IC
+*NGS
+*PLB 1="OUT A" 2="-IN A" 3="+IN A" 4="V-" 5="+IN B" 6="-IN B" 7="OUT B" 8="V+"
+*MXP 8
+*DFN OPA2134UAE4
+~!Mouser Part Number (595-OPA2134UAE4)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Texas-Instruments/OPA2134UAE4?qs=7nS3%252BbEUL6uzphh9X3AzMA%3D%3D)
+~!Manufacturer_Name (Texas Instruments)
+~!Manufacturer_Part_Number (OPA2134UAE4)
+~!Link Datasheet (https://www.ti.com/lit/gpn/OPA2134)
+~!Height (1.75mm)
+~!3D_Model (OPA2134UAE4)
+OPA2134UAE4
+1.1!U 2.1!U 3.1!U 4.1!U 8.1!U 7.1!U 6.1!U 5.1!U 

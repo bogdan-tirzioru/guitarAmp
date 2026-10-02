@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'OPA2134UAE4'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Texas Instruments", "OPA2134UAE4" (!) = "", "SOIC127P600X175-8N", "Small Outline Packages", "595-OPA2134UAE4", "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/OPA2134UAE4?qs=7nS3%252BbEUL6uzphh9X3AzMA%3D%3D", "TEXAS INSTRUMENTS - OPA2134UAE4. - Audio Power Amplifier, 2 Channel, +/- 2.5V to +/- 18V, SOIC, 8 Pins", "https://www.ti.com/lit/gpn/OPA2134", "1.75 mm"
+END_PART
+
+END.

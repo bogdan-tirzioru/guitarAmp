@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP OPA2134UAE4
+D TEXAS INSTRUMENTS - OPA2134UAE4. - Audio Power Amplifier, 2 Channel, +/- 2.5V to +/- 18V, SOIC, 8 Pins
+K
+F https://www.ti.com/lit/gpn/OPA2134
+$ENDCMP
+#
+#End Doc Library
