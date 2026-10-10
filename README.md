@@ -9,11 +9,25 @@ describe the intended design, not completed or validated functionality.
 
 ## Power architecture and schematic status
 
-The guitarAmp board is planned as a **self-powered** design using the external ±12 V supply shared with the reused LM1875 amplifier board. USB-C is for data and VBUS detection; USB VBUS must not power the board.
+The guitarAmp board is planned as a **self-powered** design using the external
+±12 V supply shared with the reused LM1875 amplifier board. USB-C is for data and
+VBUS detection; USB VBUS must not power the board.
 
-The schematic still needs a complete power-entry and regulator design. The target rails are ±12 V for the analog preamp, +3V3 for the STM32 and codec analog/I/O domains, +1.8 V for the codec core, and +5 V for the Waveshare display module. The generic display connector should carry the required +5 V module supply, +3V3 logic rail, and ground; verify the exact Rev 4.0 module/adapter pinout and current draw before freezing it. Regulator selection, current budgets, return paths, protection and startup sequencing remain open.
+The schematic still needs a complete power-entry and regulator design. The target
+rails are ±12 V for the analog preamp, +3V3 for the STM32 and codec analog/I/O
+domains, +1.8 V for the codec core, and +5 V for the Waveshare display module. The
+generic display connector should carry the required +5 V module supply, +3V3 logic
+rail, and ground; verify the exact Rev 4.0 module/adapter pinout and current draw
+before freezing it. Regulator selection, current budgets, return paths, protection
+and startup sequencing remain open.
 
-The latest schematic review is tracked in [`docs/schematic-todo.md`](docs/schematic-todo.md). Current blockers include the codec DRVDD_1 supply, a floating common return for the eight control-filter capacitors, three reversed polarized codec-input capacitors, input overload protection/headroom, and the incomplete power tree. The control ADC paths, 1 MΩ guitar input, display/UART connectors and SD-detect pull-up are reflected in the current source. Native Altium ERC and hardware validation are still pending.
+The latest schematic review is tracked in
+[`docs/schematic-todo.md`](docs/schematic-todo.md). Current blockers include the
+codec DRVDD_1 supply, a floating common return for the eight control-filter
+capacitors, three reversed polarized codec-input capacitors, input overload
+protection/headroom, and the incomplete power tree. The control ADC paths, 1 MΩ
+guitar input, display/UART connectors and SD-detect pull-up are reflected in the
+current source. Native Altium ERC and hardware validation are still pending.
 
 ## Agreed requirements
 
@@ -282,7 +296,8 @@ and bass response rather than copying 47 µF without checking.
    target; verify codec registers and SAI timing together.
 4. Finalize headphone impedance/output level, jack wiring, volume ramp/mute, and
    speaker muting when headphones are inserted.
-5. Verify the reused LM1875 board's supply connection, speaker load, gain/headroom, cooling, and output level in the complete assembly.
+5. Verify the reused LM1875 board's supply connection, speaker load,
+   gain/headroom, cooling, and output level in the complete assembly.
 6. Bring up rails/reset/I²C first, then DAC test tone, ADC capture, clean
    pass-through, effects/mixing, and USB recording of both sources.
 7. Measure round-trip latency, clipping/noise, and sustained DMA/USB operation.
