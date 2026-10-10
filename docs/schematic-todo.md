@@ -145,7 +145,7 @@ Every analog filter still needs its capacitor return connected to DGND. Assign u
 ## Recommended work order
 
 1. Connect codec DRVDD_1 and filter-capacitor returns; retain the restored 1 MΩ guitar input (01, 06, 27).
-2. Connect the filter return to DGND, finish PF12/ADC1_INP6, switch bias and connector pin 14 (06).
+2. Define the encoder push-switch idle bias/debounce and confirm TIM2_CH1 attachment (06, 13).
 3. Complete the ±12 V power entry/regulator tree and compile cross-sheet connectivity (07–08).
 4. Finalize the mono connection to the reused LM1875 board using its verified C1 input coupling; finish headphone load/part selection, input-capacitor polarity and analog headroom/protection (03–04, 09–12).
 5. Finish display power/pinout, LEDs, USB protection, MCU/HSE, SD_RESET and HyperRAM details (13–20).
