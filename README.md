@@ -7,6 +7,28 @@ recording. Initial effects are overdrive and delay.
 Status: hardware planning and CubeMX peripheral/pin allocation. Requirements below
 describe the intended design, not completed or validated functionality.
 
+## Power architecture and schematic status
+
+The guitarAmp board is planned as a **self-powered** design using the external
+±12 V supply shared with the reused LM1875 amplifier board. USB-C is for data and
+VBUS detection; USB VBUS must not power the board.
+
+The schematic still needs a complete power-entry and regulator design. The target
+rails are ±12 V for the analog preamp, +3V3 for the STM32 and codec analog/I/O
+domains, +1.8 V for the codec core, and +5 V for the Waveshare display module. The
+generic display connector should carry the required +5 V module supply, +3V3 logic
+rail, and ground; verify the exact Rev 4.0 module/adapter pinout and current draw
+before freezing it. Regulator selection, current budgets, return paths, protection
+and startup sequencing remain open.
+
+The latest schematic review is tracked in
+[`docs/schematic-todo.md`](docs/schematic-todo.md). Current blockers include the
+codec DRVDD_1 supply, a floating common return for the eight control-filter
+capacitors, three reversed polarized codec-input capacitors, input overload
+protection/headroom, and the incomplete power tree. The control ADC paths, 1 MΩ
+guitar input, display/UART connectors and SD-detect pull-up are reflected in the
+current source. Native Altium ERC and hardware validation are still pending.
+
 ## Agreed requirements
 
 | Area | Requirement |
@@ -19,7 +41,7 @@ describe the intended design, not completed or validated functionality.
 | Effects | Process guitar through STM32 overdrive/delay; auxiliary audio bypasses guitar effects. |
 | Mixing | Independent guitar and auxiliary levels, followed by output level control. Mix in STM32 so the backing track is included in USB recording. |
 | Headphones | Headphone output is required, using the selected codec's integrated drivers. |
-| Speaker output | External LM1875 power-amplifier stage. Final speaker channel count, power supply, load, and cooling remain open. |
+| Speaker output | Existing external LM1875 power-amplifier board, reused from the previous project and powered from the shared ±12 V supply. The guitarAmp interface, load, and measured output capability still need verification. |
 | USB | High-speed USB planned. Audio recording of the digital mix is required; audio playback, HID, and mass-storage functions are planned, with implementation stages still to be defined. |
 | Display/UI | Waveshare **3.5inch RPi LCD (A)**, 480×320 SPI TFT, is the selected development/reference display. Its Linux driver targets ILI9486 LCD and ADS7846-compatible resistive touch; verify the actual Rev 4.0 board before firmware bring-up. The guitarAmp PCB should expose a generic SPI TFT/touch interface rather than depend on the Raspberry Pi 40-pin connector. |
 | Simplicity | Prioritize achievable analog hardware and bring-up over additional channels or maximum converter specifications. |
@@ -274,7 +296,8 @@ and bass response rather than copying 47 µF without checking.
    target; verify codec registers and SAI timing together.
 4. Finalize headphone impedance/output level, jack wiring, volume ramp/mute, and
    speaker muting when headphones are inserted.
-5. Finalize LM1875 power supply, speaker configuration, gain, and cooling.
+5. Verify the reused LM1875 board's supply connection, speaker load,
+   gain/headroom, cooling, and output level in the complete assembly.
 6. Bring up rails/reset/I²C first, then DAC test tone, ADC capture, clean
    pass-through, effects/mixing, and USB recording of both sources.
 7. Measure round-trip latency, clipping/noise, and sustained DMA/USB operation.
