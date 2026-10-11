@@ -1,6 +1,6 @@
 # guitarAmp schematic to-do list
 
-Re-reviewed: 10 October 2026. Previous detailed review: 9 October 2026. Repository: [bogdan-tirzioru/guitarAmp](https://github.com/bogdan-tirzioru/guitarAmp).
+Re-reviewed: 11 October 2026. Previous detailed review: 10 October 2026. Repository: [bogdan-tirzioru/guitarAmp](https://github.com/bogdan-tirzioru/guitarAmp).
 
 Current baseline: `main`, commit [`b1274d7ac0ea01f8e92725183d432acd746d0bba`](https://github.com/bogdan-tirzioru/guitarAmp/tree/b1274d7ac0ea01f8e92725183d432acd746d0bba). Compared with the 10 October review baseline, `c599cde4b6e07f61a3ce9b34e6d7a115bc9e0c7e`, main now includes the initial BM83 reset/MFB interface documentation and a minimal Bluetooth schematic update (`d505209`, 11 October 2026).
 
@@ -163,7 +163,7 @@ Every analog filter still needs its capacitor return connected to DGND. Assign u
 
 ## Source references
 
-- Current project sources: [`layout/guitarDSP`](https://github.com/bogdan-tirzioru/guitarAmp/tree/c599cde4b6e07f61a3ce9b34e6d7a115bc9e0c7e/layout/guitarDSP), [`firmwaredsp.ioc`](https://github.com/bogdan-tirzioru/guitarAmp/blob/c599cde4b6e07f61a3ce9b34e6d7a115bc9e0c7e/firmwaredsp/firmwaredsp.ioc), [`README.md`](https://github.com/bogdan-tirzioru/guitarAmp/blob/c599cde4b6e07f61a3ce9b34e6d7a115bc9e0c7e/README.md), [`docs/tlv320aic3104.md`](https://github.com/bogdan-tirzioru/guitarAmp/blob/c599cde4b6e07f61a3ce9b34e6d7a115bc9e0c7e/docs/tlv320aic3104.md).
+- Current project sources at reviewed baseline [`b1274d7`](https://github.com/bogdan-tirzioru/guitarAmp/tree/b1274d7ac0ea01f8e92725183d432acd746d0bba): [`layout/guitarDSP`](https://github.com/bogdan-tirzioru/guitarAmp/tree/b1274d7ac0ea01f8e92725183d432acd746d0bba/layout/guitarDSP), [`bluetooth.SchDoc`](https://github.com/bogdan-tirzioru/guitarAmp/blob/b1274d7ac0ea01f8e92725183d432acd746d0bba/layout/guitarDSP/bluetooth.SchDoc), [`firmwaredsp.ioc`](https://github.com/bogdan-tirzioru/guitarAmp/blob/b1274d7ac0ea01f8e92725183d432acd746d0bba/firmwaredsp/firmwaredsp.ioc), [`README.md`](https://github.com/bogdan-tirzioru/guitarAmp/blob/b1274d7ac0ea01f8e92725183d432acd746d0bba/README.md), [`docs/tlv320aic3104.md`](https://github.com/bogdan-tirzioru/guitarAmp/blob/b1274d7ac0ea01f8e92725183d432acd746d0bba/docs/tlv320aic3104.md).
 - [TI TLV320AIC3104 datasheet, SLAS510G](https://www.ti.com/lit/ds/symlink/tlv320aic3104.pdf): pin functions, supply limits, analog input levels, AC-coupled headphones, outputs and sequencing.
 - [Microchip BM83 datasheet, DS70005402H](https://ww1.microchip.com/downloads/aemDocuments/documents/WSG/ProductDocuments/DataSheets/BM83-Bluetooth-Stereo-Audio-Module-Data-Sheet-DS70005402.pdf): current pin functions, BAT_IN range, SYS_PWR/VDD_IO treatment, reset timing, I²S interface and recommended footprint/ground pads.
 - [Reused LM1875 power-amplifier schematic](https://github.com/bogdan-tirzioru/amplifier/blob/b777c9ec8a359d5651b260d3cbb7d02f36bd271f/guitaramp/PCB_Project/PowerAmp.SchDoc), amplifier master `b777c9e`.
@@ -171,4 +171,4 @@ Every analog filter still needs its capacitor return connected to DGND. Assign u
 - [TI OPA2134 datasheet](https://www.ti.com/lit/ds/symlink/opa2134.pdf): supply, input/output limits and analog-stage checks.
 - [ST STM32H5Exxx datasheet, DS14971](https://www.st.com/resource/en/datasheet/stm32h5e5zj.pdf): exact MCU pinout, power scheme and USB supply.
 - `AN/ABM3B-8.000MHZ-10-D1G-T.pdf`: Abracon family datasheet/order-code explanation; confirm the full ordered part.
-- BM83 and S70KL1282 exact-part datasheets should be added/pinned to the hardware reference set before closing their verification items.
+- The S70KL1282 exact-part datasheet should be added/pinned to the hardware reference set before closing its verification item.
