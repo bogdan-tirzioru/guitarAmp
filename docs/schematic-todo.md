@@ -17,7 +17,7 @@ Priority: **P0** = blocking circuit/connectivity fixes; **P1** = complete before
 | Area | Current source status | Remaining action |
 | --- | --- | --- |
 | Codec power | DRVDD_1 pin 18 remains unconnected | Connect to the intended +3V3 analog rail and add local decoupling |
-| Guitar input | 1 MΩ input bias is restored | Confirm the resistor value is retained in the BOM and input protection/headroom are adequate |
+| Guitar input | 1 MΩ input bias and 220 nF input coupling capacitor are shown | Confirm both values/parts are retained in the BOM and input protection/headroom are adequate |
 | Auxiliary input | Stereo L/R is resistor-summed to mono on codec ADC right; guitar remains on ADC left | Correct the three polarized 2.2 µF input capacitor orientations; complete overload/protection analysis |
 | Controls | The supplied schematic view shows all eight analog-control paths, including PF12/ADC1_INP6 at connector pin 4, and the shared return for all eight filter capacitors connected to DGND. Connector pin 14 is placed but left open. | Decide and document pin 14’s intended treatment; define encoder-push idle/debounce and confirm TIM2_CH1 attachment; verify these connections in committed source and compiled netlist |
 | Storage | SD-card detect now has a pull-up | Confirm insertion polarity; decide the unused SD_RESET GPIO role |
@@ -34,7 +34,7 @@ The external LM1875 board is intentionally reused; its amplifier circuit is not 
 | --- | --- | --- |
 | `microcontroller.SchDoc` | STM32H5E5ZJT6, reset/BOOT0/SWD, HSE, MCU supply decoupling, USB-C/shield, memory/codec signals, eight control ADC paths and shared filter return shown connected in the supplied view, LCD/touch and UART interfaces | Decide and document the open connector pin 14; finish encoder switch behavior, power entry/regulators and returns, LEDs, USB ESD/VBUS details, and verify the view against committed source and compiled connectivity |
 | `memory.SchDoc` | S70KL1282 HyperRAM; microSD socket, signal pull-ups and card-detect pull-up | Confirm detect polarity; decide SD_RESET use; document memory constraints |
-| `audio.SchDoc` | TLV320AIC3104, OPA2134 guitar preamp/buffer, 1 MΩ guitar input, stereo-to-mono auxiliary summing, independent codec ADC routing, separate line-output channels, 220 µF headphone coupling | DRVDD_1 power, three reversed polarized input capacitors, overload/protection, capacitor/BOM metadata and analog headroom |
+| `audio.SchDoc` | TLV320AIC3104, OPA2134 guitar preamp/buffer, 1 MΩ guitar input with 220 nF coupling capacitor, stereo-to-mono auxiliary summing, independent codec ADC routing, separate line-output channels, 220 µF headphone coupling | DRVDD_1 power, three reversed polarized input capacitors, overload/protection, capacitor/BOM metadata and analog headroom |
 | `bluetooth.SchDoc` | BM83SM1-00AB; BC847 reset switch with 4.7 kΩ base resistor and 100 kΩ base-emitter pull-down; MFB through 1 kΩ with 100 kΩ pull-down; I²S/UART labels; two 100 nF capacitors | BAT_IN/VDD_IO supply error, SYS_PWR and ground-pad treatment, reset supervision/power-down behavior, UART flow control, unused-pin disposition and clock ownership |
 
 ## P0: fix these first
