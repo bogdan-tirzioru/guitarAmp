@@ -6,7 +6,7 @@ Current baseline: `main`, commit [`b1274d7ac0ea01f8e92725183d432acd746d0bba`](ht
 
 ## Review scope and limits
 
-The current `.SchDoc` files were checked against the previous native-record connectivity review, CubeMX pin allocation, codec driver profile, and project decisions. The new Bluetooth sheet was inspected from the native Altium records and its committed preview. The 10 October changes (`25ee012`, `0734f77`, `c599cde`) and 11 October Bluetooth changes (`6f1ea37`, `2cb969e`, `7f141af`, `d505209`) are reflected below.
+The current `.SchDoc` files were checked against the previous native-record connectivity review, CubeMX pin allocation, codec driver profile, and project decisions. The new Bluetooth sheet was inspected from the native Altium records and its committed preview. The 10 October changes (`25ee012`, `0734f77`, `c599cde`) and 11 October Bluetooth changes (`6f1ea37`, `2cb969e`, `7f141af`, `d505209`) are reflected below. The supplied control-sheet view, received after the stated repository baseline, also shows the PF12/ADC1_INP6 connection and shared ADC-filter return corrected; connector pin 14 is placed but left open. These screenshot-only observations still need confirmation against the committed Altium source and compiled netlist.
 
 This is a source-level review. Altium compilation/ERC, compiled cross-sheet netlisting, footprint checks, and physical measurements have not been run. A status marked resolved means the source drawing reflects the correction; it does not prove the compiled project or hardware.
 
@@ -19,7 +19,7 @@ Priority: **P0** = blocking circuit/connectivity fixes; **P1** = complete before
 | Codec power | DRVDD_1 pin 18 remains unconnected | Connect to the intended +3V3 analog rail and add local decoupling |
 | Guitar input | 1 MΩ input bias is restored | Confirm the resistor value is retained in the BOM and input protection/headroom are adequate |
 | Auxiliary input | Stereo L/R is resistor-summed to mono on codec ADC right; guitar remains on ADC left | Correct the three polarized 2.2 µF input capacitor orientations; complete overload/protection analysis |
-| Controls | Seven of eight analog-control paths reach MCU ADC nets; PF12/ADC1_INP6 at connector pin 4 remains open at the MCU side of its filter. Connector pin 14 has no placed visible pin; the eight filter-capacitor returns are floating. | Connect PF12; ground the filter returns; place or explicitly document connector pin 14; define encoder-push idle/debounce and confirm TIM2_CH1 attachment |
+| Controls | The supplied schematic view shows all eight analog-control paths, including PF12/ADC1_INP6 at connector pin 4, and the shared return for all eight filter capacitors connected to DGND. Connector pin 14 is placed but left open. | Decide and document pin 14’s intended treatment; define encoder-push idle/debounce and confirm TIM2_CH1 attachment; verify these connections in committed source and compiled netlist |
 | Storage | SD-card detect now has a pull-up | Confirm insertion polarity; decide the unused SD_RESET GPIO role |
 | LCD and console | Generic LCD/touch interface and UART access were added | Specify connector rails/pinout, including 5 V module power and 3.3 V logic; verify inactive CS, shared MISO and IRQ behavior |
 | USB | Shield connection was updated; USB is self-powered design | Keep USB VBUS as detection only, review divider/backfeed, add ESD protection, and document shield/chassis bond |
@@ -32,7 +32,7 @@ The external LM1875 board is intentionally reused; its amplifier circuit is not 
 
 | Sheet | Present in the current design | Main remaining work |
 | --- | --- | --- |
-| `microcontroller.SchDoc` | STM32H5E5ZJT6, reset/BOOT0/SWD, HSE, MCU supply decoupling, USB-C/shield, memory/codec signals, seven completed control ADC paths, LCD/touch and UART interfaces | Connect PF12/ADC1_INP6; resolve unplaced control-connector pin 14; ground ADC-filter capacitors; finish encoder switch behavior, power entry/regulators and returns, LEDs, USB ESD/VBUS details, and compiled connectivity |
+| `microcontroller.SchDoc` | STM32H5E5ZJT6, reset/BOOT0/SWD, HSE, MCU supply decoupling, USB-C/shield, memory/codec signals, eight control ADC paths and shared filter return shown connected in the supplied view, LCD/touch and UART interfaces | Decide and document the open connector pin 14; finish encoder switch behavior, power entry/regulators and returns, LEDs, USB ESD/VBUS details, and verify the view against committed source and compiled connectivity |
 | `memory.SchDoc` | S70KL1282 HyperRAM; microSD socket, signal pull-ups and card-detect pull-up | Confirm detect polarity; decide SD_RESET use; document memory constraints |
 | `audio.SchDoc` | TLV320AIC3104, OPA2134 guitar preamp/buffer, 1 MΩ guitar input, stereo-to-mono auxiliary summing, independent codec ADC routing, separate line-output channels, 220 µF headphone coupling | DRVDD_1 power, three reversed polarized input capacitors, overload/protection, capacitor/BOM metadata and analog headroom |
 | `bluetooth.SchDoc` | BM83SM1-00AB; BC847 reset switch with 4.7 kΩ base resistor and 100 kΩ base-emitter pull-down; MFB through 1 kΩ with 100 kΩ pull-down; I²S/UART labels; two 100 nF capacitors | BAT_IN/VDD_IO supply error, SYS_PWR and ground-pad treatment, reset supervision/power-down behavior, UART flow control, unused-pin disposition and clock ownership |
@@ -49,7 +49,7 @@ The external LM1875 board is intentionally reused; its amplifier circuit is not 
 
 - [x] **05 — Preserve independent guitar and mono auxiliary capture — resolved in source.** Guitar still reaches LINE1LP pin 10. `line_in` pin 2 and pin 3 now each pass through a separate **10 kΩ resistor and 2.2 µF capacitor** before joining at LINE1RP pin 12. LINE2L/LINE2R are unused; LINE1RM pin 13 now has a 100 nF AC connection to DGND, like LINE1LM. The isolation resistors prevent directly shorting the source L/R outputs, and the allocation now matches the firmware default LINE1/LINE1 inputs. For low-impedance source outputs and the datasheet nominal 20 kΩ input at 0 dB routing, the midband approximation is `Vaux ≈ 0.4 × (VL + VR)`; equal in-phase L/R gives about 0.8 times one channel, not unity gain. Final levels/protection and the reversed polarized input-capacitor orientation remain under 09–10.
 
-- [ ] **06 — Close the control/encoder return and connector.** Seven analog-control paths reach their MCU ADC nets. Connector pin 4’s PF12/ADC1_INP6 branch reaches the filter node but remains open at the MCU side; connect it to PF12. The `2514-` connector has visible pins 1–13, but pin 14 has no placed visible pin; assign/document it or remove it from the chosen connector variant. The shared return for the eight 100 nF filter capacitors still needs a direct DGND connection; connector pin 13 does not ground this separate node. Encoder A/B have 10 kΩ pull-ups and the push switch reaches PF2, but define its idle bias/debounce and confirm `TIM2_CH1` attaches to PF0 in Altium. **Done when:** all eight ADC paths and their return are connected, pin 14 has an intentional treatment, the switch has a defined idle state, and the compiled connector/net mapping is correct.
+- [ ] **06 — Confirm the control/encoder interface.** The supplied schematic view shows all eight analog-control paths reaching their MCU ADC nets, including connector pin 4 to PF12/ADC1_INP6, and the shared return for the eight 100 nF filter capacitors connected to DGND. Connector pin 14 (visible segment X?N) is placed with an open stub; assign it a function or mark/document it intentionally unused. Encoder A/B have 10 kΩ pull-ups and the push switch reaches PF2, but define its idle bias/debounce and confirm `TIM2_CH1` attaches to PF0 in Altium. **Done when:** committed source and compiled nets confirm the eight ADC paths and capacitor return, pin 14 has an intentional treatment, the switch has a defined idle state, and the connector/net mapping is correct.
 
 - [x] **27 — Restore the guitar input impedance — resolved in the current source.** The latest reviewed audio sheet shows the agreed **1 MΩ** bias resistor at the OPA2134 input, restoring the intended high-impedance passive-guitar input. Confirm the annotated value and part number during BOM cleanup.
 
@@ -80,7 +80,7 @@ The `2514-` multipart connector is still `X?`. Pin numbers below come from the n
 | 1 | Encoder A → PF0, MCU pin 10 | Connected directly; 10 kΩ pull-up present; reattach `TIM2_CH1` label |
 | 2 | Encoder B → PF1, MCU pin 11 | Connected; `TIM2_CH2` label and 10 kΩ pull-up present |
 | 3 | Encoder push → PF2, MCU pin 12 | Connected; `ENC_EXTI2`; add defined idle bias/debounce |
-| 4 | Analog control → PF12, MCU pin 50, ADC1_INP6 | **Open at MCU side of filter**; add matching wire/labels |
+| 4 | Analog control → PF12, MCU pin 50, ADC1_INP6 | Connected in supplied view; verify against committed source and compiled netlist |
 | 5 | Analog control → PC0, MCU pin 26, ADC1_INP10 | Signal connected |
 | 6 | Analog control → PC1, MCU pin 27, ADC1_INP11 | Signal connected |
 | 7 | Analog control → PC2, MCU pin 28, ADC1_INP12 | Signal connected |
@@ -89,10 +89,10 @@ The `2514-` multipart connector is still `X?`. Pin numbers below come from the n
 | 10 | Analog control → PC4, MCU pin 44, ADC1_INP4 | Signal connected |
 | 11 | Analog control → PF11, MCU pin 49, ADC1_INP2 | Signal connected |
 | 12 | +3V3 | Connected |
-| 13 | DGND | Connected; **does not connect the capacitor return node** |
-| 14 | Unassigned | No placed visible part/pin; add or explicitly document intended treatment |
+| 13 | DGND | Connected |
+| 14 | Unassigned | Pin is placed (visible segment X?N) but left open; assign a function or document/mark it intentionally unused |
 
-Every analog filter still needs its capacitor return connected to DGND. Assign user-facing control names and document external pot/encoder wiring.
+The supplied view shows all eight analog-filter capacitor returns connected to DGND. Verify that shared return in the committed source and compiled netlist. Assign user-facing control names and document external pot/encoder wiring.
 
 ### Other interfaces to complete
 
@@ -146,7 +146,7 @@ Every analog filter still needs its capacitor return connected to DGND. Assign u
 
 ## Recommended work order
 
-1. Correct BM83 supply pins and ground pads if retaining Bluetooth (28); connect codec DRVDD_1 and filter-capacitor returns; retain the restored 1 MΩ guitar input (01, 06, 27).
+1. Correct BM83 supply pins and ground pads if retaining Bluetooth (28); connect codec DRVDD_1; retain the restored 1 MΩ guitar input (01, 06, 27).
 2. Define the encoder push-switch idle bias/debounce and confirm TIM2_CH1 attachment (06, 13).
 3. Complete the ±12 V power entry/regulator tree and compile cross-sheet connectivity (07–08).
 4. Finalize the mono connection to the reused LM1875 board using its verified C1 input coupling; finish headphone load/part selection, input-capacitor polarity and analog headroom/protection (03–04, 09–12).
@@ -157,7 +157,7 @@ Every analog filter still needs its capacitor return connected to DGND. Assign u
 
 - The previous native-record connectivity review at `97976bce` traced the audio and MCU connections. This update also parsed the new Bluetooth sheet’s native records and preview at `d505209`, confirming the reset and MFB networks and identifying the supply/ground-pad issue.
 - Confirmed project decisions: 1 MΩ guitar input, independent guitar/auxiliary ADC routing, external LM1875 reuse, self-powered ±12 V supply, and no USB bus power.
-- Current open circuit blockers remain codec DRVDD_1, the shared return of eight control-filter capacitors, three reversed polarized codec-input capacitors, analog input overload/protection, and the undocumented regulator/power-entry tree. For Bluetooth, the new source ties BM83 BAT_IN and internal VDD_IO to +3V3 and leaves SYS_PWR open; item 28 records the required datasheet correction.
+- Current open circuit blockers remain codec DRVDD_1, three reversed polarized codec-input capacitors, analog input overload/protection, and the undocumented regulator/power-entry tree. The supplied control-sheet view shows the eight filter-capacitor returns tied to DGND and all eight ADC paths connected; connector pin 14 remains open. Verify these screenshot findings against the committed source and compiled netlist. For Bluetooth, the new source ties BM83 BAT_IN and internal VDD_IO to +3V3 and leaves SYS_PWR open; item 28 records the required datasheet correction.
 - The Waveshare module's 5 V supply requirement is recorded in the [manufacturer documentation](https://www.waveshare.com/wiki/3.5inch_RPi_LCD_%28A%29); confirm the Rev 4.0 board and adapter pinout before finalizing the connector.
 - No native Altium compile/ERC, cross-sheet netlist, footprint audit or physical tests were run. The report is a source review, not board-release sign-off.
 
