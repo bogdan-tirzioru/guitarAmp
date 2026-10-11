@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'LM7805CT_NOPB'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT", "TJ", "MTBF", "POWER", "SLOPE", "SUBTYPE", "PACKAGE", "RJA", "IPEAK", "VCC_MAX", "VCC_MIN", "IOUT_MAX", "IOUT_MIN", "ICC", "IGND", "RCA", "RJC", "ICCQ", "TECHNOLOGY", "ISHORT";
+{========================================================================================}
+ "Texas Instruments", "LM7805CT/NOPB" (!) = "", "TO254P470X1028X1955-3P", "Transistor Outline, Vertical", "926-LM7805CT/NOPB", "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/LM7805CT-NOPB?qs=OYMYEaN9QmBS2GvaX6GSkQ%3D%3D", "1.5-A, Wide VIN Fixed Voltage Regulators", "http://www.ti.com/lit/gpn/lm7800", "4.7 mm", "150", "", "2.5", "0.031", "VOLTAGE REGULATOR THROUGH HOLE", "TO-220", "23.9", "2.4", "35", "", "", "", "", "", "", "16.7", "8.5m", "BIPOLAR", "2.1"
+END_PART
+
+END.

@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP LM7805CT_NOPB
+D 1.5-A, Wide VIN Fixed Voltage Regulators
+K
+F http://www.ti.com/lit/gpn/lm7800
+$ENDCMP
+#
+#End Doc Library

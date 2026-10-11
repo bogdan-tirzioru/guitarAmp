@@ -1,0 +1,16 @@
+.LM7805CT_NOPB :1 ;1.5-A, Wide VIN Fixed Voltage Regulators
+TO254P470X1028X1955-3P
+*STM IC
+*NGS
+*PLB 1="INPUT" 2="GND" 3="OUTPUT"
+*MXP 3
+*DFN LM7805CT_NOPB
+~!Mouser Part Number (926-LM7805CT/NOPB)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Texas-Instruments/LM7805CT-NOPB?qs=OYMYEaN9QmBS2GvaX6GSkQ%3D%3D)
+~!Manufacturer_Name (Texas Instruments)
+~!Manufacturer_Part_Number (LM7805CT/NOPB)
+~!Link Datasheet (http://www.ti.com/lit/gpn/lm7800)
+~!Height (4.7mm)
+~!3D_Model (LM7805CT_NOPB)
+LM7805CT_NOPB
+1.1!U 2.1!U 3.1!U 

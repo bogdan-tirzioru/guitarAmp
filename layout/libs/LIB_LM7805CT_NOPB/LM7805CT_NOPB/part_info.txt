@@ -1,0 +1,9 @@
+Manufacturer=Texas Instruments
+PartNumber=LM7805CT/NOPB
+PartCategory=Integrated Circuit
+PackageCategory=Transistor Outline, Vertical
+PinCount=3
+Version=1.5
+Released=2018-05-14 07:56:37
+Downloaded=2026-10-11 13:05:33
+3D=Y
