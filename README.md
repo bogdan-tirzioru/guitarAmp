@@ -207,7 +207,7 @@ functions were checked against STM32H5Exxx DS14971, tables 14 and 15.
 | PD8 | USART3_TX, AF7 | MCU → UART_RXD, pin 29 |
 | PD9 | USART3_RX, AF7 | UART_TXD, pin 30 → MCU |
 | PD10 | GPIO output, BM83_reset | BC847 open-collector stage to RST_N, pin 43: PD10 through 4.7 kΩ to base; 100 kΩ base-emitter pull-down; emitter to GND; collector to RST_N. PD10 high asserts reset. |
-| PD14 | GPIO output, BM83_WAKE1 | MFB, pin 26, via suitable interface |
+| PD14 | GPIO output, BM83_WAKE1 | MFB, pin 26 through 1 kΩ series resistor; 100 kΩ pull-down to GND at module side. High wakes/keeps BM83 active; low requests power-save. |
 | PD15 | GPIO input, BM83_IND | P0_0 / UART_TX_IND, pin 49 |
 
 Current CubeMX review:
@@ -248,10 +248,12 @@ Leave DR1 unused unless transmit functionality is added.
 
 ### Schematic provisions still required
 
-- Implement the BM83 reset with a BC847 open-collector stage: PD10 through
-  4.7 kΩ to base, 100 kΩ base-emitter pull-down, emitter to GND, collector to
-  RST_N pin 43. The BM83 has an internal RST_N pull-up; PD10 high asserts reset.
-  Check the separate MFB drive, module supply/I/O levels and unpowered behavior.
+- Implement reset with a BC847 open-collector stage: PD10 through 4.7 kΩ to
+  base, 100 kΩ base-emitter pull-down, emitter to GND, collector to RST_N pin 43.
+  The BM83 has an internal RST_N pull-up; PD10 high asserts reset. Drive MFB pin 26
+  directly from PD14 through 1 kΩ, with a 100 kΩ pull-down at the module side;
+  high wakes/keeps BM83 active and low requests power-save. Verify module supply
+  and behavior if BAT_IN is removed while the MCU remains powered.
 - Keep the specified antenna clearance and place the antenna at the PCB edge.
 - Expose UART and the module application/test strap for configuration access.
 - Resolve UART hardware-flow-control needs before layout. PD11/PD12 are used
