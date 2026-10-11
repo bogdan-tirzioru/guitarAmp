@@ -32,7 +32,7 @@ The external LM1875 board is intentionally reused; its amplifier circuit is not 
 
 | Sheet | Present in the current design | Main remaining work |
 | --- | --- | --- |
-| `microcontroller.SchDoc` | STM32H5E5ZJT6, reset/BOOT0/SWD, HSE, MCU supply decoupling, USB-C/shield, memory/codec signals, eight control ADC paths and shared filter return shown connected, LCD/touch and UART interfaces | Decide/document the open connector pin 14; finish encoder switch behavior, power entry/regulators and returns, LEDs, USB ESD/VBUS details, and verify connectivity in Altium's compiled project |
+| `microcontroller.SchDoc` | STM32H5E5ZJT6, reset/BOOT0/SWD, HSE, MCU supply decoupling, USB-C/shield, memory/codec signals, eight control ADC paths and shared filter return, three LED driver branches, UART console and LCD/touch connectors are shown | Decide/document the open control-connector pin 14; finish encoder switch behavior and power entry/regulators/returns; verify LED assignments and the UART/display connector pinout and rails; add USB ESD/VBUS details and compile connectivity |
 | `memory.SchDoc` | S70KL1282 HyperRAM; microSD socket, signal pull-ups and card-detect pull-up | Confirm detect polarity; decide SD_RESET use; document memory constraints |
 | `audio.SchDoc` | TLV320AIC3104, OPA2134 guitar preamp/buffer, 1 MΩ guitar input with 220 nF coupling capacitor, stereo-to-mono auxiliary summing, independent codec ADC routing, separate line-output channels, 220 µF headphone coupling; three 2.2 µF preamp/auxiliary coupling capacitors replaced with non-polar SMD parts | DRVDD_1 power, overload/protection, coupling-capacitor BOM/ratings and low-frequency response, analog headroom |
 | `bluetooth.SchDoc` | BM83SM1-00AB; BC847 reset switch with 4.7 kΩ base resistor and 100 kΩ base-emitter pull-down; MFB through 1 kΩ with 100 kΩ pull-down; I²S/UART labels; two 100 nF capacitors | BAT_IN/VDD_IO supply error, SYS_PWR and ground-pad treatment, reset supervision/power-down behavior, UART flow control, unused-pin disposition and clock ownership |
@@ -94,15 +94,15 @@ The `2514-` multipart connector is still `X?`. The latest sheet labels its parts
 
 The latest committed sheet shows all eight analog-filter capacitor returns connected to DGND. Assign user-facing control names and document external pot/encoder wiring; compiled-net verification remains under 08.
 
-### Other interfaces to complete
+### Other MCU interface status
 
-| Function | Current CubeMX assignment | Schematic action |
+| Function | CubeMX assignment | Current schematic state and remaining check |
 | --- | --- | --- |
-| Status LEDs | PC13 `LED0`; PC14 `LED1`; PC15 `LED2` | Add LEDs/resistors or an explicitly defined external LED interface |
-| Serial console | PA2 USART2_TX / PA3 USART2_RX | Add 3.3 V UART header with GND and clear TX/RX labels |
-| Display SPI | PB13 SCK / PB15 MOSI / PB14 MISO | Add generic display/touch connector |
-| Display controls | PB12 LCD_CS; PE14 LCD_RS; PE15 LCD_RESET | Connect to display header with defined inactive/reset levels |
-| Touch controls | PB10 TOUCH_CS; PE13 TOUCH_IRQ | Connect to display header; check IRQ pull-up and shared-MISO behavior |
+| Status LEDs | PC13 `LED0`; PC14 `LED1`; PC15 `LED2` | Three LED driver/indicator branches are now drawn. Verify their GPIO mapping, transistor and LED polarity, resistor values/current, and BOM parts. |
+| Serial console | PA2 USART2_TX / PA3 USART2_RX | UART console interface is now shown. Verify header pinout, 3.3 V/GND pins, and TX/RX orientation. |
+| Display SPI | PB13 SCK / PB15 MOSI / PB14 MISO | Generic LCD/touch connector is now shown with SPI signals. Verify connector pinout, module supply rails/current, logic levels, and shared-MISO behavior. |
+| Display controls | PB12 LCD_CS; PE14 LCD_RS; PE15 LCD_RESET | Control signals appear routed to the display connector. Verify each net-to-pin mapping, inactive CS level, and reset state. |
+| Touch controls | PB10 TOUCH_CS; PE13 TOUCH_IRQ | Touch signals appear routed to the display connector. Verify IRQ pull-up/polarity and touch CS/MISO behavior. |
 
 ## P1: complete before schematic freeze
 
@@ -116,9 +116,9 @@ The latest committed sheet shows all eight analog-filter capacitor returns conne
 
 - [ ] **13 — Complete controls mechanically and electrically.** Document the eight potentiometer values/tapers, endpoint supply and ground, cable pinout, connector keying and open-wiper behavior. A/B pull-ups are now present; finish encoder push bias and debounce, confirm contact-common wiring and selected interrupt edge. Add protection for controls connected by exposed cables. Check total source resistance and ADC sample time; the 100 Ω series resistor alone does not describe the source impedance of a potentiometer. Label gain/level trimmers separately from user-facing DSP controls. **Done when:** connector pinout, ADC-channel table and control functions agree.
 
-- [ ] **14 — Verify the LCD/touch interface and its supply.** A generic SPI LCD/touch interface is now present. For the Waveshare 3.5inch RPi LCD (A) baseline, provide the module's 5 V supply and the 3.3 V logic rail/reference at the connector; use a common ground. Verify the adapter pinout against the actual Rev 4.0 module, define inactive LCD/touch CS levels, and confirm touch IRQ pull-up and shared-MISO release behavior. **Done when:** the connector pinout, supply current budget and signal levels are recorded.
+- [ ] **14 — Verify the LCD/touch interface and its supply.** A generic SPI LCD/touch connector is now present. For the Waveshare 3.5inch RPi LCD (A) baseline, verify that the connector provides the module's 5 V supply, 3.3 V logic/reference, and common ground, and record its current budget. Check the adapter pinout against the actual Rev 4.0 module, define inactive LCD/touch CS levels, and confirm touch IRQ pull-up and shared-MISO release behavior. **Done when:** connector pinout, rails, current budget and signal levels are recorded.
 
-- [ ] **15 — Complete status LED and service access.** UART console access is now present, alongside the existing SWD/NRST/BOOT0 access. Add status LED circuitry for the configured PC13/PC14/PC15 functions (or revise the firmware/pin plan) and ensure the UART connector has 3.3 V logic, ground, and clearly identified TX/RX directions. **Done when:** bring-up status and serial access are available from documented connector pins.
+- [ ] **15 — Verify status LEDs and service access.** Three LED driver/indicator branches and the UART console interface are now shown on the MCU sheet, alongside SWD/NRST/BOOT0 access. Verify the LED branches map to PC13/PC14/PC15, check transistor/LED orientation, resistor values and current, and document the parts. Verify the UART connector's 3.3 V logic, ground, and TX/RX pin directions. **Done when:** the LED and UART pin mappings are documented and agree with the schematic and firmware.
 
 - [ ] **16 — Finish USB protection and verify data-only VBUS behavior.** The design is self-powered; USB VBUS is for detection and must not feed the board rails. D+/D− reach the dedicated HS PHY pins, Type-C CC pull-downs are present, and the shield connection has been updated. Add suitable low-capacitance HS ESD protection; verify the PA9 VBUS-divider threshold/leakage and behavior when the MCU is unpowered; document how connector shield, chassis and DGND are bonded. **Done when:** there is no USB-to-board power path and the protection, detection and shield scheme are explicit.
 
