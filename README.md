@@ -206,7 +206,7 @@ functions were checked against STM32H5Exxx DS14971, tables 14 and 15.
 | PD13 | SAI2_SCK_A, AF10 | SCLK1, pin 3 |
 | PD8 | USART3_TX, AF7 | MCU → UART_RXD, pin 29 |
 | PD9 | USART3_RX, AF7 | UART_TXD, pin 30 → MCU |
-| PD10 | GPIO output, BM83_reset | RST_N, pin 43, via suitable interface |
+| PD10 | GPIO output, BM83_reset | BC847 open-collector stage to RST_N, pin 43: PD10 through 4.7 kΩ to base; 100 kΩ base-emitter pull-down; emitter to GND; collector to RST_N. PD10 high asserts reset. |
 | PD14 | GPIO output, BM83_WAKE1 | MFB, pin 26, via suitable interface |
 | PD15 | GPIO input, BM83_IND | P0_0 / UART_TX_IND, pin 49 |
 
@@ -248,8 +248,10 @@ Leave DR1 unused unless transmit functionality is added.
 
 ### Schematic provisions still required
 
-- Check BM83 supply and I/O levels, reset and MFB drive requirements, and
-  unpowered-module isolation before choosing direct wiring or level translation.
+- Implement the BM83 reset with a BC847 open-collector stage: PD10 through
+  4.7 kΩ to base, 100 kΩ base-emitter pull-down, emitter to GND, collector to
+  RST_N pin 43. The BM83 has an internal RST_N pull-up; PD10 high asserts reset.
+  Check the separate MFB drive, module supply/I/O levels and unpowered behavior.
 - Keep the specified antenna clearance and place the antenna at the PCB edge.
 - Expose UART and the module application/test strap for configuration access.
 - Resolve UART hardware-flow-control needs before layout. PD11/PD12 are used
