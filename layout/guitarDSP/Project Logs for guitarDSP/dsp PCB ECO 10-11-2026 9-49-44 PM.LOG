@@ -1,0 +1,81 @@
+Removed Member From Class: ClassName=microcontroller Member=C27
+Removed Member From Class: ClassName=microcontroller Member=C28
+Removed Member From Class: ClassName=microcontroller Member=C29
+Removed Member From Class: ClassName=microcontroller Member=C30
+Removed Member From Class: ClassName=microcontroller Member=C31
+Removed Member From Class: ClassName=microcontroller Member=C32
+Removed Member From Class: ClassName=microcontroller Member=J2
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found CAPAE430X610N
+Add Component: Footprint Not Found C0805
+Added Component: Designator=C56(C0402)
+Add component (AddParameter): Name = "Alternate_Manufacturer"; Value = "MURATA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Alternate_Manufacturer_Part_Number"; Value = "GCM155R71C104KA55D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://tunmcdsvn.tun.st.com/Component_Datasheet_Library/Trunk/Capacitors/Yageo_Multilayer_Capacitor_X7R_series_100pF_to_22uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ECCN_EU"; Value = "NEC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ECCN_US"; Value = "EAR99"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Internal_Part_Number"; Value = "MCD-00102"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "YAGEO"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "CC0402KRX7R7BB104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "C0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part_Type"; Value = "Capacitor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Provided_By"; Value = "SUBCO"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Revision"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Status"; Value = "Released"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found TO220H
+Add Component: Footprint Not Found B2,54
+Add Component: Footprint Not Found SO8
+Add Pin To Net: Unknown Pin: Pin C25-1
+Add Pin To Net: Unknown Pin: Pin C25-2
+Add Pin To Net: Unknown Pin: Pin C39-1
+Add Pin To Net: Unknown Pin: Pin C39-2
+Add Pin To Net: Unknown Pin: Pin C45-1
+Add Pin To Net: Unknown Pin: Pin C45-2
+Add Pin To Net: Unknown Pin: Pin C46-1
+Add Pin To Net: Unknown Pin: Pin C46-2
+Add Pin To Net: Unknown Pin: Pin C50-1
+Add Pin To Net: Unknown Pin: Pin C50-2
+Add Pin To Net: Unknown Pin: Pin C53-1
+Add Pin To Net: Unknown Pin: Pin C53-2
+Added Pin To Net: NetName=+3V3 Pin=C56-1
+Added Pin To Net: NetName=DGND Pin=C56-2
+Added Pin To Net: NetName=+3V3 Pin=IC3-18
+Add Pin To Net: Unknown Pin: Pin IC7-1
+Add Pin To Net: Unknown Pin: Pin IC7-2
+Add Pin To Net: Unknown Pin: Pin IC7-3
+Add Pin To Net: Unknown Pin: Pin TP1-TP
+Add Pin To Net: Unknown Pin: Pin U1-1
+Add Pin To Net: Unknown Pin: Pin U1-2
+Add Pin To Net: Unknown Pin: Pin U1-3
+Add Pin To Net: Unknown Pin: Pin U1-5
+Add Pin To Net: Unknown Pin: Pin U1-6
+Add Pin To Net: Unknown Pin: Pin U1-7
+Add Pin To Net: Unknown Pin: Pin U1-8
+Added Member To Class: ClassName=microcontroller Member=Component C1 100n
+Added Member To Class: ClassName=microcontroller Member=Component C2 100n
+Added Member To Class: ClassName=microcontroller Member=Component C3 100n
+Added Member To Class: ClassName=microcontroller Member=Component C4 1u
+Added Member To Class: ClassName=microcontroller Member=Component C5 100n
+Added Member To Class: ClassName=microcontroller Member=Component C6 100n
+Add Class Member: Failed to add class member : Component C25 2.2u
+Add Class Member: Failed to add class member : Component C39 2.2u
+Add Class Member: Failed to add class member : Component C45 2.2u
+Add Class Member: Failed to add class member : Component C46 2.2u
+Add Class Member: Failed to add class member : Component C50 2.2u
+Add Class Member: Failed to add class member : Component C53 2.2u
+Added Member To Class: ClassName=audio Member=Component C56 Capacitor
+Add Class Member: Failed to add class member : Component IC7 317
+Added Member To Class: ClassName=microcontroller Member=Component J1 USB4085-GF-A_REVA4
+Added Member To Class: ClassName=microcontroller Member=Component S1 A6S-1102-H
+Add Class Member: Failed to add class member : Component TP1 TPB2,54
+Add Class Member: Failed to add class member : Component U1 KF33D
+Added Room: Name=audio
+Added Room: Name=bluetooth
+Added Room: Name=memory
+Added Room: Name=microcontroller
+Added Room: Name=powersupply

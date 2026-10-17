@@ -1,0 +1,51 @@
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found CAPAE430X610N
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found TO220H
+Add Component: Footprint Not Found B2,54
+Added Component: Designator=U1(SOIC127P600X175-8N)
+Add component (AddParameter): Name = "MPN"; Value = "KF33BD-TR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "2253497"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "25M9948"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PACKAGE"; Value = "SOIC-8"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SUPPLIER"; Value = "STMicroelectronics"; VariantName = "[No Variations]"
+Add Pin To Net: Unknown Pin: Pin C25-1
+Add Pin To Net: Unknown Pin: Pin C25-2
+Add Pin To Net: Unknown Pin: Pin C39-1
+Add Pin To Net: Unknown Pin: Pin C39-2
+Add Pin To Net: Unknown Pin: Pin C45-1
+Add Pin To Net: Unknown Pin: Pin C45-2
+Add Pin To Net: Unknown Pin: Pin C46-1
+Add Pin To Net: Unknown Pin: Pin C46-2
+Add Pin To Net: Unknown Pin: Pin C50-1
+Add Pin To Net: Unknown Pin: Pin C50-2
+Add Pin To Net: Unknown Pin: Pin C53-1
+Add Pin To Net: Unknown Pin: Pin C53-2
+Add Pin To Net: Unknown Pin: Pin IC7-1
+Add Pin To Net: Unknown Pin: Pin IC7-2
+Add Pin To Net: Unknown Pin: Pin IC7-3
+Add Pin To Net: Unknown Pin: Pin TP1-TP
+Added Pin To Net: NetName=+3V3 Pin=U1-1
+Added Pin To Net: NetName=DGND Pin=U1-2
+Added Pin To Net: NetName=DGND Pin=U1-3
+Added Pin To Net: NetName=DGND Pin=U1-5
+Added Pin To Net: NetName=DGND Pin=U1-6
+Added Pin To Net: NetName=DGND Pin=U1-7
+Added Pin To Net: NetName=+5V Pin=U1-8
+Add Class Member: Failed to add class member : Component C25 2.2u
+Add Class Member: Failed to add class member : Component C39 2.2u
+Add Class Member: Failed to add class member : Component C45 2.2u
+Add Class Member: Failed to add class member : Component C46 2.2u
+Add Class Member: Failed to add class member : Component C50 2.2u
+Add Class Member: Failed to add class member : Component C53 2.2u
+Add Class Member: Failed to add class member : Component IC7 317
+Add Class Member: Failed to add class member : Component TP1 TPB2,54
+Added Member To Class: ClassName=powersupply Member=Component U1 LDO, 0.4VDO, 0.5A, 3.3V, 2%, 8SOIC
+Added Room: Name=audio
+Added Room: Name=bluetooth
+Added Room: Name=memory
+Added Room: Name=microcontroller
+Added Room: Name=powersupply

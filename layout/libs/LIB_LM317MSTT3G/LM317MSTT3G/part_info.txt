@@ -1,0 +1,9 @@
+Manufacturer=onsemi
+PartNumber=LM317MSTT3G
+PartCategory=Integrated Circuit
+PackageCategory=SOT223 (3-Pin)
+PinCount=4
+Version=3.1
+Released=2015-08-04 10:07:20
+Downloaded=2026-10-17 05:09:00
+3D=Y

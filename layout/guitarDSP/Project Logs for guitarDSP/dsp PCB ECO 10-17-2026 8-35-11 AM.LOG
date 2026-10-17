@@ -1,0 +1,38 @@
+Removed Pin From Net: NetName=NetC10_1 Pin=C10- 
+Added Component: Designator=C39(C0805)
+Add component (AddParameter): Name = "SPICEPREFIX"; Value = "C"; VariantName = "[No Variations]"
+Added Component: Designator=C45(C0805)
+Add component (AddParameter): Name = "SPICEPREFIX"; Value = "C"; VariantName = "[No Variations]"
+Added Component: Designator=C46(C0805)
+Add component (AddParameter): Name = "SPICEPREFIX"; Value = "C"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found CAPAE430X610N
+Add Component: Footprint Not Found C0805
+Added Component: Designator=C?(C0805)
+Add component (AddParameter): Name = "SPICEPREFIX"; Value = "C"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found B2,54
+Add Pin To Net: Unknown Pin: Pin C10-1
+Added Pin To Net: NetName=NetC39_1 Pin=C39-1
+Added Pin To Net: NetName=NetC39_2 Pin=C39-2
+Added Pin To Net: NetName=NetC45_1 Pin=C45-1
+Added Pin To Net: NetName=NetC45_2 Pin=C45-2
+Added Pin To Net: NetName=NetC46_1 Pin=C46-1
+Added Pin To Net: NetName=NetC45_2 Pin=C46-2
+Add Pin To Net: Unknown Pin: Pin C50-1
+Add Pin To Net: Unknown Pin: Pin C50-2
+Add Pin To Net: Unknown Pin: Pin C53-1
+Add Pin To Net: Unknown Pin: Pin C53-2
+Added Pin To Net: NetName=VDD11USB Pin=C?-1
+Added Pin To Net: NetName=DGND Pin=C?-2
+Add Pin To Net: Unknown Pin: Pin TP1-TP
+Added Member To Class: ClassName=audio Member=Component C39 2.2u
+Added Member To Class: ClassName=audio Member=Component C45 2.2u
+Added Member To Class: ClassName=audio Member=Component C46 2.2u
+Add Class Member: Failed to add class member : Component C50 2.2u
+Add Class Member: Failed to add class member : Component C53 2.2u
+Added Member To Class: ClassName=microcontroller Member=Component C? 2.2u
+Add Class Member: Failed to add class member : Component TP1 TPB2,54
+Added Room: Name=audio
+Added Room: Name=bluetooth
+Added Room: Name=memory
+Added Room: Name=microcontroller
+Added Room: Name=powersupply

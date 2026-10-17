@@ -1,0 +1,47 @@
+Added Component: Designator=B?(SOT230P700X175-4N)
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://www.onsemi.com/pub/Collateral/LM317M-D.PDF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Geometry.Height"; Value = "1.75mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "onsemi"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "LM317MSTT3G"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "863-LM317MSTT3G"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/onsemi/LM317MSTT3G?qs=2OtswVQKCOFpDo6oeYvGzw%3D%3D"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found CAPAE430X610N
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found B2,54
+Added Pin To Net: NetName=+1.8 Pin=B?-2
+Added Pin To Net: NetName=+5V Pin=B?-3
+Added Pin To Net: NetName=+1.8 Pin=B?-4
+Add Pin To Net: Unknown Pin: Pin C25-1
+Add Pin To Net: Unknown Pin: Pin C25-2
+Add Pin To Net: Unknown Pin: Pin C39-1
+Add Pin To Net: Unknown Pin: Pin C39-2
+Add Pin To Net: Unknown Pin: Pin C45-1
+Add Pin To Net: Unknown Pin: Pin C45-2
+Add Pin To Net: Unknown Pin: Pin C46-1
+Add Pin To Net: Unknown Pin: Pin C46-2
+Add Pin To Net: Unknown Pin: Pin C50-1
+Add Pin To Net: Unknown Pin: Pin C50-2
+Add Pin To Net: Unknown Pin: Pin C53-1
+Add Pin To Net: Unknown Pin: Pin C53-2
+Add Pin To Net: Unknown Pin: Pin TP1-TP
+Added Pin To Net: NetName=NetB?_1 Pin=B?-1
+Added Pin To Net: NetName=NetB?_1 Pin=R42-1
+Added Pin To Net: NetName=NetB?_1 Pin=R43-2
+Added Net: Name=NetB?_1
+Added Member To Class: ClassName=powersupply Member=Component B? LM317MSTT3G
+Add Class Member: Failed to add class member : Component C25 2.2u
+Add Class Member: Failed to add class member : Component C39 2.2u
+Add Class Member: Failed to add class member : Component C45 2.2u
+Add Class Member: Failed to add class member : Component C46 2.2u
+Add Class Member: Failed to add class member : Component C50 2.2u
+Add Class Member: Failed to add class member : Component C53 2.2u
+Add Class Member: Failed to add class member : Component TP1 TPB2,54
+Added Room: Name=audio
+Added Room: Name=bluetooth
+Added Room: Name=memory
+Added Room: Name=microcontroller
+Added Room: Name=powersupply

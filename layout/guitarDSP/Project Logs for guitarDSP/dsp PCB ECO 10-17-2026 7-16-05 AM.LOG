@@ -1,0 +1,43 @@
+Removed Pin From Net: NetName=+1.8 Pin=IC7-2
+Removed Pin From Net: NetName=+5V Pin=IC7-3
+Removed Member From Class: ClassName=powersupply Member=IC7
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found CAPAE430X610N
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found SOT230P700X175-4N
+Add Component: Footprint Not Found B2,54
+Add Pin To Net: Unknown Pin: Pin C25-1
+Add Pin To Net: Unknown Pin: Pin C25-2
+Add Pin To Net: Unknown Pin: Pin C39-1
+Add Pin To Net: Unknown Pin: Pin C39-2
+Add Pin To Net: Unknown Pin: Pin C45-1
+Add Pin To Net: Unknown Pin: Pin C45-2
+Add Pin To Net: Unknown Pin: Pin C46-1
+Add Pin To Net: Unknown Pin: Pin C46-2
+Add Pin To Net: Unknown Pin: Pin C50-1
+Add Pin To Net: Unknown Pin: Pin C50-2
+Add Pin To Net: Unknown Pin: Pin C53-1
+Add Pin To Net: Unknown Pin: Pin C53-2
+Add Pin To Net: Unknown Pin: Pin IC?-2
+Add Pin To Net: Unknown Pin: Pin IC?-3
+Add Pin To Net: Unknown Pin: Pin IC?-4
+Add Pin To Net: Unknown Pin: Pin TP1-TP
+Added Pin To Net: NetName=NetIC?_1 Pin=R42-1
+Added Pin To Net: NetName=NetIC?_1 Pin=R43-2
+Added Net: Name=NetIC?_1
+Add Class Member: Failed to add class member : Component C25 2.2u
+Add Class Member: Failed to add class member : Component C39 2.2u
+Add Class Member: Failed to add class member : Component C45 2.2u
+Add Class Member: Failed to add class member : Component C46 2.2u
+Add Class Member: Failed to add class member : Component C50 2.2u
+Add Class Member: Failed to add class member : Component C53 2.2u
+Add Class Member: Failed to add class member : Component IC? LM317MSTT3G
+Add Class Member: Failed to add class member : Component TP1 TPB2,54
+Added Room: Name=audio
+Added Room: Name=bluetooth
+Added Room: Name=memory
+Added Room: Name=microcontroller
+Added Room: Name=powersupply

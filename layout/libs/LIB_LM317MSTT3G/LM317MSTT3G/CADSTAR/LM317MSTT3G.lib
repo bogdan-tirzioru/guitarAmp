@@ -1,0 +1,16 @@
+.LM317MSTT3G :1 ;Internal Short Circuit Current Limiting; Internal Thermal Overload Protection; Output Current in Excess of 500 mA; Output Transistor Safe-Area Compensation; Output Adjustable between 1.2 V and 37 V; Floating Operation for High Voltage Applications; Eliminates Stocking Many Fixed Voltages; Pb-Free Packages are Available; NCV Prefix for Automotive and Other Applications Requiring Site Control Changes
+SOT230P700X175-4N
+*STM IC
+*NGS
+*PLB 1="ADJUST" 2="VOUT_1" 3="VIN" 4="VOUT_2"
+*MXP 4
+*DFN LM317MSTT3G
+~!Mouser Part Number (863-LM317MSTT3G)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/onsemi/LM317MSTT3G?qs=2OtswVQKCOFpDo6oeYvGzw%3D%3D)
+~!Manufacturer_Name (onsemi)
+~!Manufacturer_Part_Number (LM317MSTT3G)
+~!Link Datasheet (https://www.onsemi.com/pub/Collateral/LM317M-D.PDF)
+~!Height (1.75mm)
+~!3D_Model (LM317MSTT3G)
+LM317MSTT3G
+1.1!U 2.1!U 3.1!U 4.1!U 

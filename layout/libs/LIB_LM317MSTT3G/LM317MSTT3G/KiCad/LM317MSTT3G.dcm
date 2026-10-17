@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP LM317MSTT3G
+D Internal Short Circuit Current Limiting; Internal Thermal Overload Protection; Output Current in Excess of 500 mA; Output Transistor Safe-Area Compensation; Output Adjustable between 1.2 V and 37 V; Floating Operation for High Voltage Applications; Eliminates Stocking Many Fixed Voltages; Pb-Free Packages are Available; NCV Prefix for Automotive and Other Applications Requiring Site Control Changes
+K
+F https://www.onsemi.com/pub/Collateral/LM317M-D.PDF
+$ENDCMP
+#
+#End Doc Library

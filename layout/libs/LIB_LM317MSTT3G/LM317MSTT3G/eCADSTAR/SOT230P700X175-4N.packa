@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "LM317MSTT3G"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2020-12-10-07:00:16)
+    (mountForm default
+        (footprintRef "SOT230P700X175-4N")
+        (spec "System")
+    )
+)

@@ -1,0 +1,34 @@
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found C0805
+Add Component: Footprint Not Found CAPAE430X610N
+Add Component: Footprint Not Found C0805
+Added Component: Designator=IC7(TO220H)
+Add Component: Footprint Not Found B2,54
+Add Pin To Net: Unknown Pin: Pin C25-1
+Add Pin To Net: Unknown Pin: Pin C25-2
+Add Pin To Net: Unknown Pin: Pin C39-1
+Add Pin To Net: Unknown Pin: Pin C39-2
+Add Pin To Net: Unknown Pin: Pin C45-1
+Add Pin To Net: Unknown Pin: Pin C45-2
+Add Pin To Net: Unknown Pin: Pin C46-1
+Add Pin To Net: Unknown Pin: Pin C46-2
+Add Pin To Net: Unknown Pin: Pin C50-1
+Add Pin To Net: Unknown Pin: Pin C50-2
+Add Pin To Net: Unknown Pin: Pin C53-1
+Add Pin To Net: Unknown Pin: Pin C53-2
+Added Pin To Net: NetName=NetIC7_1 Pin=IC7-1
+Added Pin To Net: NetName=NetIC7_1 Pin=IC7-1
+Added Pin To Net: NetName=+1.8 Pin=IC7-2
+Added Pin To Net: NetName=+5V Pin=IC7-3
+Add Pin To Net: Unknown Pin: Pin TP1-TP
+Add Class Member: Failed to add class member : Component C25 2.2u
+Add Class Member: Failed to add class member : Component C39 2.2u
+Add Class Member: Failed to add class member : Component C45 2.2u
+Add Class Member: Failed to add class member : Component C46 2.2u
+Add Class Member: Failed to add class member : Component C50 2.2u
+Add Class Member: Failed to add class member : Component C53 2.2u
+Added Member To Class: ClassName=powersupply Member=Component IC7 317
+Add Class Member: Failed to add class member : Component TP1 TPB2,54
+Added Room: Name=powersupply
