@@ -1,0 +1,20 @@
+Added Component: Designator=C50(CAPAE430X610N)
+Add component (AddParameter): Name = "MPN"; Value = "EEE-FT0J101AR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_FARNELL"; Value = "2065951"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "OC_NEWARK"; Value = "73T9146"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PACKAGE"; Value = "CASE-B"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SUPPLIER"; Value = "PANASONIC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "TOLERANCE"; Value = "±20 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VOLTAGERATING"; Value = "6.3V"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found B2,54
+Add Pin To Net: Unknown Pin: Pin C10-1
+Added Pin To Net: NetName=+3V3 Pin=C50-1
+Added Pin To Net: NetName=DGND Pin=C50-2
+Add Pin To Net: Unknown Pin: Pin TP1-TP
+Added Member To Class: ClassName=powersupply Member=Component C50 2.2u
+Add Class Member: Failed to add class member : Component TP1 TPB2,54
+Added Room: Name=audio
+Added Room: Name=bluetooth
+Added Room: Name=memory
+Added Room: Name=microcontroller
+Added Room: Name=powersupply

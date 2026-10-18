@@ -1,0 +1,10 @@
+Added Component: Designator=TP1(B2,54)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Add Pin To Net: Unknown Pin: Pin C10-1
+Added Pin To Net: NetName=+3V3 Pin=TP1-TP
+Added Member To Class: ClassName=powersupply Member=Component TP1 TPB2,54
+Added Room: Name=audio
+Added Room: Name=bluetooth
+Added Room: Name=memory
+Added Room: Name=microcontroller
+Added Room: Name=powersupply

@@ -1,0 +1,22 @@
+Change Component Designator: OldDesignator=B? NewDesignator=IC8
+Change Component Designator: OldDesignator=C? NewDesignator=C57
+Change Component Designator: OldDesignator=U1 NewDesignator=IC7
+Add Component: Footprint Not Found CAPAE430X610N
+Added Component: Designator=C53(C0805)
+Add component (AddParameter): Name = "SPICEPREFIX"; Value = "C"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found B2,54
+Add Pin To Net: Unknown Pin: Pin C10-1
+Add Pin To Net: Unknown Pin: Pin C50-1
+Add Pin To Net: Unknown Pin: Pin C50-2
+Added Pin To Net: NetName=DGND Pin=C53-1
+Added Pin To Net: NetName=VDD11USB Pin=C53-2
+Add Pin To Net: Unknown Pin: Pin TP1-TP
+Change Net Name : Old Net Name=NetB?_1 New Net Name=NetIC8_1
+Add Class Member: Failed to add class member : Component C50 2.2u
+Added Member To Class: ClassName=microcontroller Member=Component C53 2.2u
+Add Class Member: Failed to add class member : Component TP1 TPB2,54
+Added Room: Name=audio
+Added Room: Name=bluetooth
+Added Room: Name=memory
+Added Room: Name=microcontroller
+Added Room: Name=powersupply
