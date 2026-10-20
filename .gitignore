@@ -10,3 +10,7 @@
 # CI-generated sources, Eclipse workspace, logs, and firmware artifacts
 /ci-work/
 /ci-output/
+
+# Altium local history
+/layout/History/
+/layout/guitarDSP/History/
