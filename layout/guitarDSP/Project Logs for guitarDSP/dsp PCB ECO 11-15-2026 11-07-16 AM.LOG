@@ -1,0 +1,69 @@
+Removed Pin From Net: NetName=JNTRST Pin=R1-1
+Removed Pin From Net: NetName=+3V3 Pin=R1-2
+Removed Pin From Net: NetName=JTDI Pin=R2-1
+Removed Pin From Net: NetName=+3V3 Pin=R2-2
+Removed Pin From Net: NetName=JTMS Pin=R3-1
+Removed Pin From Net: NetName=+3V3 Pin=R3-2
+Removed Pin From Net: NetName=DGND Pin=R5-1
+Removed Pin From Net: NetName=+3V3 Pin=R6-1
+Removed Pin From Net: NetName=JTDO Pin=R6-2
+Removed Pin From Net: NetName=+3V3 Pin=R7-1
+Removed Pin From Net: NetName=RESET Pin=R7-2
+Removed Pin From Net: NetName=DGND Pin=R8-1
+Removed Pin From Net: NetName=DGND Pin=R9-1
+Removed Pin From Net: NetName=+3V3 Pin=X1-1
+Removed Pin From Net: NetName=+3V3 Pin=X1-2
+Removed Pin From Net: NetName=JNTRST Pin=X1-3
+Removed Pin From Net: NetName=DGND Pin=X1-4
+Removed Pin From Net: NetName=JTDI Pin=X1-5
+Removed Pin From Net: NetName=DGND Pin=X1-6
+Removed Pin From Net: NetName=JTMS Pin=X1-7
+Removed Pin From Net: NetName=DGND Pin=X1-8
+Removed Pin From Net: NetName=JTCLK Pin=X1-9
+Removed Pin From Net: NetName=DGND Pin=X1-10
+Removed Pin From Net: NetName=DGND Pin=X1-12
+Removed Pin From Net: NetName=JTDO Pin=X1-13
+Removed Pin From Net: NetName=DGND Pin=X1-14
+Removed Pin From Net: NetName=RESET Pin=X1-15
+Removed Pin From Net: NetName=DGND Pin=X1-16
+Removed Pin From Net: NetName=DGND Pin=X1-18
+Removed Pin From Net: NetName=DGND Pin=X1-20
+Removed Member From Class: ClassName=microcontroller Member=R6
+Removed Member From Class: ClassName=microcontroller Member=R7
+Removed Member From Class: ClassName=microcontroller Member=R8
+Removed Member From Class: ClassName=microcontroller Member=R9
+Removed Member From Class: ClassName=microcontroller Member=X1
+Added Component: Designator=J3(FTSH-105-XX-YYY-D-K)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "FTSH-105-01-L-D-K"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/ftsh-105-01-l-d-k/samtec.html?utm_currency=USD&region=europe"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://suddendocs.samtec.com/prints/ftsh-1xx-xx-xxx-d-xxx-xx-mkt.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "SAMTEC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "FTSH-105-01-L-D-K"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "200-FTSH10501LDK"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Samtec/FTSH-105-01-L-D-K?qs=92ilVni64gxM4uHHuRbswg%3D%3D"; VariantName = "[No Variations]"
+Add Pin To Net: Unknown Pin: Pin C10-1
+Added Pin To Net: NetName=+3V3 Pin=J3-1
+Added Pin To Net: NetName=JTMS Pin=J3-2
+Added Pin To Net: NetName=DGND Pin=J3-3
+Added Pin To Net: NetName=JTCLK Pin=J3-4
+Added Pin To Net: NetName=DGND Pin=J3-5
+Added Pin To Net: NetName=JTDO Pin=J3-6
+Added Pin To Net: NetName=JTDI Pin=J3-8
+Added Pin To Net: NetName=DGND Pin=J3-9
+Added Pin To Net: NetName=RESET Pin=J3-10
+Added Pin To Net: NetName=+3V3 Pin=R1-1
+Added Pin To Net: NetName=JTDI Pin=R1-2
+Added Pin To Net: NetName=+3V3 Pin=R2-1
+Added Pin To Net: NetName=RESET Pin=R2-2
+Added Pin To Net: NetName=+3V3 Pin=R3-1
+Added Pin To Net: NetName=JTMS Pin=R3-2
+Added Pin To Net: NetName=+3V3 Pin=R5-1
+Added Pin To Net: NetName=JTDO Pin=R5-2
+Change Net Name : Old Net Name=NetIC1_96 New Net Name=USB_DM
+Change Net Name : Old Net Name=NetIC1_97 New Net Name=USB_DP
+Added Member To Class: ClassName=microcontroller Member=Component J3 FTSH-105-01-L-D-K
+Added Room: Name=audio
+Added Room: Name=bluetooth
+Added Room: Name=memory
+Added Room: Name=microcontroller
+Added Room: Name=powersupply
