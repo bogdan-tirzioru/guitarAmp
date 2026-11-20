@@ -1,0 +1,744 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD22\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">11/19/2026</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">8:15:48 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc" class="file"><acronym title="D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc">D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">132</td></tr>
+</table>
+</td>
+</table><a name="IDGYUKR3C5RCRPC2PMER1CFZGBVE0KEQS4B0QZTUK3K4RDZFMP2PQF"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDKIUZCXPUVBHKHW1BWT11NWPF4NIHFAMM5AA0DBK1T0MFJCBMRAXG">Clearance Constraint (Gap=0.15mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDR0H4VSBWRAHAMMBAYQVMMDEI5NSFCU5NCQPLV0CUB14VMBISODP">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDACIOQZL0CIENND0OYSQTKMUNTP4J5WA3KCU3NYFUO0RJB20QQ1JH">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">15</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDUOZ5KQQ4ZJAREXNEFNEM1SDFZO4YXLDPDAPP2J2PEJNLJKITV2O">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMPES3UOHDAG0PHXL1PW4DL0UUDJR2Y1DI4E2TAIKQ2PISULOG1HO">Width Constraint (Min=0.17mm) (Max=0.17mm) (Preferred=0.17mm) (InNetClass('USB'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPUWEZUPYDKHGP1ZY10053M4X4L2SZIM5WMC5EPP31BPGYH3E0QGC">Width Constraint (Min=0.15mm) (Max=0.6mm) (Preferred=0.2mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDSJKL2QNCEIBRPPMG21NQLTPWPCRDHEAXIQL2MOGDSBA0KWLHBNJC">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">11</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID4XPPK4IQB4QRHUN35NRJYOFZBLEUFB5HFIXNUJE411QQ0T0CMBJG">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDOPDP4H0G0QDNKVDZSHHWRQSMLEYPZY0RR15B2LLFVKJUOW1Z1HIH">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDIFEKIGEC4X5RH14FEHKDMWXATEJ0R4AUTOFOAJOINNN2URFWUUEB">Minimum Solder Mask Sliver (Gap=0.15mm) (All),(All)</a></td>
+<td class="column2">82</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDGNZJX5SUJPAOGIH2QSRIUNNDADQRJQJ1IWIXUXCOKSMOVB4CVPOD">Silk To Solder Mask (Clearance=0.15mm) (IsPad),(All)</a></td>
+<td class="column2">13</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDXATWQSEVDVDULDCVSBKMAZSFLJWRFOWT5KQV1OEFXGZXVM1QSYCL">Silk to Silk (Clearance=0.15mm) (All),(All)</a></td>
+<td class="column2">11</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDRLBN32E21HMTEBFGWZCYXJW1QBPUKLUPHRBHWHD1JLIJ5ZLJJ5GP">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID1QOISEIYBVJ1N3VSN25RQBA5SDNJ5EUBGS0SDTO10PZBMUD4YLKK">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">132</td>
+</tr>
+</table><br><a name="IDACIOQZL0CIENND0OYSQTKMUNTP4J5WA3KCU3NYFUO0RJB20QQ1JH"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4277.863mil|Location2.X=4297.137mil|Location1.Y=3737.863mil|Location2.Y=3757.137mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4277.863mil|Location2.X=4297.137mil|Location1.Y=3737.863mil|Location2.Y=3757.137mil|Absolute=True">Isolated copper: Split Plane  (+3V3) on Power Plane. Dead copper detected. Copper area is : 0.098 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4232.863mil|Location2.X=4252.137mil|Location1.Y=3737.863mil|Location2.Y=3757.137mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4232.863mil|Location2.X=4252.137mil|Location1.Y=3737.863mil|Location2.Y=3757.137mil|Absolute=True">Isolated copper: Split Plane  (+3V3) on Power Plane. Dead copper detected. Copper area is : 0.098 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4254.278mil|Location2.X=4275.722mil|Location1.Y=3719.712mil|Location2.Y=3735.722mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4254.278mil|Location2.X=4275.722mil|Location1.Y=3719.712mil|Location2.Y=3735.722mil|Absolute=True">Isolated copper: Split Plane  (DGND) on Ground Plane. Copper island connected to pads/vias detected. Copper area is : 0.17 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4280.29mil|Location2.X=4294.71mil|Location1.Y=3740.29mil|Location2.Y=3754.71mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4280.29mil|Location2.X=4294.71mil|Location1.Y=3740.29mil|Location2.Y=3754.71mil|Absolute=True">Isolated copper: Split Plane  (DGND) on Ground Plane. Dead copper detected. Copper area is : 0.067 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4235.29mil|Location2.X=4249.71mil|Location1.Y=3740.29mil|Location2.Y=3754.71mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4235.29mil|Location2.X=4249.71mil|Location1.Y=3740.29mil|Location2.Y=3754.71mil|Absolute=True">Isolated copper: Split Plane  (DGND) on Ground Plane. Dead copper detected. Copper area is : 0.067 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.115mil|Location2.X=4245.885mil|Location1.Y=3757.328mil|Location2.Y=3782.672mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.115mil|Location2.X=4245.885mil|Location1.Y=3757.328mil|Location2.Y=3782.672mil|Absolute=True">Isolated copper: Split Plane  (DGND) on Ground Plane. Dead copper detected. Copper area is : 0.074 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.115mil|Location2.X=4245.885mil|Location1.Y=3672.328mil|Location2.Y=3697.672mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.115mil|Location2.X=4245.885mil|Location1.Y=3672.328mil|Location2.Y=3697.672mil|Absolute=True">Isolated copper: Split Plane  (DGND) on Ground Plane. Dead copper detected. Copper area is : 0.074 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4252.328mil|Location2.X=4277.672mil|Location1.Y=3744.115mil|Location2.Y=3750.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4252.328mil|Location2.X=4277.672mil|Location1.Y=3744.115mil|Location2.Y=3750.885mil|Absolute=True">Isolated copper: Split Plane  (DGND) on Ground Plane. Dead copper detected. Copper area is : 0.074 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4284.115mil|Location2.X=4290.885mil|Location1.Y=3757.328mil|Location2.Y=3782.672mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4284.115mil|Location2.X=4290.885mil|Location1.Y=3757.328mil|Location2.Y=3782.672mil|Absolute=True">Isolated copper: Split Plane  (DGND) on Ground Plane. Dead copper detected. Copper area is : 0.074 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4297.328mil|Location2.X=4322.672mil|Location1.Y=3744.115mil|Location2.Y=3750.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4297.328mil|Location2.X=4322.672mil|Location1.Y=3744.115mil|Location2.Y=3750.885mil|Absolute=True">Isolated copper: Split Plane  (DGND) on Ground Plane. Dead copper detected. Copper area is : 0.074 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4284.115mil|Location2.X=4290.885mil|Location1.Y=3672.328mil|Location2.Y=3697.672mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4284.115mil|Location2.X=4290.885mil|Location1.Y=3672.328mil|Location2.Y=3697.672mil|Absolute=True">Isolated copper: Split Plane  (DGND) on Ground Plane. Dead copper detected. Copper area is : 0.074 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.115mil|Location2.X=4245.885mil|Location1.Y=3712.328mil|Location2.Y=3737.672mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.115mil|Location2.X=4245.885mil|Location1.Y=3712.328mil|Location2.Y=3737.672mil|Absolute=True">Isolated copper: Split Plane  (DGND) on Ground Plane. Dead copper detected. Copper area is : 0.074 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4207.328mil|Location2.X=4232.672mil|Location1.Y=3744.115mil|Location2.Y=3750.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4207.328mil|Location2.X=4232.672mil|Location1.Y=3744.115mil|Location2.Y=3750.885mil|Absolute=True">Isolated copper: Split Plane  (DGND) on Ground Plane. Dead copper detected. Copper area is : 0.074 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4284.115mil|Location2.X=4290.885mil|Location1.Y=3712.328mil|Location2.Y=3737.672mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4284.115mil|Location2.X=4290.885mil|Location1.Y=3712.328mil|Location2.Y=3737.672mil|Absolute=True">Isolated copper: Split Plane  (DGND) on Ground Plane. Dead copper detected. Copper area is : 0.074 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4249.82mil|Location2.X=4280.18mil|Location1.Y=3699.115mil|Location2.Y=3710.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4249.82mil|Location2.X=4280.18mil|Location1.Y=3699.115mil|Location2.Y=3710.885mil|Absolute=True">Isolated copper: Split Plane  (DGND) on Ground Plane. Dead copper detected. Copper area is : 0.165 sq. mm</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDSJKL2QNCEIBRPPMG21NQLTPWPCRDHEAXIQL2MOGDSBA0KWLHBNJC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6703.976mil|Location2.X=6779.724mil|Location1.Y=3216.732mil|Location2.Y=3292.48mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6703.976mil|Location2.X=6779.724mil|Location1.Y=3216.732mil|Location2.Y=3292.48mil|Absolute=True">Starved Thermal on Ground Plane: Pad J1-A1(104.822mm,57.013mm) on Multi-Layer. Blocked 3 out of 4 entries.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6703.976mil|Location2.X=6779.724mil|Location1.Y=3450.984mil|Location2.Y=3526.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6703.976mil|Location2.X=6779.724mil|Location1.Y=3450.984mil|Location2.Y=3526.732mil|Absolute=True">Starved Thermal on Ground Plane: Pad J1-A12(104.822mm,62.963mm) on Multi-Layer. Blocked 3 out of 4 entries.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6757.126mil|Location2.X=6832.874mil|Location1.Y=3450.984mil|Location2.Y=3526.732mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6757.126mil|Location2.X=6832.874mil|Location1.Y=3450.984mil|Location2.Y=3526.732mil|Absolute=True">Starved Thermal on Ground Plane: Pad J1-B1(106.172mm,62.963mm) on Multi-Layer. Blocked 4 out of 4 entries.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6757.126mil|Location2.X=6832.874mil|Location1.Y=3216.732mil|Location2.Y=3292.48mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6757.126mil|Location2.X=6832.874mil|Location1.Y=3216.732mil|Location2.Y=3292.48mil|Absolute=True">Starved Thermal on Ground Plane: Pad J1-B12(106.172mm,57.013mm) on Multi-Layer. Blocked 4 out of 4 entries.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5201.024mil|Location2.X=5288.976mil|Location1.Y=4781.024mil|Location2.Y=4868.976mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5201.024mil|Location2.X=5288.976mil|Location1.Y=4781.024mil|Location2.Y=4868.976mil|Absolute=True">Starved Thermal on Ground Plane: Pad J3-3(66.802mm,96.901mm) on Multi-Layer. Blocked 2 out of 4 entries.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5151.024mil|Location2.X=5238.976mil|Location1.Y=4781.024mil|Location2.Y=4868.976mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5151.024mil|Location2.X=5238.976mil|Location1.Y=4781.024mil|Location2.Y=4868.976mil|Absolute=True">Starved Thermal on Ground Plane: Pad J3-5(65.532mm,96.901mm) on Multi-Layer. Blocked 2 out of 4 entries.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4184.095mil|Location2.X=4255.905mil|Location1.Y=3689.095mil|Location2.Y=3760.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4184.095mil|Location2.X=4255.905mil|Location1.Y=3689.095mil|Location2.Y=3760.905mil|Absolute=True">Starved Thermal on Ground Plane: Via (40.767mm,68.961mm) from Component Side to Solder Side. Blocked 2 out of 4 entries.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4229.095mil|Location2.X=4300.905mil|Location1.Y=3649.095mil|Location2.Y=3720.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4229.095mil|Location2.X=4300.905mil|Location1.Y=3649.095mil|Location2.Y=3720.905mil|Absolute=True">Starved Thermal on Ground Plane: Via (41.91mm,67.945mm) from Component Side to Solder Side. Blocked 2 out of 4 entries.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4229.095mil|Location2.X=4300.905mil|Location1.Y=3689.095mil|Location2.Y=3760.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4229.095mil|Location2.X=4300.905mil|Location1.Y=3689.095mil|Location2.Y=3760.905mil|Absolute=True">Starved Thermal on Ground Plane: Via (41.91mm,68.961mm) from Component Side to Solder Side. Blocked 4 out of 4 entries.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4229.095mil|Location2.X=4300.905mil|Location1.Y=3734.095mil|Location2.Y=3805.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4229.095mil|Location2.X=4300.905mil|Location1.Y=3734.095mil|Location2.Y=3805.905mil|Absolute=True">Starved Thermal on Ground Plane: Via (41.91mm,70.104mm) from Component Side to Solder Side. Blocked 2 out of 4 entries.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4274.095mil|Location2.X=4345.905mil|Location1.Y=3689.095mil|Location2.Y=3760.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4274.095mil|Location2.X=4345.905mil|Location1.Y=3689.095mil|Location2.Y=3760.905mil|Absolute=True">Starved Thermal on Ground Plane: Via (43.053mm,68.961mm) from Component Side to Solder Side. Blocked 2 out of 4 entries.</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDIFEKIGEC4X5RH14FEHKDMWXATEJ0R4AUTOFOAJOINNN2URFWUUEB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.15mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3353.328mil|Location2.X=3360.483mil|Location1.Y=2656.422mil|Location2.Y=2663.578mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3353.328mil|Location2.X=3360.483mil|Location1.Y=2656.422mil|Location2.Y=2663.578mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.056mm &lt; 0.15mm) Between Pad C13-1(19.431mm,42.022mm) on Component Side And Via (18.415mm,41.91mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.056mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3353.328mil|Location2.X=3360.483mil|Location1.Y=2561.422mil|Location2.Y=2568.578mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3353.328mil|Location2.X=3360.483mil|Location1.Y=2561.422mil|Location2.Y=2568.578mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.056mm &lt; 0.15mm) Between Pad C14-1(19.431mm,39.101mm) on Component Side And Via (18.415mm,39.497mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.056mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3343.328mil|Location2.X=3350.483mil|Location1.Y=2751.422mil|Location2.Y=2758.578mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3343.328mil|Location2.X=3350.483mil|Location1.Y=2751.422mil|Location2.Y=2758.578mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.056mm &lt; 0.15mm) Between Pad C15-1(19.177mm,44.45mm) on Component Side And Via (18.161mm,44.323mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.056mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3343.328mil|Location2.X=3350.483mil|Location1.Y=2851.422mil|Location2.Y=2858.578mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3343.328mil|Location2.X=3350.483mil|Location1.Y=2851.422mil|Location2.Y=2858.578mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.056mm &lt; 0.15mm) Between Pad C16-1(19.177mm,46.975mm) on Component Side And Via (18.161mm,46.863mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.056mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3337.907mil|Location2.X=3346.226mil|Location1.Y=3127.287mil|Location2.Y=3135.221mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3337.907mil|Location2.X=3346.226mil|Location1.Y=3127.287mil|Location2.Y=3135.221mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.122mm &lt; 0.15mm) Between Pad C18-2(19.05mm,53.365mm) on Component Side And Via (18.161mm,54.229mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.122mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5194.555mil|Location2.X=5204.401mil|Location1.Y=3254.616mil|Location2.Y=3262.293mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5194.555mil|Location2.X=5204.401mil|Location1.Y=3254.616mil|Location2.Y=3262.293mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.095mm &lt; 0.15mm) Between Pad C20-1(65.136mm,56.515mm) on Solder Side And Via (65.786mm,57.531mm) from Component Side to Solder Side [Bottom Solder] Mask Sliver [0.095mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5208.633mil|Location2.X=5218.367mil|Location1.Y=3255.198mil|Location2.Y=3262.977mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5208.633mil|Location2.X=5218.367mil|Location1.Y=3255.198mil|Location2.Y=3262.977mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.099mm &lt; 0.15mm) Between Pad C20-2(66.446mm,56.515mm) on Solder Side And Via (65.786mm,57.531mm) from Component Side to Solder Side [Bottom Solder] Mask Sliver [0.099mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5178.887mil|Location2.X=5186.836mil|Location1.Y=3039.789mil|Location2.Y=3047.971mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5178.887mil|Location2.X=5186.836mil|Location1.Y=3039.789mil|Location2.Y=3047.971mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.031mm &lt; 0.15mm) Between Pad C21-2(64.643mm,51.206mm) on Solder Side And Via (65.532mm,51.943mm) from Component Side to Solder Side [Bottom Solder] Mask Sliver [0.031mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5417.707mil|Location2.X=5425.384mil|Location1.Y=2909.555mil|Location2.Y=2919.401mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5417.707mil|Location2.X=5425.384mil|Location1.Y=2909.555mil|Location2.Y=2919.401mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.095mm &lt; 0.15mm) Between Pad C23-1(71.882mm,47.864mm) on Solder Side And Via (70.866mm,48.514mm) from Component Side to Solder Side [Bottom Solder] Mask Sliver [0.095mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5417.646mil|Location2.X=5425.425mil|Location1.Y=2921.055mil|Location2.Y=2930.788mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5417.646mil|Location2.X=5425.425mil|Location1.Y=2921.055mil|Location2.Y=2930.788mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.099mm &lt; 0.15mm) Between Pad C23-2(71.882mm,49.174mm) on Solder Side And Via (70.866mm,48.514mm) from Component Side to Solder Side [Bottom Solder] Mask Sliver [0.099mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5623.328mil|Location2.X=5630.483mil|Location1.Y=2911.422mil|Location2.Y=2918.578mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5623.328mil|Location2.X=5630.483mil|Location1.Y=2911.422mil|Location2.Y=2918.578mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.056mm &lt; 0.15mm) Between Pad C24-2(77.089mm,48.793mm) on Solder Side And Via (76.073mm,48.387mm) from Component Side to Solder Side [Bottom Solder] Mask Sliver [0.056mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5716.422mil|Location2.X=5723.578mil|Location1.Y=2129.828mil|Location2.Y=2136.983mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5716.422mil|Location2.X=5723.578mil|Location1.Y=2129.828mil|Location2.Y=2136.983mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.132mm &lt; 0.15mm) Between Pad C27-1(79.563mm,29.464mm) on Solder Side And Via (78.867mm,28.067mm) from Component Side to Solder Side [Bottom Solder] Mask Sliver [0.132mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5409.505mil|Location2.X=5417.379mil|Location1.Y=2263.091mil|Location2.Y=2271.316mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5409.505mil|Location2.X=5417.379mil|Location1.Y=2263.091mil|Location2.Y=2271.316mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.072mm &lt; 0.15mm) Between Pad C28-1(70.485mm,32.4mm) on Solder Side And Via (71.405mm,31.636mm) from Component Side to Solder Side [Bottom Solder] Mask Sliver [0.072mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5231.422mil|Location2.X=5238.578mil|Location1.Y=2413.312mil|Location2.Y=2420.468mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5231.422mil|Location2.X=5238.578mil|Location1.Y=2413.312mil|Location2.Y=2420.468mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.117mm &lt; 0.15mm) Between Pad C30-2(66.421mm,35.219mm) on Solder Side And Via (66.548mm,36.195mm) from Component Side to Solder Side [Bottom Solder] Mask Sliver [0.117mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4088.017mil|Location2.X=4095.172mil|Location1.Y=3641.422mil|Location2.Y=3648.578mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4088.017mil|Location2.X=4095.172mil|Location1.Y=3641.422mil|Location2.Y=3648.578mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.132mm &lt; 0.15mm) Between Pad C36-2(36.982mm,66.421mm) on Solder Side And Via (37.973mm,66.929mm) from Component Side to Solder Side [Bottom Solder] Mask Sliver [0.132mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6764.937mil|Location2.X=6773.319mil|Location1.Y=2071.585mil|Location2.Y=2079.442mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6764.937mil|Location2.X=6773.319mil|Location1.Y=2071.585mil|Location2.Y=2079.442mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.122mm &lt; 0.15mm) Between Pad C47-2(104.902mm,26.568mm) on Solder Side And Via (105.791mm,27.432mm) from Component Side to Solder Side [Bottom Solder] Mask Sliver [0.122mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6270.484mil|Location2.X=6277.639mil|Location1.Y=2083.316mil|Location2.Y=2090.471mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6270.484mil|Location2.X=6277.639mil|Location1.Y=2083.316mil|Location2.Y=2090.471mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.056mm &lt; 0.15mm) Between Pad C48-2(92.481mm,27.94mm) on Solder Side And Via (92.964mm,26.924mm) from Component Side to Solder Side [Bottom Solder] Mask Sliver [0.056mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5808.217mil|Location2.X=5816.238mil|Location1.Y=3247.832mil|Location2.Y=3255.756mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5808.217mil|Location2.X=5816.238mil|Location1.Y=3247.832mil|Location2.Y=3255.756mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.058mm &lt; 0.15mm) Between Pad C5-1(81.676mm,57.531mm) on Solder Side And Via (80.899mm,56.642mm) from Component Side to Solder Side [Bottom Solder] Mask Sliver [0.058mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5821.422mil|Location2.X=5828.578mil|Location1.Y=3294.517mil|Location2.Y=3301.672mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5821.422mil|Location2.X=5828.578mil|Location1.Y=3294.517mil|Location2.Y=3301.672mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.056mm &lt; 0.15mm) Between Pad C5-1(81.676mm,57.531mm) on Solder Side And Via (81.534mm,58.547mm) from Component Side to Solder Side [Bottom Solder] Mask Sliver [0.056mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5411.422mil|Location2.X=5418.578mil|Location1.Y=3538.328mil|Location2.Y=3545.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5411.422mil|Location2.X=5418.578mil|Location1.Y=3538.328mil|Location2.Y=3545.483mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.056mm &lt; 0.15mm) Between Pad C54-1(71.105mm,64.897mm) on Solder Side And Via (71.12mm,63.881mm) from Component Side to Solder Side [Bottom Solder] Mask Sliver [0.056mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5596.422mil|Location2.X=5603.578mil|Location1.Y=3533.328mil|Location2.Y=3540.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5596.422mil|Location2.X=5603.578mil|Location1.Y=3533.328mil|Location2.Y=3540.483mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.056mm &lt; 0.15mm) Between Pad C55-1(75.804mm,64.77mm) on Solder Side And Via (75.819mm,63.754mm) from Component Side to Solder Side [Bottom Solder] Mask Sliver [0.056mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5665.484mil|Location2.X=5672.639mil|Location1.Y=3533.316mil|Location2.Y=3540.471mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5665.484mil|Location2.X=5672.639mil|Location1.Y=3533.316mil|Location2.Y=3540.471mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.056mm &lt; 0.15mm) Between Pad C55-2(77.114mm,64.77mm) on Solder Side And Via (77.597mm,63.754mm) from Component Side to Solder Side [Bottom Solder] Mask Sliver [0.056mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4091.422mil|Location2.X=4098.578mil|Location1.Y=3787.828mil|Location2.Y=3794.983mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4091.422mil|Location2.X=4098.578mil|Location1.Y=3787.828mil|Location2.Y=3794.983mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.03mm &lt; 0.15mm) Between Pad C56-1(37.592mm,71.12mm) on Solder Side And Via (37.592mm,70.231mm) from Component Side to Solder Side [Bottom Solder] Mask Sliver [0.03mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4114.517mil|Location2.X=4121.672mil|Location1.Y=3871.422mil|Location2.Y=3878.578mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4114.517mil|Location2.X=4121.672mil|Location1.Y=3871.422mil|Location2.Y=3878.578mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.056mm &lt; 0.15mm) Between Pad C56-2(37.592mm,72.43mm) on Solder Side And Via (38.608mm,72.771mm) from Component Side to Solder Side [Bottom Solder] Mask Sliver [0.056mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5494.645mil|Location2.X=5502.826mil|Location1.Y=2370.335mil|Location2.Y=2378.284mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5494.645mil|Location2.X=5502.826mil|Location1.Y=2370.335mil|Location2.Y=2378.284mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.123mm &lt; 0.15mm) Between Pad IC2-B1(73.009mm,34.909mm) on Component Side And Via (73.533mm,34.29mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.123mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4335.733mil|Location2.X=4342.889mil|Location1.Y=3662.43mil|Location2.Y=3669.586mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4335.733mil|Location2.X=4342.889mil|Location1.Y=3662.43mil|Location2.Y=3669.586mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-1(44.36mm,67.211mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4320.54mil|Location2.X=4327.696mil|Location1.Y=3795.733mil|Location2.Y=3802.889mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4320.54mil|Location2.X=4327.696mil|Location1.Y=3795.733mil|Location2.Y=3802.889mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-10(43.16mm,71.411mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4300.855mil|Location2.X=4308.011mil|Location1.Y=3795.733mil|Location2.Y=3802.889mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4300.855mil|Location2.X=4308.011mil|Location1.Y=3795.733mil|Location2.Y=3802.889mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-11(42.66mm,71.411mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4281.17mil|Location2.X=4288.326mil|Location1.Y=3795.733mil|Location2.Y=3802.889mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4281.17mil|Location2.X=4288.326mil|Location1.Y=3795.733mil|Location2.Y=3802.889mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-12(42.16mm,71.411mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4261.485mil|Location2.X=4268.641mil|Location1.Y=3795.733mil|Location2.Y=3802.889mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4261.485mil|Location2.X=4268.641mil|Location1.Y=3795.733mil|Location2.Y=3802.889mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-13(41.66mm,71.411mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4241.8mil|Location2.X=4248.956mil|Location1.Y=3795.733mil|Location2.Y=3802.889mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4241.8mil|Location2.X=4248.956mil|Location1.Y=3795.733mil|Location2.Y=3802.889mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-14(41.16mm,71.411mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4222.115mil|Location2.X=4229.271mil|Location1.Y=3795.733mil|Location2.Y=3802.889mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4222.115mil|Location2.X=4229.271mil|Location1.Y=3795.733mil|Location2.Y=3802.889mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-15(40.66mm,71.411mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4187.54mil|Location2.X=4194.696mil|Location1.Y=3795.733mil|Location2.Y=3802.889mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4187.54mil|Location2.X=4194.696mil|Location1.Y=3795.733mil|Location2.Y=3802.889mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-16(40.16mm,71.411mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4187.111mil|Location2.X=4194.267mil|Location1.Y=3795.304mil|Location2.Y=3802.46mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4187.111mil|Location2.X=4194.267mil|Location1.Y=3795.304mil|Location2.Y=3802.46mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-17(39.46mm,70.711mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4187.111mil|Location2.X=4194.267mil|Location1.Y=3780.54mil|Location2.Y=3787.696mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4187.111mil|Location2.X=4194.267mil|Location1.Y=3780.54mil|Location2.Y=3787.696mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-18(39.46mm,70.211mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4187.111mil|Location2.X=4194.267mil|Location1.Y=3760.855mil|Location2.Y=3768.011mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4187.111mil|Location2.X=4194.267mil|Location1.Y=3760.855mil|Location2.Y=3768.011mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-19(39.46mm,69.711mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4335.733mil|Location2.X=4342.889mil|Location1.Y=3662.304mil|Location2.Y=3669.46mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4335.733mil|Location2.X=4342.889mil|Location1.Y=3662.304mil|Location2.Y=3669.46mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-2(44.36mm,67.711mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4187.111mil|Location2.X=4194.267mil|Location1.Y=3741.17mil|Location2.Y=3748.326mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4187.111mil|Location2.X=4194.267mil|Location1.Y=3741.17mil|Location2.Y=3748.326mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-20(39.46mm,69.211mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4187.111mil|Location2.X=4194.267mil|Location1.Y=3721.485mil|Location2.Y=3728.641mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4187.111mil|Location2.X=4194.267mil|Location1.Y=3721.485mil|Location2.Y=3728.641mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-21(39.46mm,68.711mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4187.111mil|Location2.X=4194.267mil|Location1.Y=3701.8mil|Location2.Y=3708.956mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4187.111mil|Location2.X=4194.267mil|Location1.Y=3701.8mil|Location2.Y=3708.956mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-22(39.46mm,68.211mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4187.111mil|Location2.X=4194.267mil|Location1.Y=3682.115mil|Location2.Y=3689.271mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4187.111mil|Location2.X=4194.267mil|Location1.Y=3682.115mil|Location2.Y=3689.271mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-23(39.46mm,67.711mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4187.111mil|Location2.X=4194.267mil|Location1.Y=3647.54mil|Location2.Y=3654.696mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4187.111mil|Location2.X=4194.267mil|Location1.Y=3647.54mil|Location2.Y=3654.696mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-24(39.46mm,67.211mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4202.43mil|Location2.X=4209.586mil|Location1.Y=3647.111mil|Location2.Y=3654.267mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4202.43mil|Location2.X=4209.586mil|Location1.Y=3647.111mil|Location2.Y=3654.267mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-25(40.16mm,66.511mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4202.304mil|Location2.X=4209.46mil|Location1.Y=3647.111mil|Location2.Y=3654.267mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4202.304mil|Location2.X=4209.46mil|Location1.Y=3647.111mil|Location2.Y=3654.267mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-26(40.66mm,66.511mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4221.989mil|Location2.X=4229.145mil|Location1.Y=3647.111mil|Location2.Y=3654.267mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4221.989mil|Location2.X=4229.145mil|Location1.Y=3647.111mil|Location2.Y=3654.267mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-27(41.16mm,66.511mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4241.674mil|Location2.X=4248.83mil|Location1.Y=3647.111mil|Location2.Y=3654.267mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4241.674mil|Location2.X=4248.83mil|Location1.Y=3647.111mil|Location2.Y=3654.267mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-28(41.66mm,66.511mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4261.359mil|Location2.X=4268.515mil|Location1.Y=3647.111mil|Location2.Y=3654.267mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4261.359mil|Location2.X=4268.515mil|Location1.Y=3647.111mil|Location2.Y=3654.267mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-29(42.16mm,66.511mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4335.733mil|Location2.X=4342.889mil|Location1.Y=3681.989mil|Location2.Y=3689.145mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4335.733mil|Location2.X=4342.889mil|Location1.Y=3681.989mil|Location2.Y=3689.145mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-3(44.36mm,68.211mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4281.044mil|Location2.X=4288.2mil|Location1.Y=3647.111mil|Location2.Y=3654.267mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4281.044mil|Location2.X=4288.2mil|Location1.Y=3647.111mil|Location2.Y=3654.267mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-30(42.66mm,66.511mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4300.729mil|Location2.X=4307.885mil|Location1.Y=3647.111mil|Location2.Y=3654.267mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4300.729mil|Location2.X=4307.885mil|Location1.Y=3647.111mil|Location2.Y=3654.267mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-31(43.16mm,66.511mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4335.304mil|Location2.X=4342.46mil|Location1.Y=3647.111mil|Location2.Y=3654.267mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4335.304mil|Location2.X=4342.46mil|Location1.Y=3647.111mil|Location2.Y=3654.267mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-32(43.66mm,66.511mm) on Component Side And Pad IC3-33(41.91mm,68.961mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4335.733mil|Location2.X=4342.889mil|Location1.Y=3701.674mil|Location2.Y=3708.83mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4335.733mil|Location2.X=4342.889mil|Location1.Y=3701.674mil|Location2.Y=3708.83mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-33(41.91mm,68.961mm) on Component Side And Pad IC3-4(44.36mm,68.711mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4335.733mil|Location2.X=4342.889mil|Location1.Y=3721.359mil|Location2.Y=3728.515mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4335.733mil|Location2.X=4342.889mil|Location1.Y=3721.359mil|Location2.Y=3728.515mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-33(41.91mm,68.961mm) on Component Side And Pad IC3-5(44.36mm,69.211mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4335.733mil|Location2.X=4342.889mil|Location1.Y=3741.044mil|Location2.Y=3748.2mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4335.733mil|Location2.X=4342.889mil|Location1.Y=3741.044mil|Location2.Y=3748.2mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-33(41.91mm,68.961mm) on Component Side And Pad IC3-6(44.36mm,69.711mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4335.733mil|Location2.X=4342.889mil|Location1.Y=3760.729mil|Location2.Y=3767.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4335.733mil|Location2.X=4342.889mil|Location1.Y=3760.729mil|Location2.Y=3767.885mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-33(41.91mm,68.961mm) on Component Side And Pad IC3-7(44.36mm,70.211mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4335.733mil|Location2.X=4342.889mil|Location1.Y=3795.304mil|Location2.Y=3802.46mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4335.733mil|Location2.X=4342.889mil|Location1.Y=3795.304mil|Location2.Y=3802.46mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-33(41.91mm,68.961mm) on Component Side And Pad IC3-8(44.36mm,70.711mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4320.414mil|Location2.X=4327.57mil|Location1.Y=3795.733mil|Location2.Y=3802.889mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4320.414mil|Location2.X=4327.57mil|Location1.Y=3795.733mil|Location2.Y=3802.889mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.022mm &lt; 0.15mm) Between Pad IC3-33(41.91mm,68.961mm) on Component Side And Pad IC3-9(43.66mm,71.411mm) on Component Side [Top Solder] Mask Sliver [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6709.942mil|Location2.X=6717.097mil|Location1.Y=4425.084mil|Location2.Y=4432.239mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6709.942mil|Location2.X=6717.097mil|Location1.Y=4425.084mil|Location2.Y=4432.239mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.15mm) Between Pad J2-1(104.954mm,87.384mm) on Component Side And Pad J2-2(104.554mm,86.284mm) on Component Side [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6709.942mil|Location2.X=6717.097mil|Location1.Y=4381.777mil|Location2.Y=4388.932mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6709.942mil|Location2.X=6717.097mil|Location1.Y=4381.777mil|Location2.Y=4388.932mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.15mm) Between Pad J2-2(104.554mm,86.284mm) on Component Side And Pad J2-3(104.954mm,85.184mm) on Component Side [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6717.816mil|Location2.X=6724.971mil|Location1.Y=4338.47mil|Location2.Y=4345.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6717.816mil|Location2.X=6724.971mil|Location1.Y=4338.47mil|Location2.Y=4345.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.15mm) Between Pad J2-3(104.954mm,85.184mm) on Component Side And Pad J2-4(105.154mm,84.084mm) on Component Side [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6717.816mil|Location2.X=6724.971mil|Location1.Y=4295.162mil|Location2.Y=4302.318mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6717.816mil|Location2.X=6724.971mil|Location1.Y=4295.162mil|Location2.Y=4302.318mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.15mm) Between Pad J2-4(105.154mm,84.084mm) on Component Side And Pad J2-5(104.954mm,82.984mm) on Component Side [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6717.816mil|Location2.X=6724.971mil|Location1.Y=4251.855mil|Location2.Y=4259.011mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6717.816mil|Location2.X=6724.971mil|Location1.Y=4251.855mil|Location2.Y=4259.011mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.15mm) Between Pad J2-5(104.954mm,82.984mm) on Component Side And Pad J2-6(105.154mm,81.884mm) on Component Side [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6717.816mil|Location2.X=6724.971mil|Location1.Y=4208.548mil|Location2.Y=4215.704mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6717.816mil|Location2.X=6724.971mil|Location1.Y=4208.548mil|Location2.Y=4215.704mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.15mm) Between Pad J2-6(105.154mm,81.884mm) on Component Side And Pad J2-7(104.954mm,80.784mm) on Component Side [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6709.942mil|Location2.X=6717.097mil|Location1.Y=4165.241mil|Location2.Y=4172.397mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6709.942mil|Location2.X=6717.097mil|Location1.Y=4165.241mil|Location2.Y=4172.397mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.15mm) Between Pad J2-7(104.954mm,80.784mm) on Component Side And Pad J2-8(104.954mm,79.684mm) on Component Side [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4971.731mil|Location2.X=4979.658mil|Location1.Y=3223.519mil|Location2.Y=3231.911mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4971.731mil|Location2.X=4979.658mil|Location1.Y=3223.519mil|Location2.Y=3231.911mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.15mm &lt; 0.15mm) Between Pad Q1-P$4(59.182mm,55.296mm) on Component Side And Via (60.325mm,56.642mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.15mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5969.127mil|Location2.X=5976.282mil|Location1.Y=4371.422mil|Location2.Y=4378.578mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5969.127mil|Location2.X=5976.282mil|Location1.Y=4371.422mil|Location2.Y=4378.578mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.096mm &lt; 0.15mm) Between Pad R14-2(86.096mm,86.106mm) on Component Side And Via (84.836mm,85.471mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.096mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5981.422mil|Location2.X=5988.578mil|Location1.Y=4229.828mil|Location2.Y=4236.983mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5981.422mil|Location2.X=5988.578mil|Location1.Y=4229.828mil|Location2.Y=4236.983mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.132mm &lt; 0.15mm) Between Pad R15-2(86.223mm,82.804mm) on Component Side And Via (85.598mm,81.407mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.132mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6808.017mil|Location2.X=6815.172mil|Location1.Y=2991.422mil|Location2.Y=2998.578mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6808.017mil|Location2.X=6815.172mil|Location1.Y=2991.422mil|Location2.Y=2998.578mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.132mm &lt; 0.15mm) Between Pad R20-1(105.664mm,50.866mm) on Component Side And Via (107.061mm,50.419mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.132mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3317.556mil|Location2.X=3326.778mil|Location1.Y=2736.04mil|Location2.Y=2743.798mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3317.556mil|Location2.X=3326.778mil|Location1.Y=2736.04mil|Location2.Y=2743.798mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.072mm &lt; 0.15mm) Between Pad R23-1(17.155mm,43.053mm) on Component Side And Via (18.161mm,44.323mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.072mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3319.465mil|Location2.X=3328.805mil|Location1.Y=2930.961mil|Location2.Y=2938.705mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3319.465mil|Location2.X=3328.805mil|Location1.Y=2930.961mil|Location2.Y=2938.705mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.066mm &lt; 0.15mm) Between Pad R25-1(17.206mm,48.006mm) on Component Side And Via (18.199mm,49.276mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.066mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3314.639mil|Location2.X=3322.482mil|Location1.Y=2956.786mil|Location2.Y=2965.296mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3314.639mil|Location2.X=3322.482mil|Location1.Y=2956.786mil|Location2.Y=2965.296mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.053mm &lt; 0.15mm) Between Pad R26-1(17.079mm,50.419mm) on Component Side And Via (18.199mm,49.276mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.053mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3309.73mil|Location2.X=3316.886mil|Location1.Y=3142.371mil|Location2.Y=3149.526mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3309.73mil|Location2.X=3316.886mil|Location1.Y=3142.371mil|Location2.Y=3149.526mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.046mm &lt; 0.15mm) Between Pad R28-1(16.952mm,55.118mm) on Component Side And Via (18.161mm,54.229mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.046mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5398.017mil|Location2.X=5405.172mil|Location1.Y=4446.422mil|Location2.Y=4453.578mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5398.017mil|Location2.X=5405.172mil|Location1.Y=4446.422mil|Location2.Y=4453.578mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.132mm &lt; 0.15mm) Between Pad R3-1(69.85mm,88.077mm) on Component Side And Via (71.247mm,87.376mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.132mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3543.718mil|Location2.X=3550.873mil|Location1.Y=1476.422mil|Location2.Y=1483.578mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3543.718mil|Location2.X=3550.873mil|Location1.Y=1476.422mil|Location2.Y=1483.578mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.096mm &lt; 0.15mm) Between Pad R41-1(22.87mm,11.938mm) on Component Side And Via (24.13mm,11.938mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.096mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4832.232mil|Location2.X=4841.358mil|Location1.Y=1271.103mil|Location2.Y=1278.874mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4832.232mil|Location2.X=4841.358mil|Location1.Y=1271.103mil|Location2.Y=1278.874mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.078mm &lt; 0.15mm) Between Pad R45-2(55.626mm,5.842mm) on Component Side And Via (56.642mm,7.112mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.078mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5421.422mil|Location2.X=5428.578mil|Location1.Y=3919.828mil|Location2.Y=3926.983mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5421.422mil|Location2.X=5428.578mil|Location1.Y=3919.828mil|Location2.Y=3926.983mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.132mm &lt; 0.15mm) Between Pad R47-2(71.511mm,74.93mm) on Component Side And Via (71.374mm,73.533mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.132mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3320.919mil|Location2.X=3328.775mil|Location1.Y=2549.815mil|Location2.Y=2558.887mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3320.919mil|Location2.X=3328.775mil|Location1.Y=2549.815mil|Location2.Y=2558.887mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.126mm &lt; 0.15mm) Between Pad R54-1(17.206mm,38.354mm) on Component Side And Via (18.415mm,39.497mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.126mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6130.517mil|Location2.X=6137.672mil|Location1.Y=3406.422mil|Location2.Y=3413.578mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6130.517mil|Location2.X=6137.672mil|Location1.Y=3406.422mil|Location2.Y=3413.578mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.005mm &lt; 0.15mm) Between Pad R57-2(88.519mm,61.331mm) on Component Side And Via (89.789mm,60.96mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.005mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4494.26mil|Location2.X=4502.086mil|Location1.Y=1746.85mil|Location2.Y=1755.501mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4494.26mil|Location2.X=4502.086mil|Location1.Y=1746.85mil|Location2.Y=1755.501mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.01mm &lt; 0.15mm) Between Pad T1-2(48.438mm,17.991mm) on Component Side And Via (47.498mm,19.05mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.01mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3526.422mil|Location2.X=3534.806mil|Location1.Y=3038.863mil|Location2.Y=3046.791mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3526.422mil|Location2.X=3534.806mil|Location1.Y=3038.863mil|Location2.Y=3046.791mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.012mm &lt; 0.15mm) Between Via (22.987mm,51.943mm) from Component Side to Solder Side And Via (23.495mm,51.305mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.012mm] / [Bottom Solder] Mask Sliver [0.012mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4728.922mil|Location2.X=4736.544mil|Location1.Y=3406.422mil|Location2.Y=3416.624mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4728.922mil|Location2.X=4736.544mil|Location1.Y=3406.422mil|Location2.Y=3416.624mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.121mm &lt; 0.15mm) Between Via (53.34mm,61.087mm) from Component Side to Solder Side And Via (54.229mm,60.833mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.121mm] / [Bottom Solder] Mask Sliver [0.121mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4738.922mil|Location2.X=4746.078mil|Location1.Y=3303.922mil|Location2.Y=3311.078mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4738.922mil|Location2.X=4746.078mil|Location1.Y=3303.922mil|Location2.Y=3311.078mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.095mm &lt; 0.15mm) Between Via (53.594mm,58.42mm) from Component Side to Solder Side And Via (54.483mm,58.293mm) from Component Side to Solder Side [Top Solder] Mask Sliver [0.095mm] / [Bottom Solder] Mask Sliver [0.095mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDGNZJX5SUJPAOGIH2QSRIUNNDADQRJQJ1IWIXUXCOKSMOVB4CVPOD"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.15mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5174.422mil|Location2.X=5181.578mil|Location1.Y=3039.083mil|Location2.Y=3046.238mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5174.422mil|Location2.X=5181.578mil|Location1.Y=3039.083mil|Location2.Y=3046.238mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.135mm &lt; 0.15mm) Between Pad C21-2(64.643mm,51.206mm) on Solder Side And Text "C21" (65.301mm,51.824mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.135mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3971.422mil|Location2.X=3978.578mil|Location1.Y=4527.165mil|Location2.Y=4534.32mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3971.422mil|Location2.X=3978.578mil|Location1.Y=4527.165mil|Location2.Y=4534.32mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.139mm &lt; 0.15mm) Between Pad C38-+(34.544mm,90.297mm) on Multi-Layer And Track (34.544mm,88.519mm)(34.544mm,89.281mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.139mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4271.422mil|Location2.X=4278.578mil|Location1.Y=4522.165mil|Location2.Y=4529.32mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4271.422mil|Location2.X=4278.578mil|Location1.Y=4522.165mil|Location2.Y=4529.32mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.139mm &lt; 0.15mm) Between Pad C41-+(42.164mm,90.17mm) on Multi-Layer And Track (42.164mm,88.392mm)(42.164mm,89.154mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.139mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3587.556mil|Location2.X=3592.493mil|Location1.Y=1902.522mil|Location2.Y=1907.459mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3587.556mil|Location2.X=3592.493mil|Location1.Y=1902.522mil|Location2.Y=1907.459mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.15mm) Between Pad C52-1(24.257mm,23.114mm) on Component Side And Text "IC7" (24.766mm,21.209mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3185.66mil|Location2.X=3192.816mil|Location1.Y=2811.422mil|Location2.Y=2818.578mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3185.66mil|Location2.X=3192.816mil|Location1.Y=2811.422mil|Location2.Y=2818.578mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.089mm &lt; 0.15mm) Between Pad R24-2(15.291mm,45.72mm) on Component Side And Text "R24" (11.748mm,45.347mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.089mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3175.008mil|Location2.X=3179.945mil|Location1.Y=3102.21mil|Location2.Y=3107.147mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3175.008mil|Location2.X=3179.945mil|Location1.Y=3102.21mil|Location2.Y=3107.147mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.15mm) Between Pad R27-2(15.037mm,52.705mm) on Component Side And Text "R27" (11.621mm,52.205mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5533.478mil|Location2.X=5541.152mil|Location1.Y=4648.157mil|Location2.Y=4658.026mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5533.478mil|Location2.X=5541.152mil|Location1.Y=4648.157mil|Location2.Y=4658.026mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.016mm &lt; 0.15mm) Between Pad S2-1(74.93mm,91.44mm) on Multi-Layer And Track (74.143mm,92.532mm)(74.143mm,93.421mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.016mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5533.478mil|Location2.X=5541.244mil|Location1.Y=4818.013mil|Location2.Y=4827.843mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5533.478mil|Location2.X=5541.244mil|Location1.Y=4818.013mil|Location2.Y=4827.843mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.016mm &lt; 0.15mm) Between Pad S2-2(74.93mm,97.942mm) on Multi-Layer And Track (74.143mm,95.961mm)(74.143mm,96.85mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.016mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5767.366mil|Location2.X=5775.133mil|Location1.Y=4645.481mil|Location2.Y=4655.312mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5767.366mil|Location2.X=5775.133mil|Location1.Y=4645.481mil|Location2.Y=4655.312mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.016mm &lt; 0.15mm) Between Pad S2-3(79.451mm,91.44mm) on Multi-Layer And Track (80.239mm,92.532mm)(80.239mm,93.421mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.016mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5767.366mil|Location2.X=5775.04mil|Location1.Y=4820.688mil|Location2.Y=4830.557mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5767.366mil|Location2.X=5775.04mil|Location1.Y=4820.688mil|Location2.Y=4830.557mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.016mm &lt; 0.15mm) Between Pad S2-4(79.451mm,97.942mm) on Multi-Layer And Track (80.239mm,95.834mm)(80.239mm,96.85mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.016mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4107.532mil|Location2.X=4112.468mil|Location1.Y=1579.532mil|Location2.Y=1584.468mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4107.532mil|Location2.X=4112.468mil|Location1.Y=1579.532mil|Location2.Y=1584.468mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.15mm) Between Pad TP1-TP(37.592mm,13.335mm) on Component Side And Track (37.973mm,14.529mm)(38.735mm,14.529mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4122.532mil|Location2.X=4127.468mil|Location1.Y=1564.532mil|Location2.Y=1569.468mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4122.532mil|Location2.X=4127.468mil|Location1.Y=1564.532mil|Location2.Y=1569.468mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.15mm) Between Pad TP1-TP(37.592mm,13.335mm) on Component Side And Track (38.354mm,14.148mm)(38.354mm,14.91mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4115.677mil|Location2.X=4123.397mil|Location1.Y=2331.724mil|Location2.Y=2341.886mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4115.677mil|Location2.X=4123.397mil|Location1.Y=2331.724mil|Location2.Y=2341.886mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.051mm &lt; 0.15mm) Between Pad TP2-TP(36.957mm,33.401mm) on Component Side And Text "TP2" (38.355mm,32.258mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.051mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDXATWQSEVDVDULDCVSBKMAZSFLJWRFOWT5KQV1OEFXGZXVM1QSYCL"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=0.15mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4391.64mil|Location2.X=4399.389mil|Location1.Y=4536.852mil|Location2.Y=4546.154mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4391.64mil|Location2.X=4399.389mil|Location1.Y=4536.852mil|Location2.Y=4546.154mil|Absolute=True">Silk To Silk Clearance Constraint: (0.046mm &lt; 0.15mm) Between Arc (42.164mm,91.44mm) on Top Overlay And Text "C46" (46.347mm,86.932mm) on Top Overlay Silk Text to Silk Clearance [0.046mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4407.853mil|Location2.X=4412.79mil|Location1.Y=4605.055mil|Location2.Y=4609.992mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4407.853mil|Location2.X=4412.79mil|Location1.Y=4605.055mil|Location2.Y=4609.992mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.15mm) Between Arc (42.164mm,91.44mm) on Top Overlay And Text "R36" (46.601mm,91.377mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3894.734mil|Location2.X=3899.671mil|Location1.Y=4802.21mil|Location2.Y=4807.147mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3894.734mil|Location2.X=3899.671mil|Location1.Y=4802.21mil|Location2.Y=4807.147mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.15mm) Between Text "C38" (32.068mm,95.385mm) on Top Overlay And Track (30.988mm,96.52mm)(38.608mm,96.52mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3041.615mil|Location2.X=3046.552mil|Location1.Y=2412.853mil|Location2.Y=2417.79mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3041.615mil|Location2.X=3046.552mil|Location1.Y=2412.853mil|Location2.Y=2417.79mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.15mm) Between Text "R21" (10.899mm,35.695mm) on Top Overlay And Track (10.677mm,29.37mm)(10.677mm,40.027mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3034.121mil|Location2.X=3043.542mil|Location1.Y=2585.999mil|Location2.Y=2593.733mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3034.121mil|Location2.X=3043.542mil|Location1.Y=2585.999mil|Location2.Y=2593.733mil|Absolute=True">Silk To Silk Clearance Constraint: (0.045mm &lt; 0.15mm) Between Text "R22" (10.808mm,40.267mm) on Top Overlay And Track (10.677mm,29.37mm)(10.677mm,40.027mm) on Top Overlay Silk Text to Silk Clearance [0.045mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3038.055mil|Location2.X=3042.992mil|Location1.Y=2592.853mil|Location2.Y=2597.79mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3038.055mil|Location2.X=3042.992mil|Location1.Y=2592.853mil|Location2.Y=2597.79mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.15mm) Between Text "R22" (10.808mm,40.267mm) on Top Overlay And Track (10.677mm,40.027mm)(10.677mm,43.815mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3034.121mil|Location2.X=3043.542mil|Location1.Y=2585.999mil|Location2.Y=2593.733mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3034.121mil|Location2.X=3043.542mil|Location1.Y=2585.999mil|Location2.Y=2593.733mil|Absolute=True">Silk To Silk Clearance Constraint: (0.045mm &lt; 0.15mm) Between Text "R22" (10.808mm,40.267mm) on Top Overlay And Track (9.127mm,40.027mm)(10.677mm,40.027mm) on Top Overlay Silk Text to Silk Clearance [0.045mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3037.361mil|Location2.X=3044.517mil|Location1.Y=2686.744mil|Location2.Y=2693.899mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3037.361mil|Location2.X=3044.517mil|Location1.Y=2686.744mil|Location2.Y=2693.899mil|Absolute=True">Silk To Silk Clearance Constraint: (0.08mm &lt; 0.15mm) Between Text "R23" (10.986mm,42.68mm) on Top Overlay And Track (10.677mm,40.027mm)(10.677mm,43.815mm) on Top Overlay Silk Text to Silk Clearance [0.08mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3037.403mil|Location2.X=3045.087mil|Location1.Y=2728.962mil|Location2.Y=2738.759mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3037.403mil|Location2.X=3045.087mil|Location1.Y=2728.962mil|Location2.Y=2738.759mil|Absolute=True">Silk To Silk Clearance Constraint: (0.109mm &lt; 0.15mm) Between Text "R23" (10.986mm,42.68mm) on Top Overlay And Track (10.677mm,43.815mm)(10.677mm,47.65mm) on Top Overlay Silk Text to Silk Clearance [0.109mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3037.403mil|Location2.X=3045.087mil|Location1.Y=2728.962mil|Location2.Y=2738.759mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3037.403mil|Location2.X=3045.087mil|Location1.Y=2728.962mil|Location2.Y=2738.759mil|Absolute=True">Silk To Silk Clearance Constraint: (0.109mm &lt; 0.15mm) Between Text "R23" (10.986mm,42.68mm) on Top Overlay And Track (9.127mm,43.815mm)(10.677mm,43.815mm) on Top Overlay Silk Text to Silk Clearance [0.109mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3032.886mil|Location2.X=3037.823mil|Location1.Y=2242.21mil|Location2.Y=2247.147mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\gitRepo\guitarAmp\layout\guitarDSP\dsp.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3032.886mil|Location2.X=3037.823mil|Location1.Y=2242.21mil|Location2.Y=2247.147mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.15mm) Between Text "R55" (10.351mm,30.361mm) on Top Overlay And Track (10.677mm,29.37mm)(10.677mm,40.027mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

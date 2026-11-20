@@ -150,6 +150,10 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=PDRCLDMO
 
+[GeneratedDocument1]
+DocumentPath=Project Outputs for guitarDSP\Design Rule Check - dsp.html
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Sources
 ParameterCount=0
