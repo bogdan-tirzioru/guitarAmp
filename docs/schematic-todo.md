@@ -1,27 +1,39 @@
 # guitarAmp schematic to-do list
 
-Re-reviewed: 11 October 2026. Previous detailed review: 10 October 2026. Repository: [bogdan-tirzioru/guitarAmp](https://github.com/bogdan-tirzioru/guitarAmp).
+Re-reviewed: 22 November 2026 using the attached seven-page Altium PDF export (five schematic sheets plus BOM pages). Previous native-source review: 11 October 2026. Repository: [bogdan-tirzioru/guitarAmp](https://github.com/bogdan-tirzioru/guitarAmp).
 
-Current schematic review baseline: `main`, commit [`a92aa2296f59b654e6f1917f9ccb693b2685753c`](https://github.com/bogdan-tirzioru/guitarAmp/tree/a92aa2296f59b654e6f1917f9ccb693b2685753c), titled `adnotation of schematic` (11 October 2026). This review includes the preceding `9aff26e` power-delivery implementation and `3b8f99d` Bluetooth power correction. All five current `.SchDoc` files, their committed previews, and the project/structure files were inspected; firmware configuration is unchanged from the earlier reviewed baseline.
+The uploaded PDF title blocks are dated 22 November 2026. Repository context at review time: `main`, commit [`819ae501e9cbea24a0258ce51ce1b5b8afd80f0b`](https://github.com/bogdan-tirzioru/guitarAmp/tree/819ae501e9cbea24a0258ce51ce1b5b8afd80f0b), `hypermemory layout rerounte`. This update checks the rendered schematic drawings against the October review; it does not inspect the native Altium source records.
 
 ## Review scope and limits
 
-Reviewed the native Altium compound-file records for components, active multipart pins, wires, junctions, net labels, power symbols, designators and parameters. Local connectivity was traced using pin endpoints and full coordinates, including fractional coordinates, and compared with committed sheet previews. This verifies the source drawing more precisely than the small previews alone. It is not an Altium compiled netlist: project-wide net scope, footprint pad mapping, ERC and hardware measurements remain pending.
+Earlier review details below remain the native-source audit. This PDF re-review confirms drawing-level changes only; it does not establish compiled cross-sheet connectivity, footprint pad mapping, Altium ERC results, or hardware performance.
 
-Confirmed new corrections: BM83 VDD_IO is disconnected; EP1/EP2 are connected to DGND; the missing BM83 UART label is present; encoder push has R54 = 10 kΩ pull-up; TIM2_CH1 is attached; display +5 V/+3V3/ground connections are present; physical components are annotated; and amplifier outputs now use separate two-pin headers. The new power tree is drawn and locally connected. Codec DRVDD_1 is still open.
+Confirmed in the 22 November PDF: codec DRVDD_1 is now connected to +3V3 with C56 = 100 nF to DGND; X2 pin 14 is connected to DGND; the codec reset/SDA labels, 220 µF headphone coupling, separate left/right amp headers, auxiliary L/R summing, and visible power tree are present. The BM83 supply/ground wiring corrections remain visible. Component and rail margin checks, Altium compilation/ERC, and hardware validation remain open.
 
-A status marked resolved means the source shows the correction; it does not prove compiled cross-sheet connectivity or hardware performance.
+A status marked resolved means the PDF drawing shows the correction; it does not prove compiled cross-sheet connectivity or hardware performance.
 
 Priority: **P0** = blocking circuit/connectivity fixes; **P1** = complete before schematic freeze; **P2** = optional feature work or release checks.
+
+
+## 22 November PDF re-review — changes since the October audit
+
+| Review point | PDF evidence | Current status |
+| --- | --- | --- |
+| Codec DRVDD_1 | Pin 18 connects to +3V3; C56 = 100 nF returns to DGND beside the codec | Local drawing fix closed; compiled net and sequencing checks remain open |
+| Control connector | X2 pin 14 is tied to DGND; eight filtered ADC paths are shown | Open-pin issue closed; external wiring/debounce and netlist proof remain |
+| Audio outputs | Separate Amp R/Amp L headers and 220 µF headphone capacitors are shown | Routing correction present; headphone load/part selection and hardware level checks remain |
+| Guitar and auxiliary inputs | 1 MΩ guitar bias remains; two 10 kΩ auxiliary branches with 2.2 µF coupling join at LINE1RP | Source topology present; headroom, protection and component verification remain |
+| Power and service circuits | +12 V/−12 V entry, +5 V, +3V3 and +1.8-labelled rails, test points, LEDs, UART, and powered display connector are drawn | Circuit presence confirmed; power budget, connector/module validation and protection remain |
+| Bluetooth and storage | BM83 VDD_IO/SYS_PWR are open, EP1/EP2 return to DGND; PD1 has no `SD_RESET` label | BM83 supply margin/configuration and PD1 intentional-use marking remain open |
 
 ## Current review summary
 
 | Area | Current source status | Remaining action |
 | --- | --- | --- |
-| Codec power | IC3 DRVDD_1 pin 18 remains open; the other supply pins retain their intended rails | Connect pin 18 and local decoupling; verify sequencing |
+| Codec power | DRVDD_1 pin 18 is now shown on +3V3 with local C56 = 100 nF to DGND | Prove in compiled netlist; verify supply relationships and startup sequencing |
 | Guitar input | R33 = 1 MΩ, C40 = 220 nF; independent ADC-left path retained | Finish protection, gain/headroom and BOM ratings |
 | Auxiliary input | R35/R36 = 10 kΩ sum stereo to mono ADC right; C39/C45/C46 are non-polar 2.2 µF parts | Specify effective capacitance/ratings and overload protection |
-| Controls | All eight ADC paths and capacitor returns are connected; TIM2_CH1 attaches to PF0; R54 now biases PF2 high | Define debounce/contact wiring and open X2 pin 14; prove compiled mapping |
+| Controls | Eight ADC paths and capacitor returns are shown; TIM2_CH1 attaches to PF0; R54 biases PF2 high; X2 pin 14 is now DGND | Document external wiring/debounce and prove compiled mapping |
 | Storage | Detect pull-up and existing HyperRAM wiring retained; parts annotated | Confirm detect polarity, SD_RESET role and exact-part layout requirements |
 | LCD and console | X3 pin 14 = +5 V, pin 13 = +3V3, pins 2/4/11 = DGND; P1 console pinout traced | Verify actual module adapter; document UART directions and unused X3 pin 12 |
 | USB | Self-powered interface and shield network retained | Finish HS ESD, VBUS detection/backfeed and chassis bonding |
@@ -37,13 +49,13 @@ The external LM1875 board is intentionally reused; its amplifier circuit is not 
 | --- | --- | --- |
 | `microcontroller.SchDoc` | STM32H5E5ZJT6, SWD/reset/BOOT0, HSE, MCU decoupling, USB-C/shield, eight ADC controls, three LED drivers, UART and powered LCD/touch connector; encoder A/B/push pull-ups and TIM2_CH1 attached | X2 pin 14/X3 pin 12 treatment, external control wiring/debounce, USB protection, module adapter verification and compiled connectivity |
 | `memory.SchDoc` | Annotated HyperRAM and microSD circuits with detect pull-up | Detect polarity, SD_RESET role, exact-part verification and routing constraints |
-| `audio.SchDoc` | Annotated TLV320AIC3104/OPA2134, high-impedance guitar input, independent guitar/aux capture, non-polar coupling, 220 µF headphone coupling; P2 Amp R and P3 Amp L | DRVDD_1 remains open; overload/protection, capacitor BOM and headroom |
+| `audio.SchDoc` | Annotated TLV320AIC3104/OPA2134, DRVDD_1 shown on +3V3 with local 100 nF decoupling, high-impedance guitar input, independent guitar/aux capture, 220 µF headphone coupling, and separate Amp R/Amp L outputs | Compiled connectivity, overload/protection, capacitor BOM, headphone load and headroom |
 | `bluetooth.SchDoc` | Annotated BM83/BC847 reset/MFB circuits; BAT_IN on +3V3; VDD_IO/SYS_PWR open; GND and EP1/EP2 grounded; I²S/UART labels attached | BAT_IN tolerance/transient margin, bulk/reset supervision, clock ownership and unused pins/configuration |
 | `powersupply.SchDoc` | X12 (+12/DGND/-12), IC6 LM7805, U1 KF33, IC7 LM317, R42/R43 divider, C49–C52 and TP1 on +3V3 | Capacitor values/MPNs/ESR, entry bypass/protection, regulator load/thermal limits, tolerance and startup validation |
 
 ## P0: fix these first
 
-- [ ] **01 — Connect codec DRVDD_1, pin 18.** `audio.SchDoc`: this pin has no wire or supply label; it supplies the analog ADC as well as output-driver circuitry. AVDD, IOVDD and DRVDD_2 already connect to +3V3; DVDD connects to +1.8. Connect DRVDD_1 to the intended analog 3.3 V supply and add its local decoupling. Check AVDD/DRVDD supply relationships and startup sequencing against the TI datasheet. **Done when:** both DRVDD pins are powered in the compiled netlist and every codec supply has the specified decoupling.
+- [x] **01 — Connect codec DRVDD_1, pin 18 — local wiring resolved in the 22 November PDF.** `audio.SchDoc` shows pin 18 connected to +3V3 and C56 = 100 nF from that rail to DGND near the codec. This closes the previously missing connection and local capacitor in the drawing. Verify the compiled net and supply sequencing under items 08 and 11.
 
 - [x] **02 — Reattach the codec SDA and reset labels — resolved in source.** `audio.SchDoc`: `I2C1_SDA` now has an exact local connection to SDA pin 9; `SA1_Reset` attaches to /RESET pin 31 and the existing reset RC. On the MCU sheet, the matching labels reach PB7 pin 137 and PE0 pin 141. The detached-label fault is corrected. Native compiled cross-sheet proof remains under 08; reset capacitor value/MPN consistency remains under 24.
 
@@ -53,7 +65,7 @@ The external LM1875 board is intentionally reused; its amplifier circuit is not 
 
 - [x] **05 — Preserve independent guitar and mono auxiliary capture — resolved in source.** Guitar still reaches LINE1LP pin 10. `line_in` pin 2 and pin 3 now each pass through a separate **10 kΩ resistor and 2.2 µF capacitor** before joining at LINE1RP pin 12. LINE2L/LINE2R are unused; LINE1RM pin 13 now has a 100 nF AC connection to DGND, like LINE1LM. The isolation resistors prevent directly shorting the source L/R outputs, and the allocation now matches the firmware default LINE1/LINE1 inputs. For low-impedance source outputs and the datasheet nominal 20 kΩ input at 0 dB routing, the midband approximation is `Vaux ≈ 0.4 × (VL + VR)`; equal in-phase L/R gives about 0.8 times one channel, not unity gain. Final levels/protection remain under 09–10; the three 2.2 µF coupling capacitors have been replaced with non-polar SMD parts, with component/BOM and frequency-response checks remaining under 10.
 
-- [ ] **06 — Complete the control connector — connectivity/bias fixes resolved in source.** X2 has all eight analog paths and their shared capacitor DGND return connected. PF0/encoder A now carries the attached `TIM2_CH1` label; A/B pull-ups are R55/R56 = 10 kΩ. PF2/encoder push now has R54 = 10 kΩ to +3V3, so its idle bias is no longer missing. X2 pin 14 remains open. Document external switch common, active-low contact action and debounce. **Done when:** compiled nets confirm all eight ADC paths and returns, pin 14 has intentional treatment, and the external controls/debounce are documented.
+- [ ] **06 — Complete the control connector — connectivity/bias fixes resolved in source.** X2 has all eight analog paths and their shared capacitor DGND return connected. PF0/encoder A now carries the attached `TIM2_CH1` label; A/B pull-ups are R55/R56 = 10 kΩ. PF2/encoder push now has R54 = 10 kΩ to +3V3, so its idle bias is no longer missing. X2 pin 14 is now connected to DGND in the 22 November PDF. Document external switch common, active-low contact action and debounce; compiled mapping remains under 08. **Done when:** compiled nets confirm all eight ADC paths and returns, pin 14 has intentional treatment, and the external controls/debounce are documented.
 
 - [x] **27 — Restore the guitar input impedance — resolved in the current source.** The latest reviewed audio sheet shows the agreed **1 MΩ** bias resistor at the OPA2134 input, restoring the intended high-impedance passive-guitar input. Confirm the annotated value and part number during BOM cleanup.
 
@@ -145,7 +157,7 @@ The latest committed sheet shows all eight analog-filter capacitor returns conne
 
 - [ ] **18 — Finalize the 8 MHz HSE implementation.** Q1 is labelled only `ABM3B`; C8/C9 are 15 pF, with a 1 MΩ parallel resistor. Record the exact `ABM3B-8.000MHZ-10-D1G-T` selection if that is the intended part. For its 10 pF load, equal 15 pF capacitors provide 7.5 pF plus parasitic load: 15 pF can be plausible, but calculate with MCU/PCB parasitics, check ESR/startup margin/drive level and the need for the external resistor. Use C0G/NP0 load capacitors. **Done when:** frequency, full part number, load calculation and oscillator checks are documented.
 
-- [ ] **19 — Close microSD detect and reset handling.** A pull-up is now present on `SD_CARD_DET`/PD0. Confirm the socket contact's insertion polarity and the resulting idle/inserted levels. PD1's `SD_RESET` label does not reach a card reset pin; define PD1 as intentionally unused or redesign it as a controlled card-power switch. **Done when:** card-detect behavior is documented and PD1's role is unambiguous.
+- [ ] **19 — Close microSD detect and reset handling.** A pull-up is now present on `SD_CARD_DET`/PD0. Confirm the socket contact's insertion polarity and the resulting idle/inserted levels. The 22 November PDF no longer shows the `SD_RESET` label on PD1, but PD1 also has no visible no-connect marker or documented role. Mark it intentionally unused or redesign it as a controlled card-power switch. **Done when:** card-detect behavior is documented and PD1's role is unambiguous.
 
 - [ ] **20 — Close HyperRAM electrical and layout requirements.** The eight DQ nets, RWDS, CK, CS# and RESET# map correctly to the present OCTOSPI assignments; VCC/VCCQ are +3V3, and CS#/RESET# have 10 kΩ pull-ups. Confirm the exact S70KL1282DPBHI020 package, 128 Mbit/16 MiB capacity, 3 V variant, CK# treatment, RFU-pin rules and dual-die latency requirements against the exact part datasheet. Record the initial bus frequency, optional series resistor positions, impedance/length constraints and decoupling placement. **Done when:** the complete bus and its operating assumptions are documented before routing.
 
