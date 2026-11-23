@@ -1,0 +1,39 @@
+Removed Pin From Net: NetName=NetC10_1 Pin=C10- 
+Added Component: Designator=TP4(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP5(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP6(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP7(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP8(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP9(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Add Pin To Net: Unknown Pin: Pin C10-1
+Added Pin To Net: NetName=NetIC1_87 Pin=IC1-87
+Added Pin To Net: NetName=NetIC1_87 Pin=TP9-TP
+Added Net: Name=NetIC1_87
+Added Pin To Net: NetName=NetIC1_88 Pin=IC1-88
+Added Pin To Net: NetName=NetIC1_88 Pin=TP8-TP
+Added Net: Name=NetIC1_88
+Added Pin To Net: NetName=NetIC1_89 Pin=IC1-89
+Added Pin To Net: NetName=NetIC1_89 Pin=TP7-TP
+Added Net: Name=NetIC1_89
+Added Pin To Net: NetName=NetIC1_90 Pin=IC1-90
+Added Pin To Net: NetName=NetIC1_90 Pin=TP6-TP
+Added Net: Name=NetIC1_90
+Added Pin To Net: NetName=NetIC1_91 Pin=IC1-91
+Added Pin To Net: NetName=NetIC1_91 Pin=TP5-TP
+Added Net: Name=NetIC1_91
+Added Pin To Net: NetName=NetIC1_92 Pin=IC1-92
+Added Pin To Net: NetName=NetIC1_92 Pin=TP4-TP
+Added Net: Name=NetIC1_92
+Added Member To Class: ClassName=microcontroller Member=Component TP8
+Added Member To Class: ClassName=microcontroller Member=Component TP9
+Added Room: Name=audio
+Added Room: Name=bluetooth
+Added Room: Name=memory
+Added Room: Name=microcontroller
+Added Room: Name=powersupply

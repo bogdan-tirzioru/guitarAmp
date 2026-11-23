@@ -1,0 +1,96 @@
+Added Component: Designator=TP10(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP11(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP12(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP13(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP14(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP15(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP16(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP17(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP18(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP19(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP20(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP21(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP22(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP23(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP24(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP25(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP26(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP27(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=TP28(B1,27)
+Add component (AddParameter): Name = "TP_SIGNAL_NAME"; Value = ""; VariantName = "[No Variations]"
+Add Pin To Net: Unknown Pin: Pin C10-1
+Added Pin To Net: NetName=NetIC1_13 Pin=IC1-13
+Added Pin To Net: NetName=NetIC1_13 Pin=TP21-TP
+Added Net: Name=NetIC1_13
+Added Pin To Net: NetName=NetIC1_14 Pin=IC1-14
+Added Pin To Net: NetName=NetIC1_14 Pin=TP22-TP
+Added Net: Name=NetIC1_14
+Added Pin To Net: NetName=NetIC1_15 Pin=IC1-15
+Added Pin To Net: NetName=NetIC1_15 Pin=TP23-TP
+Added Net: Name=NetIC1_15
+Added Pin To Net: NetName=NetIC1_18 Pin=IC1-18
+Added Pin To Net: NetName=NetIC1_18 Pin=TP24-TP
+Added Net: Name=NetIC1_18
+Added Pin To Net: NetName=NetIC1_19 Pin=IC1-19
+Added Pin To Net: NetName=NetIC1_19 Pin=TP25-TP
+Added Net: Name=NetIC1_19
+Added Pin To Net: NetName=NetIC1_20 Pin=IC1-20
+Added Pin To Net: NetName=NetIC1_20 Pin=TP26-TP
+Added Net: Name=NetIC1_20
+Added Pin To Net: NetName=NetIC1_21 Pin=IC1-21
+Added Pin To Net: NetName=NetIC1_21 Pin=TP27-TP
+Added Net: Name=NetIC1_21
+Added Pin To Net: NetName=NetIC1_22 Pin=IC1-22
+Added Pin To Net: NetName=NetIC1_22 Pin=TP28-TP
+Added Net: Name=NetIC1_22
+Added Pin To Net: NetName=NetIC1_117 Pin=IC1-117
+Added Pin To Net: NetName=NetIC1_117 Pin=TP16-TP
+Added Net: Name=NetIC1_117
+Added Pin To Net: NetName=NetIC1_118 Pin=IC1-118
+Added Pin To Net: NetName=NetIC1_118 Pin=TP12-TP
+Added Net: Name=NetIC1_118
+Added Pin To Net: NetName=NetIC1_119 Pin=IC1-119
+Added Pin To Net: NetName=NetIC1_119 Pin=TP13-TP
+Added Net: Name=NetIC1_119
+Added Pin To Net: NetName=NetIC1_122 Pin=IC1-122
+Added Pin To Net: NetName=NetIC1_122 Pin=TP17-TP
+Added Net: Name=NetIC1_122
+Added Pin To Net: NetName=NetIC1_123 Pin=IC1-123
+Added Pin To Net: NetName=NetIC1_123 Pin=TP10-TP
+Added Net: Name=NetIC1_123
+Added Pin To Net: NetName=NetIC1_124 Pin=IC1-124
+Added Pin To Net: NetName=NetIC1_124 Pin=TP20-TP
+Added Net: Name=NetIC1_124
+Added Pin To Net: NetName=NetIC1_125 Pin=IC1-125
+Added Pin To Net: NetName=NetIC1_125 Pin=TP14-TP
+Added Net: Name=NetIC1_125
+Added Pin To Net: NetName=NetIC1_126 Pin=IC1-126
+Added Pin To Net: NetName=NetIC1_126 Pin=TP19-TP
+Added Net: Name=NetIC1_126
+Added Pin To Net: NetName=NetIC1_127 Pin=IC1-127
+Added Pin To Net: NetName=NetIC1_127 Pin=TP11-TP
+Added Net: Name=NetIC1_127
+Added Pin To Net: NetName=NetIC1_128 Pin=IC1-128
+Added Pin To Net: NetName=NetIC1_128 Pin=TP15-TP
+Added Net: Name=NetIC1_128
+Added Pin To Net: NetName=NetIC1_129 Pin=IC1-129
+Added Pin To Net: NetName=NetIC1_129 Pin=TP18-TP
+Added Net: Name=NetIC1_129
